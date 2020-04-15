@@ -1,0 +1,35 @@
+{    
+    "fields": {
+        "user_name":{
+            "label": "Username",
+            "placeholder": "Enter Username"            
+        },
+        "email": {
+            "placeholder": "Enter Email",
+            "label": "Email"
+        }, 
+        "public": {
+            "placeholder": "Public profile",
+            "label": "Public profile"
+        },
+        "first_name": {
+            "label": "First Name",
+            "placeholder": "Enter First Name"
+        },
+        "last_name": {
+            "label": "Last Name",
+            "placeholder": "Enter Last Name"
+        },
+        "phone": {
+            "label": "Phone",
+            "placeholder": "Enter Phone"
+        },
+        "phone2": {
+            "label": "Phone 2",
+            "placeholder": "Enter Phone"
+        }
+    },
+    "labels": {
+        "details": "Details"      
+    }
+}

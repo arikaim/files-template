@@ -1,0 +1,19 @@
+{
+    "fields": {
+        "current":{
+            "placeholder": "Enter Current Password",
+            "label": "Current Password"
+        },
+        "password":{
+            "placeholder": "Enter New Password",
+            "label": "New Password"
+        },
+        "repeat_password":{
+            "placeholder": "Repeat Password",
+            "label": "Repeat Password"
+        }    
+    },
+    "buttons": {
+        "submit": "Change password"            
+    }
+}

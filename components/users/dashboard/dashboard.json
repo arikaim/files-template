@@ -1,0 +1,8 @@
+{
+    "title": "Dashboard",
+    "labels": {
+        "login": "Last Login",
+        "signup": "Date Signup",
+        "info": "Info"
+    }
+}

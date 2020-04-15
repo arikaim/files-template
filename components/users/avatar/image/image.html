@@ -1,0 +1,14 @@
+{% if avatar is not empty %} 
+    <img class="ui top aligned left floated small circular image" src="{{ url('/api/users/avatar/view',true) }}">
+    <button class="ui icon button basic remove-avatar" title="{{ labels.remove }}">
+        <i class="icon orange trash"></i>
+    </button>    
+{% else %}
+<div class="w-32 h-32 border rounded-full border-solid border-gray-300">         
+    <div class="flex items-center justify-center align-middle pt-6 pl-2">
+        <i class="icon user outline grey huge"></i>
+    </div>
+    <div class="w-32">
+    </div>
+</div>
+{% endif %}

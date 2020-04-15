@@ -1,0 +1,20 @@
+{
+    "title": "Files Manager",
+    "labels": {
+        "open": "Open Source",
+        "code": "Code quality",
+        "permission": "Fle Permissions",
+        "users": "Users"
+    },
+    "text": {
+        "open": "All source code included.",
+        "code": "Clean, high quality php, html and JavaScript code",
+        "permission": "Manage file permissions.",
+        "users": "Users managment"
+    },
+    "head": {
+        "title": "Files Manager",
+        "description": "Files Manager",
+        "keywords": "site, files, share file"
+    }
+}

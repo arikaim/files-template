@@ -1,0 +1,63 @@
+{% set user = access().getUser() %}
+{% set user = createModel('Users').findById(user.uuid) %}
+{% set user_details = createModel('UserDetails','users').findByColumn(user.id,'user_id') %}   
+
+<form class="ui equal width form" id="user_details_form">   
+    <div class="two fields">
+        <div class="field required">
+            <label>{{ fields.user_name.label }}</label>
+            <div class="ui left icon input">
+                <i class="icon user outline"></i>
+                <input type="text" name="user_name" id="user_name" {{ fields.user_name.placeholder|attr('placeholder') }} value="{{ user.user_name }}"> 
+            </div>
+        </div>   
+        {{  component('components:form.fields.checkbox',{ 
+                value: user_details.public_profile, 
+                name: 'public_profile',
+                field_class : 'toggle',
+                label: fields.public.label 
+            }) 
+        }}  
+    </div>
+    <div class="two fields">
+        <div class="field">
+            <label>{{ fields.email.label }}</label>
+            <div class="ui left icon input">
+                <i class="icon mail outline"></i>
+                <input type="text" name="email" id="email" {{ fields.email.placeholder|attr('placeholder') }} value="{{ user.email }}">  
+            </div>
+        </div>  
+        <div class="field">
+            <div class="mt-8">
+                <a class="ui button tertiary blue" target="profile" href="{{ user_details.getUserProfileUrl() }}">View Profile</a>
+            </div>         
+        </div>
+    </div>
+    <div class="ui horizontal divider"></div>   
+    <h4 class="ui header title">
+        {{ labels.details }}
+    </h4>
+    <div class="ui content segment padded">           
+        <div class="two fields">
+            <div class="field">
+                <label>{{ fields.first_name.label }}</label>
+                <input name="first_name" id="first_name" placeholder="{{ fields.first_name.placeholder }}" type="text" value="{{ user_details.first_name }}">
+            </div>
+            <div class="field">
+                <label>{{ fields.last_name.label }}</label>
+                <input name="last_name" id="last_name" placeholder="{{ fields.last_name.placeholder }}" type="text" value="{{ user_details.last_name }}">
+            </div>
+        </div>
+        <div class="two fields">
+            <div class="field">
+                <label>{{ fields.phone.label }}</label>
+                <input name="phone" id="phone" placeholder="{{ fields.phone.placeholder }}" type="text" value="{{ user_details.phone }}">
+            </div>
+            <div class="field">
+                <label>{{ fields.phone2.label }}</label>
+                <input name="phone_2" id="phone_2" placeholder="{{ fields.last_name.placeholder }}" type="text" value="{{ user_details.phone_2 }}">
+            </div>
+        </div>
+    </div>    
+    {{ component('components:form.footer') }}    
+</form>

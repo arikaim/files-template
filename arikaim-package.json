@@ -1,0 +1,65 @@
+{      
+    "title": "Files Manager",
+    "version": "1.1.1",
+    "name": "files",
+    "package-type": "template",
+    "icon": "file",
+    "thumbnail": "files-thumbnail.jpg",
+    "repository": "https://github.com/arikaim/files-template.git",
+    "require": {
+        "library": [
+            "jquery",
+            "arikaim",
+            "arikaim-ui",
+            "fomantic",          
+            "tailwind"
+        ],
+        "extensions": [
+            "files",
+            "storage"
+        ]
+    },
+    "routes": [
+        {
+            "path": "/",           
+            "page": "files>home",
+            "name": "Home"                   
+        },
+        {
+            "path": "/about",           
+            "page": "files>about",
+            "name": "About"                   
+        },
+        {
+            "path": "/privacy",           
+            "page": "files>privacy",
+            "name": "privacy"                   
+        },
+        {
+            "path": "/content",
+            "language-path": false,
+            "page": "files>content",
+            "name": "ProtectedContent",
+            "access": {
+                "auth": "session",
+                "redirect": "/login"
+            }           
+        }
+    ],
+    "include": {     
+        "components": [    
+            "users::users"        
+        ],         
+        "css": [
+            "files.css"
+        ],        
+        "library": [
+            "jquery",           
+            "arikaim",
+            "arikaim-ui",
+            "fomantic",
+            "tailwind"
+        ],
+        "loader": "components:loader.dimmer"
+    }   
+}

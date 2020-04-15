@@ -1,0 +1,10 @@
+{
+    "title": "Registration Successful",
+    "message": {
+        "content": "Thank you for registering to the {{ site }} website.",
+        "send": "You should receive a confirmation email shortly with your user name and password reminder."
+    },
+    "labels": {
+        "login": "Login"
+    }
+}

@@ -1,0 +1,62 @@
+{% component 'files>layout.page' %}
+{% set active = 'home' %}
+<div class="ui centered equal width grid">
+    <div class="row mt-64">
+        <div class="center aligned column">
+            <div class="home-page-title mt-8">
+                {{ title }}      
+            </div>
+            <div class="mt-24"></div>
+            <a class="ui olive huge button" href="{{ url('/signup') }}">
+                <span class="uppercase open-sans text-3xl tracking-wide font-normal">Sign up</span>
+            </a>
+        </div>
+    </div>
+    <div class="row mt-64">
+        <div class="center aligned column">
+            <div class="shadow-lg pb-4 feature-panel min-h-full">
+                <svg class="svg-icon w-32 h-32 text-gray-700">
+                    <use xlink:href="{{ template_url }}/images/icons/open-source-icon.svg#open_source"/>
+                </svg>                 
+                <div class="feature-title">{{ labels.open }}</div>   
+                <p class="mt-2 p-1 feature-description">
+                   {{ text.open }}
+                </p>  
+            </div>       
+        </div>
+        <div class="center aligned column">
+            <div class="shadow-lg pb-4 feature-panel min-h-full">
+                <svg class="svg-icon w-32 h-32 text-green-700">
+                    <use xlink:href="{{ template_url }}/images/icons/code-icon.svg#code_icon"/>
+                </svg> 
+                <div class="feature-title">{{ labels.code }}</div>   
+                <p class="mt-2 p-1 feature-description">
+                    {{ text.code }}
+                </p>          
+            </div> 
+        </div>
+        <div class="center aligned column">
+            <div class="shadow-lg pb-4 feature-panel min-h-full">
+                <svg class="svg-icon w-32 h-32 text-red-700">
+                    <use xlink:href="{{ template_url }}/images/icons/lock-icon.svg#lock_icon" />
+                </svg>   
+                <div class="feature-title">{{ labels.permission }}</div>   
+                <p class="mt-2 p-1 feature-description">
+                    {{ text.permission }}
+                </p>  
+            </div>           
+        </div>
+        <div class="center aligned column">
+            <div class="shadow-lg pb-4 feature-panel min-h-full">                
+                <svg class="svg-icon w-32 h-32 text-blue-800">
+                    <use xlink:href="{{ template_url }}/images/icons/group-icon.svg#group_icon" />
+                </svg>                
+                <div class="feature-title">{{ labels.users }}</div>   
+                <p class="mt-2 p-1 feature-description">                  
+                    {{ text.users }}
+                </p>  
+            </div>
+        </div>
+    </div>
+</div>
+{% endcomponent %}

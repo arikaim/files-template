@@ -1,0 +1,8 @@
+{% component 'files>layout.page' %}
+{% set active = 'login' %}
+<div class="flex pt-64 w-full justify-center" id="login_box">
+    <div class="flex-shrink-0 self-center w-74">
+        {{ component('users>users.login') }}
+    </div>        
+</div>
+{% endcomponent %}

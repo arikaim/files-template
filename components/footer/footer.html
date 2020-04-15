@@ -1,0 +1,32 @@
+{% set language = language|default(current_language) %}
+{% set privcy_policy_url = url('/privacy',false,language) %} 
+<div class="ui sixteen wide stackable grid footer bg-blue-800 {{ class }}">   
+    <div class="three wide computer only column"></div>                             
+        <div class="two wide left aligned column bg-blue-800">
+            <a href="{{ url('',true,language) }}" class="item {{ link_class }}">
+                <i class="icon home"></i> 
+                {{ links.home }}
+            </a>
+        </div>
+        <div class="two wide left aligned column bg-blue-800">
+            {{ component("components:copyright",{ from_year: 2019, icon_class: ' inverted ', hide_label: true, text_class: 'text-white' }) }}
+        </div>
+        <div class="two wide left aligned column bg-blue-800">
+            <a href="{{ privcy_policy_url }}" class="item {{ link_class }}">
+                <i class="icon lock"></i> 
+                {{ links.privacy }}
+            </a>
+        </div>
+        <div class="two wide left aligned column bg-blue-800">
+            <a href="http://arikaim.com" class="item {{ link_class }}" target="arikaim">            
+                <i class="icon code"></i>                        
+                {{ links.created }}
+            </a>
+        </div>
+        <div class="two wide left aligned column bg-blue-800">           
+        </div>                               
+    </div>   
+    <div class="three wide computer only column"></div>                                     
+</div>   
+{% set link = '<a href="' ~ privcy_policy_url ~ '" class="link text-blue-300 ml-1 mr-1">here</a>' %}
+{{ component('components:policy.cookie.dialog',{ link: link, type: 'toast' }) }}

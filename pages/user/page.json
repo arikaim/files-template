@@ -1,0 +1,10 @@
+{
+    "include": {
+        "library": [         
+            "filepond"        
+        ]
+    },
+    "access": {
+        "auth": "session"
+    }
+}

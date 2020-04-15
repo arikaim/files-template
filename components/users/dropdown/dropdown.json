@@ -1,0 +1,10 @@
+{
+    "title": "User Accont",
+    "items": {
+        "dashboard": "Dashboard",
+        "details": "Edit Details",
+        "change_password": "Change Password",  
+        "settings": "Settings",
+        "logout": "Log out"
+    }
+}

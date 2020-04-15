@@ -1,0 +1,135 @@
+@import url('https://fonts.googleapis.com/css?family=Crushed|Contrail+One');
+@import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&display=swap');
+
+html {
+    height: 100%;
+    padding: 0px;
+    margin: 0px;
+}
+body {       
+    height: 100%;
+    padding: 0px;
+    margin: 0px;   
+    background: rgb(249,247,244);
+    background: linear-gradient(90deg, rgba(249,247,244,1) 0%, rgba(246,243,235,0.59) 20%, rgba(246,243,235,0.5935106464460784) 80%, rgba(249,247,244,1) 100%); 
+}
+.svg-icon  {     
+    fill: currentColor;
+}
+.open-sans {
+    font-family: 'Open Sans Condensed', sans-serif;  
+}
+.home-page-title {
+    font-family: 'Open Sans Condensed', sans-serif; 
+    font-size: 56pt;  
+}
+.sub-title {
+    font-family: 'Open Sans Condensed', sans-serif; 
+    font-size: 14pt;  
+}
+.feature-description {
+    font-family: 'Open Sans Condensed', sans-serif; 
+    font-size: 16pt;
+}
+.feature-title {
+    font-family: 'Open Sans Condensed', sans-serif; 
+    font-size: 16pt;
+    font-weight: bold;
+}
+.feature-panel {
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.feature-panel::after {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
+}
+.feature-panel:hover {
+    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
+}
+.w-74 {
+    width: 30rem;
+}
+.content-inside {
+    padding: 0px;
+    padding-bottom: 160px;
+}
+.page-content {  
+    padding: 0px; 
+    min-height: 100%;    
+    margin: 0 auto -86px;
+}
+.footer {
+    height: 100px!important;  
+    margin-top: -90px;
+    margin-bottom: 0px;
+}
+.navbar-title {
+    font-family: 'Contrail One', cursive;
+    font-size: 36px;  
+    color: white;  
+}
+.page-title {
+    font-family: 'Open Sans Condensed', sans-serif; 
+    font-size: 24pt;
+    font-weight: bold; 
+}
+.thumbnail-size {
+    min-height: 120px!important;
+    max-height: 120px!important;
+}
+.borderless {
+    border: none!important;
+}
+.item .navbar-item .active a {
+    color: #a3bffa!important;  
+    background-color: #1a202c!important;
+}
+.item .navbar-item .active a:hover {
+    color: #a3bffa!important;  
+    background-color: none!important;  
+}
+.navbar-menu .navbar-item a {
+    font-family: 'Contrail One';
+    font-size: 14pt;  
+    font-weight: 300;
+}
+.navbar-menu .navbar-item a, .footer-link {
+    -webkit-transition: all 0.5s ease;
+    -moz-transition: all 0.5s ease;
+    -o-transition: all 0.5s ease;
+    transition: all  0.5s ease;
+}
+.navbar-menu .navbar-item a:hover, .footer-link:hover {
+    color: #a3bffa!important;   
+}
+.bg-gray {
+    background-color: #1a202c!important;
+}
+.page-link-icon:hover {
+    transform: scale(1.2)!important;
+    -webkit-transform: scale(1.2)!important;
+    -moz-transform: scale(1.2)!important;
+    -o-transform: scale(1.2)!important;
+    background-color: none!important;
+    border: none!important;
+    color:#dd6b20!important;    
+}
+.page-link-icon {
+    -webkit-transition: -webkit-transform 0.2s ease!important;
+    -moz-transition: -moz-transform 0.2s ease!important;
+    transition: transform 0.2s ease!important;
+    background-color: none!important;
+    border: none!important;
+}
+.page-link {
+    background-color: none!important;
+}
+.user-menu {
+    background-color: #2b6cb0!important;
+}
+.ui.vertical.menu .item > i.icon.left {
+    float: none;
+    margin: 0em 0.35714286em 0em 0em;
+}

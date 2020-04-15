@@ -1,0 +1,19 @@
+{% set email_send = email_send|default(false) %}
+{% set login_url = (login_url is empty) ? url('/login') : login_url  %}
+{% set site = (site is empty) ? domain : site %}
+
+<h2 class="ui header {{ title_class }}">{{ title }}</h2>
+<div class="ui horizontal divider"></div>    
+<div class="mt-2 {{ message_class }}">   
+    {{ message.content|renderText({ site: site }) }}
+</div>  
+{% if email_send == true %}
+<div>
+    {{ message.send }}    
+</div>
+{% endif %}
+<div class="mt-8">
+    <a class="ui green button" href="{{ login_url }}">
+        {{ labels.login }}
+    </a>
+</div>

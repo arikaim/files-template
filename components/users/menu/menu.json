@@ -1,0 +1,12 @@
+{
+    "title": "Accont",
+    "items": {
+        "dashboard": "Dashboard",
+        "myfiles": "My Files",
+        "details": "Edit Details",
+        "change_password": "Change Password",  
+        "settings": "Settings",
+        "avatar": "Avatar",
+        "logout": "Log out"
+    }
+}

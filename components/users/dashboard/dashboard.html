@@ -1,0 +1,18 @@
+{% set user = service('access').getUser() %}
+{{ component('users>users.title',{ title: title }) }}
+<div class="ui cards">     
+    <div class="ui raised card">
+        <div class="content">
+            <h4>
+                <i class="info circle icon"></i>
+                {{ labels.info }}
+            </h4>
+        </div>
+        <div class="content">
+            <h4>{{ labels.login }}</h4>
+            <div>{{ user.date_login|dateTimeFormat }}</div>
+            <h4>{{ labels.signup }}</h4>
+            <div>{{ user.date_created|dateTimeFormat }}</div>
+        </div>
+    </div>
+</div>

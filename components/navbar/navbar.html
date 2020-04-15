@@ -1,0 +1,27 @@
+<div class="row bg-blue-800 shadow-lg column">   
+    <div class="one wide mobile only tablet only column">
+        <div class="ui icon inverted dropdown mobile-menu mt-5">
+            <i class="icon big bars pl-4 inverted white open-sidebar"></i>
+            <div class="ui menu">            
+                {{ component('files>navbar.menu.items',{ active: active }) }}   
+            </div>
+        </div>   
+    </div>
+    <div class="two wide column">       
+        <div class="navbar-title mt-6 pl-4 navbar-item pt-2">
+            {{ title }}      
+        </div>          
+    </div>
+    <div class="twelve wide computer only column pt-2">                        
+        {{ component('files>navbar.menu') }}
+    </div>
+    <div class="two wide computer only two wide tablet only right aligned column pt-2">         
+        {{  component('users>users.menu.login',{
+                class: 'inverted secondary vertical large navbar-menu',
+                show_user_name: true,
+                user_icon: 'user olive',
+                active: active
+            }) 
+        }}                                                                                                                                     
+    </div>          
+</div>

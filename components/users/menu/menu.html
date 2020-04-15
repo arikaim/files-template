@@ -1,0 +1,33 @@
+<div class="rounded-r bg-blue-700 shadow-xl min-h-full">
+    <div class="ui menu vertical user-menu {{ class }}">
+        {% if service('access').isLogged() == true %}
+            <a class="item {{ (selected == '') ? 'active' : '' }} user-menu-item" component="users>users.dashboard">
+                <i class="left icon dashboard {{ icon_class }}"></i>
+                {{ items.dashboard }}
+            </a>
+            <a class="item {{ (selected == 'myfiles') ? 'active' : '' }} user-menu-item" component="users>users.myfiles">
+                <i class="left icon file alternate outline {{ icon_class }}"></i>
+                {{ items.myfiles }}
+            </a>
+            <a class="item {{ (selected == 'details') ? 'active' : '' }} user-menu-item" component="users>users.details">
+                <i class="left icon edit {{ icon_class }}"></i>
+                {{ items.details }}
+            </a>
+            <a class="item {{ (selected == 'avatar') ? 'active' : '' }} user-menu-item" component="users>users.avatar">         
+                <i class="left user circle outline icon {{ icon_class }}"></i>
+                {{ items.avatar }}
+            </a>
+            <a class="item {{ (selected == 'change-password') ? 'active' : '' }} user-menu-item" component="users>users.password">
+                <i class="left icon lock {{ icon_class }}"></i>
+                {{ items.change_password }}
+            </a>       
+            {{ content }}
+            <a class="item user-menu-item" component="users>users.logout">
+                <i class="left icon sign out {{ icon_class }}"></i>
+                {{ items.logout }}
+            </a>
+        {% else %}
+            {{ content }}
+        {% endif %}
+    </div>
+</div>

@@ -1,0 +1,29 @@
+{% set button_class = (button_class is empty) ? 'large fluid primary button': button_class %}
+
+<form class="ui form" id="change_password_form">    
+    <input type="hidden" name="token" value="{{ token }}">
+    {% if uuid is not empty %}
+    <input type="hidden" name="uuid" value="{{ uuid }}">
+    {% endif %}
+    <div class="field required">
+        <label>{{ fields.password.label }}</label>
+        <div class="ui left icon right action input">
+            <i class="icon lock"></i>
+            <input class='password-field' type="password" name="password" id="password" {{ fields.password.placeholder|attr('placeholder') }} value=""> 
+            <a class="ui icon basic button view-password">               
+                <i class="eye slash outline icon"></i>
+            </a> 
+        </div>
+    </div>    
+    <div class="field required">
+        <label>{{ fields.repeat_password.label }}</label>
+        <div class="ui left icon rigth action input">
+            <i class="icon lock"></i>
+            <input class='password-field' type="password" name="repeat_password" id="repeat_password" {{ fields.repeat_password.placeholder|attr('placeholder') }} value="">
+            <a class="ui icon basic button view-password">               
+                <i class="eye slash outline icon"></i>
+            </a> 
+        </div>  
+    </div>      
+    {{ component('components:form.footer',{ button_class: button_class , button_title: buttons.submit  }) }}  
+</form>

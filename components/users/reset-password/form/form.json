@@ -1,0 +1,10 @@
+{
+    "email": {
+        "label": "Email",
+        "placeholder": "Enter your email address"
+    },
+    "buttons": {
+        "submit": "Submit",
+        "login_page": "Open Login Page"
+    }
+}

@@ -1,0 +1,13 @@
+{% component 'files>layout' %}
+    <div class="row">  
+        <div class="three wide computer only column">
+            {{ left_content }}
+        </div> 
+        <div class="ten wide computer column sixteen wide mobile column" id="page_content">    
+            {{ content }}
+        </div>
+        <div class="three wide computer only column">
+            {{ right_content }}
+        </div> 
+    </div>
+{% endcomponent %}

@@ -1,0 +1,55 @@
+{% set login_with = getOption('users.login.with',1) %}
+{% set captcha_protect = getOption('users.login.captcha.protect',true) %}
+
+<form class="ui form" id="login_form">
+    {% if login_with == 1 %}
+        <div class="field">
+            <label>{{ fields.user_name.label }}</label>
+            <div class="ui left icon input">
+                <i class="icon user"></i>
+                <input type="text" name="user_name" id="user_name" {{ fields.user_name.placeholder|attr("placeholder") }}>    
+            </div>
+        </div>
+    {% elseif login_with == 2 %}
+        <div class="field">
+            <label>{{ fields.email.label }}</label>
+            <div class="ui left icon input">
+                <i class="icon mail"></i>
+                <input type="text" name="email" id="email" {{ fields.email.placeholder|attr("placeholder") }}>    
+            </div>
+        </div>
+    {% elseif login_with == 3 %}
+        <div class="field">
+            <label>{{ fields.both.label }}</label>
+            <div class="ui left icon input">
+                <i class="icon user"></i>
+                <input type="text" name="user_name" id="user_name" {{ fields.both.placeholder|attr("placeholder") }}>    
+            </div>
+        </div>
+    {% endif %}
+
+    <div class="field">
+        <label>{{ fields.password.label }}</label>
+        <div class="ui left icon right action input">
+            <i class="icon lock"></i>
+            <input type="password" name="password" id="password" {{ fields.password.placeholder|attr("placeholder") }}>  
+            <a class="ui icon basic link button view-password">               
+                <i class="eye slash outline icon"></i>
+            </a>  
+        </div>
+    </div>   
+    <div class="field">           
+        <div class="ui checkbox">            
+            <input type="checkbox" name="remember" id="remember" value="1">    
+            <label>{{ fields.remember.label }}</label>
+        </div>
+    </div>             
+    <div class="mt-2" id="captcha_panel">            
+        {% if captcha_protect == true %}           
+            {% if service('access').getLoginAttempts() > 0 %}           
+                {{ component('captcha::code') }}                
+            {% endif %}       
+        {% endif %}   
+    </div>    
+    {{ component('components:form.footer',{ button_class: 'fluid large primary button', button_title: buttons.login.title }) }}           
+</form>

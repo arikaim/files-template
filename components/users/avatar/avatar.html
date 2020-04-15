@@ -1,0 +1,17 @@
+{% set user = service('access').getUser() %}
+{% set user_details = createModel('UserDetails','users').findByColumn(user.id,'user_id') %}   
+{{ component('users>users.title',{ title: title }) }}
+<div class="ui segment mt-8">
+    <div class="mt-2 w-64 h-32" id="avatar_image">
+        {{ component('users>users.avatar.image',{ avatar: user_details.avatar, uuid: user.uuid }) }}
+    </div>      
+    <div class="mt-4">
+        <form class="ui form" id="avatar_form" enctype="multipart/form-data">
+            <input type="hidden" name="uuid" id="uuid" value="{{ user.uuid }}">           
+            <div class="field">                    
+                <input name="file" id="file" type="file" accept="image/png, image/jpeg, image/gif, image/svg">                                          
+            </div>
+            {{ component('components:form.footer',{ button_title: labels.upload }) }}
+        </form>
+    </div>       
+</div>  

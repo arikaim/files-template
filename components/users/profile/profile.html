@@ -1,0 +1,44 @@
+<div class="ui segment {{ class }}">
+    <div class="p-4">
+        <div class="mt-1">
+            {% if user_details.avatar is not empty %}
+            <img class="ui top aligned left floated small circular image" src="{{ user_details.getUserAvatarUrl() }}">
+            {% else %}
+            <div class="w-32 h-32 border rounded-full border-solid border-gray-300">         
+                <div class="flex items-center justify-center align-middle pt-6 pl-2">
+                    <i class="icon user outline grey huge"></i>
+                </div>
+            </div>
+            {% endif %}
+        </div>
+        <div class="mt-4 ml-48">    
+            {% if user_details.name is not empty %}
+                <h2>{{ user_details.name }}</h2>
+            {% else %}
+                <h2>{{ user.user_name }}</h2>
+            {% endif %}
+            <div class="ui divider"></div>
+            <div class="mt-2">
+                {% if user.email is not empty %}
+                <h4 class="ui header">
+                    <i class="mail grey outline icon"></i>
+                    <div class="content">
+                        {{ labels.email }}
+                    <div class="sub header"> {{  user.email }}</div>
+                    </div>
+                </h4>
+                {% endif %}
+                {% if user_details.phone is not empty or user_details.phone2 is not empty %}
+                <h4 class="ui header">
+                    <i class="phone grey icon"></i>
+                    <div class="content">
+                        {{ labels.phone }}
+                    <div class="sub header"> {{ user_details.phone }} {{ user_details.phone2 }}</div>
+                    </div>
+                </h4>
+                {% endif %}  
+            </div>
+            <div class="mt-10"></div>
+        </div>
+    </div>    
+</div>

@@ -1,0 +1,18 @@
+{% set show_user_name = show_user_name|default(false) %}
+{% set user_icon = user_icon|default('user') %}
+<div class="ui menu {{ class }}">     
+    <div class="right aligned item">     
+        {% if access().isLogged() == true %} 
+            <div class="item">          
+                {{ component('users>users.dropdown',{ icon: user_icon, show_user_name: show_user_name }) }}
+            </div>
+        {% else %}       
+            <div class="item navbar-item {{ (active == 'login') ? 'active': '' }}">   
+                <a href="{{ url('/login') }}">{{ labels.login }}</a>            
+            </div>
+            <div class="item navbar-item {{ (active == 'signup') ? 'active': '' }}">   
+                <a href="{{ url('/signup') }}">{{ labels.signup }}</a>            
+            </div>
+        {% endif %}
+    </div>       
+</div>     

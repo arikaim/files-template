@@ -1,0 +1,67 @@
+{% set settings = service('options').get('users.signup.form') %}
+
+<form class="ui equal width form" id="signup_form">  
+    <div class="two fields mt-4">     
+        {% if settings.username.show == 'true' %}
+            <div class="field required">
+                <label>{{ fields.user_name.label }}</label>
+                <div class="ui left icon input">
+                    <i class="icon user outline"></i>
+                    <input type="text" name="user_name" id="user_name" {{ fields.user_name.placeholder|attr('placeholder') }} value="{{ user.user_name }}"> 
+                </div>
+            </div>
+        {% endif %}
+        {% if settings.email.show == 'true' %}     
+            <div class="field {{ settings.email.required|ifthen('true','required') }}">
+                <label>{{ fields.email.label }}</label>
+                <div class="ui left icon input">
+                    <i class="icon mail outline"></i>
+                    <input type="text" name="email" id="email" {{ fields.email.placeholder|attr('placeholder') }} value="{{ user.email }}">  
+                </div>
+            </div>  
+        {% endif %}   
+    </div>  
+    <div class="two fields mt-4">    
+        <div class="field required">
+            <label>{{ fields.password.label }}</label>
+            <div class="ui left icon right action input">
+                <i class="icon lock"></i>
+                <input class="password-field" type="password" name="password" id="password" {{ fields.password.placeholder|attr('placeholder') }} value=""> 
+                <a class="ui icon basic link button view-password">               
+                    <i class="eye slash outline icon"></i>
+                </a>  
+            </div>
+        </div>    
+        <div class="field required">
+            <label>{{ fields.repeat_password.label }}</label>
+            <div class="ui left icon right action input">
+                <i class="icon lock"></i>
+                <input type="password" name="repeat_password" id="repeat_password" {{ fields.repeat_password.placeholder|attr('placeholder') }} value="">
+                <a class="ui icon basic link button view-password">               
+                    <i class="eye slash outline icon"></i>
+                </a> 
+            </div>  
+        </div>  
+    </div>                         
+    <div class="two fields">
+        {% if settings.name.show == 'true' %}     
+        <div class="field {{ settings.name.required|ifthen('true','required') }}">
+            <label>{{ fields.name.label }}</label>
+            <input name="name" id="name" placeholder="{{ fields.name.placeholder }}" type="text" value="{{ user.name }}">
+        </div>
+        {% endif %}   
+        {% if settings.phone.show == 'true' %}     
+        <div class="field {{ settings.phone.required|ifthen('true','required') }}">
+            <label>{{ fields.phone.label }}</label>
+            <input name="phone" id="phone" placeholder="{{ fields.phone.placeholder }}" type="text" value="{{ user.phone }}">
+        </div>
+        {% endif %}  
+    </div>      
+    <div class="mt-2" id="captcha_panel">   
+        {% if settings.captcha.show == 'true' %}     
+            {{ component('captcha::code') }}                
+        {% endif %}   
+    </div>  
+    <div class="ui horizontal divider"></div>   
+    {{ component('components:form.footer',{ button_title: buttons.save }) }}    
+</form> 

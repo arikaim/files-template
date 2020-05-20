@@ -4,7 +4,7 @@
     "name": "files",
     "package-type": "template",
     "icon": "file",
-    "thumbnail": "files-thumbnail.jpg",
+    "thumbnail": "files-manager-thumbnail.jpg",
     "repository": "https://github.com/arikaim/files-template.git",
     "require": {
         "library": [

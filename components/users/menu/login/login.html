@@ -1,8 +1,9 @@
 {% set show_user_name = show_user_name|default(false) %}
 {% set user_icon = user_icon|default('user') %}
-<div class="ui menu {{ class }}">     
+{% set logged = access().isLogged() %}
+<div class="ui menu {{ (logged == true) ? 'vertical' : '' }} {{ class }}">     
     <div class="right aligned item">     
-        {% if access().isLogged() == true %} 
+        {% if logged == true %} 
             <div class="item">          
                 {{ component('users>users.dropdown',{ icon: user_icon, show_user_name: show_user_name }) }}
             </div>

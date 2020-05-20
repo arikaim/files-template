@@ -3,7 +3,9 @@
     "items": {
         "dashboard": "Dashboard",
         "myfiles": "My Files",
-        "details": "Edit Details",
+        "shared": "Shared Files",
+        "trash": "Recycle Bin",
+        "details": "Account Details",
         "change_password": "Change Password",  
         "settings": "Settings",
         "avatar": "Avatar",

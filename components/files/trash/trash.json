@@ -1,0 +1,12 @@
+{      
+    "buttons": {
+        "empty": {
+            "content": "Empty",
+            "title": "Delete all files"
+        },
+        "restore": {
+            "content": "Restore",
+            "title": "Restore all files"
+        }       
+    }
+}

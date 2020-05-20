@@ -1,0 +1,8 @@
+{
+    "buttons": {       
+        "restore": {
+            "title": "Restore file",
+            "content": "Restore"
+        }        
+    }    
+}

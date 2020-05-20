@@ -1,0 +1,20 @@
+<form class="ui form" id="create_directory_form">
+    <input type="hidden" name="path" id="path" value="{{ path }}">   
+    {% if hide_path != true %}       
+    <div class="ui field segment">
+        <label>{{ labels.path }}</label>        
+        {{  component('components:breadcrumb',{ 
+                class: 'fluid',
+                path: path,
+                hide_links: true,
+                id: 'breadcrumb_path' 
+            }) 
+        }}        
+    </div>              
+    {% endif %}
+    <div class="field">
+        <label>{{ fields.name.label }}</label>
+        <input name="name" id="name" placeholder="{{ fields.name.placeholder }}">       
+    </div>    
+    {{ component('components:form.footer',{ button_title: labels.create, show_cancel_button: true }) }}    
+</form>

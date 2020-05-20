@@ -1,0 +1,21 @@
+<table class="ui compact stackable borderless basic table">
+    <thead class="table-head">
+        <tr>                      
+            <th class="collapsing center aligned one wide">
+                {{ columns.actions }}
+            </th>
+            <th class="five wide">                    
+                {{ columns.user }}
+            </th>
+            <th>
+                {{ columns.permissions }}
+            </th>                                      
+        </tr>
+    </thead>
+    <tbody id="permissions_rows" component="storage>files.share.users.view.rows" namespace="files.share" file="{{ file_id }}">
+        {{ component('storage>files.share.users.view.rows',{ file: file_id }) }}
+    </tbody>
+</table>
+<div id="paginator">
+    {{ component("components:paginator",{ namespace: 'files.share' }) }}
+</div>

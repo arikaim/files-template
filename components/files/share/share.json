@@ -1,0 +1,10 @@
+{
+    "title": {
+        "content": "Share",
+        "icon": "share"
+    },
+    "labels": {
+        "file": "File",
+        "directory": "Directory"
+    }
+}

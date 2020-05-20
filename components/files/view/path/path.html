@@ -1,0 +1,17 @@
+<div class="ui icon buttons files-buttons">                 
+    <button class="ui button create-directory basic" title="{{ labels.create }}">
+        <i class="icon blue folder plus"></i>
+    </button>
+    <button class="ui button upload-file basic" title="{{ labels.upload }}">
+        <i class="upload blue icon"></i>      
+    </button> 
+</div>       
+{{  component('components:breadcrumb',{ 
+        path: path,
+        class: 'paded massive pl-2',      
+        icon: 'folder open outline blue'           
+    }) 
+}}               
+<div class="ui buttons right floated">       
+    {{ component('components:view.type.button',{ namespace: 'files' }) }}
+</div>         

@@ -1,0 +1,43 @@
+{% set filesystem = filesystem|default('storage') %}
+{% if file is empty %}
+    {% set file = createModel('Files','storage').findById(uuid) %}
+{% endif %}
+<div class="item" id="row_{{ file.uuid }}">   
+    <div class="content">
+        {% if trash == 1 %}
+            {{ component('storage>files.trash.actions',{ file: file }) }}
+        {% else %}
+            {{ component('storage>files.view.items.actions',{ file: file }) }}
+        {% endif %}
+        {% if file.isDirectory() == true %}
+            <a class="ui link open-directory" path="{{ path }}" trash="{{ trash }}">
+                {{ component('storage>files.icon',{ type: file.mime_type, class: 'large ' ~ color_icon }) }} 
+                {{ file.file_name }}      
+            </a>       
+        {% elseif trash != true %}      
+            <a class="ui link" href="{{ file.getDownloadUrl() }}" target="download">
+                {{  component('storage>files.icon',{ type: file.mime_type, class: 'large ' ~ color_icon }) }} 
+                {{ file.file_name }}  
+            </a>  
+        {% else %}          
+            {{ component('storage>files.icon',{ type: file.mime_type, class: 'large ' ~ color_icon }) }} 
+            {{ file.file_name }}         
+        {% endif %}
+        {% if file.isDirectory() == true %}
+            <div class="ui basic horizontal label right floated" title="{{ labels.items }}">                               
+                {{ count }}
+            </div>
+        {% endif %}   
+        {% if file.downloads > 0 %}
+            <div class="ui basic horizontal label right floated" title="{{ labels.downloads }}">
+                <i class="icon download"></i>                     
+                {{ file.downloads }}        
+            </div>
+        {% endif %}   
+        {% if file.isPublic() == true %}
+            <div class="ui basic green horizontal label right floated">{{ labels.public }}</div>
+        {% elseif file.hasPermissions() == true %}
+            <div class="ui basic olive horizontal label right floated">{{ labels.shared }}</div>
+        {% endif %}              
+    </div>  
+</div>

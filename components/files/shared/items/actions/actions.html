@@ -1,0 +1,14 @@
+{% set class = class|default('basic mini button') %}
+<div class="ui dropdown file-actions icon {{ class }}">
+    <i class="ellipsis vertical icon"></i>
+    <div class="menu">
+        <a class="item" href="{{ file.getDownloadUrl() }}" {{ buttons.download.title|attr('title') }}>
+            <i class="icon download"></i>
+            {{ labels.download }}
+        </a>
+        <div class="item file-link-button" data-title="{{ labels.link }}" data-content="{{ file.getDownloadUrl() }}" uuid="{{ file.uuid }}" path="{{ file.path }}" {{ buttons.share.title|attr('title') }}>
+            <i class="icon linkify"></i>
+            {{ labels.link }}
+        </div>
+    </div>
+</div>

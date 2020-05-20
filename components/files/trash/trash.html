@@ -1,0 +1,31 @@
+{% set model = createModel('Files','storage') %}  
+{% set user_id = access().getId() %}  
+{% set filesystem = model.getUserFilesystemName() %}
+{% set filesystem_path = model.getUserFilesystemPath(user_id) %}
+{% set result = service('storage').mountLocal(filesystem,filesystem_path) %}
+{% set emptyBin = service('storage').isEmpty('bin',filesystem) %}
+{% set disabled = (emptyBin == true) ? 'disabled' : '' %}
+{% set path = path|default('bin') %}
+<div class="ui segment">     
+    <div class="ui icon buttons files-buttons">      
+        <button class="ui basic orange button empty-trash {{ disabled }} trash-button" {{ buttons.empty.title|attr('title') }}>
+            <i class="icon trash alternate outline orange"></i>               
+        </button>
+        <button class="ui basic green button restore-trash {{ disabled }} trash-button" {{ buttons.restore.title|attr('title') }}>
+            <i class="trash restore olive icon"></i>               
+        </button>
+    </div>
+    {{  component('components:breadcrumb',{ 
+            path: path,
+            home_path: 'bin',
+            class: 'paded massive pl-2',      
+            icon: 'trash open blue'           
+        }) 
+    }}  
+    <div class="ui buttons right floated">       
+        {{ component('components:view.type.button',{ namespace: 'trash' }) }}
+    </div>  
+</div>
+<div class="ui segment height-90" id="view_content" component="storage>files.view.items" namespace="files" path="bin" trash="true"> 
+    {{ component("storage>files.view.items",{ path: 'bin', trash: true }) }}
+</div>

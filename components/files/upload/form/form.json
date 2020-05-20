@@ -1,0 +1,11 @@
+{
+    "labels": {
+        "file": "File",
+        "upload": "Uplaod File",
+        "note": "Note",
+        "path": "Path"
+    },
+    "buttons": {
+        "upload": "Upload"
+    }
+}

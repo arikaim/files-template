@@ -1,0 +1,15 @@
+{% set file = createModel('Files','storage').findById(uuid) %}
+{{ component('storage>files.title',{ title: title.content, icon: title.icon }) }} 
+<div class="ui segment">   
+    <div class="mt-4">
+        <div class="ui">
+            <h4>{{ labels.file }}</h4>
+            {{ file.path }}
+        </div>
+        <div id="form_content" class="mt-8">    
+            {% if uuid is not empty %}
+                {{ component('storage>files.share.access',{ uuid: uuid }) }} 
+            {% endif %}           
+        </div>
+    </div>
+</div>

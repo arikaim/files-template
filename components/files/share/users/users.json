@@ -1,0 +1,9 @@
+{
+    "labels": {
+        "file": "File",
+        "access": "Access",
+        "note": "Note",
+        "path": "Path"
+    },
+    "message": "Users extension not installed!"
+}

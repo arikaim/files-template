@@ -48,8 +48,23 @@ body {
 .feature-panel:hover {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
+.height-90 {
+    height: 90%;
+}
+.height-94 {
+    height: 94%;
+}
+.w-76 {
+    width: 34rem;
+}
 .w-74 {
     width: 30rem;
+}
+.pt-19 {
+    padding-top: 4.7rem;
+}
+.p-title {
+    padding: 0.80rem;
 }
 .content-inside {
     padding: 0px;
@@ -89,6 +104,9 @@ body {
 .item .navbar-item .active a:hover {
     color: #a3bffa!important;  
     background-color: none!important;  
+}
+.navbar-user-menu {
+    background-color: #2a4365!important;
 }
 .navbar-menu .navbar-item a {
     font-family: 'Contrail One';

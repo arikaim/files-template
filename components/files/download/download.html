@@ -1,0 +1,11 @@
+{% set file = createModel('Files','storage').findById(uuid)  %}
+{% set title = title|default(labels.title) %}
+{% set icon = icon|default('download') %}
+<a class="ui icon button" {{ target|attr('target') }} {{ title|attr('title') }} href="{{ file.getDownloadUrl() }}">
+    {% if hide_icon != true %}
+    <i class="icon {{ icon }}"></i>
+    {% endif %}
+    {% if hide_title != true %}
+        {{ title }}
+    {% endif %}
+</a>

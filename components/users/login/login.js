@@ -7,8 +7,8 @@ $(document).ready(function() {
             component: 'users>users.reset-password'
         });
     });
-   
-    arikaim.ui.form.onSubmit('#login_form',function() {      
+    
+    arikaim.ui.form.onSubmit('#login_form',function() {  
         return users.login();
     },function(result) {   
         arikaim.ui.hide('.message');

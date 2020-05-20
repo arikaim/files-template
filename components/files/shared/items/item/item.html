@@ -1,0 +1,29 @@
+{% if file is empty %}
+    {% set file = createModel('Files','storage').findById(uuid) %}
+{% endif %}
+<div class="item" id="row_{{ file.uuid }}">   
+    <div class="content">
+        {{ component('storage>files.shared.items.actions',{ file: file }) }}
+        {% if trash == true %}     
+            {{ component('storage>files.icon',{ type: file.mime_type, class: 'large ' ~ color_icon }) }} 
+            {{ file.file_name }}    
+        {% else %}
+            {% if file.isDirectory() == true %}
+                <a class="ui link open-directory" path="{{ path }}" trash="{{ trash }}">
+                    {{ component('storage>files.icon',{ type: 'dir', class: 'large ' ~ color_icon }) }} 
+                    {{ file.file_name }}      
+                </a>       
+            {% else %}      
+                <a class="ui link" href="{{ file.getDownloadUrl() }}">
+                    {{ component('storage>files.icon',{ type: mime_type, class: 'large ' ~ color_icon }) }} 
+                    {{ file.file_name }}  
+                </a>  
+            {% endif %}                          
+        {% endif %}  
+        {% if file.public == 1 %}
+            <div class="ui basic green horizontal label right floated">{{ labels.public }}</div>
+        {% elseif file.hasPermission(user_id) == true %}
+            <div class="ui basic olive horizontal label right floated">{{ labels.shared }}</div>
+        {% endif %}              
+    </div>  
+</div>

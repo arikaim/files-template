@@ -1,19 +1,17 @@
-{% component 'files>layout' %}     
+{% component 'files>layout.user' %}     
     {% set user = access().getUser() %}
-    <div class="stretched row mt-1 min-h-full">
-        <div class="two wide computer one wide mobile column">
+    <div class="flex h-full pt-19">    
+        <div class="w-64 flex-shrink-0" id="user_menu">
             {{ component('users>users.menu.panel',{ user: user, class: 'fluid', selected: menu }) }}
         </div>
-        <div class="fourteen wide column">       
-            <div id="user_area_content" class="min-h-full">
-                {% if menu == 'change-password' %}
-                    {{ component('users>users.password') }}
-                {% elseif menu == 'details' %}
-                    {{ component('users>users.details') }}
-                {% else %}
-                    {{ component('users>users.dashboard') }}
-                {% endif %}        
-            </div>
-        </div>
-    </div>   
+        <div class="w-full flex-shrink-1" id="user_area_content">                                  
+            {% if menu == 'change-password' %}
+                {{ component('users>users.password') }}
+            {% elseif menu == 'details' %}
+                {{ component('users>users.details') }}
+            {% else %}
+                {{ component('users>users.dashboard') }}
+            {% endif %}                   
+        </div>    
+    </div>
 {% endcomponent %}

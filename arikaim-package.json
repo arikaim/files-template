@@ -48,13 +48,15 @@
     ],
     "include": {     
         "components": [    
-            "users::users"        
+            "files>users",
+            "components:modal"        
         ],         
         "css": [
             "files.css"
         ],        
         "library": [
-            "jquery",           
+            "jquery",    
+            "filepond",               
             "arikaim",
             "arikaim-ui",
             "fomantic",

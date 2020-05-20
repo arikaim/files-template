@@ -1,0 +1,23 @@
+{% component 'files>layout.page' %}   
+    <div class="flex h-screen w-full justify-center">
+        <div class="flex-shrink-0 self-center w-64">
+            <div class="ui raised segment column">
+                <h3 class="ui header">
+                    <i class="icon orange warning sign"></i>
+                    {{ title }}
+                </h3>    
+                <div class="ui divider"></div>       
+                <div class="ui list">                                              
+                {% for error in errors %}        
+                    <div clas="item">                   
+                        <div class="header">
+                            <i class="warning circle icon"></i>
+                            {{ (error.message is not empty) ?  error.message : error }}
+                        </div>
+                    </div>
+                {% endfor %}
+                </div>
+            </div>
+        </div>        
+    </div>  
+{% endcomponent %}

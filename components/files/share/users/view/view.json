@@ -1,0 +1,7 @@
+{
+    "columns": {        
+        "actions": "Action",
+        "user": "User",
+        "permissions": "Permissions"         
+    }
+}

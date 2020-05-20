@@ -1,0 +1,24 @@
+<div class="ui dropdown file-actions icon {{ class }}">
+    <i class="ellipsis vertical icon"></i>
+    <div class="menu">
+        {% if file.isDirectory() == true %}
+            <div class="item delete-directory" path="{{ file.path }}" {{ buttons.delete.title|attr('title') }} uuid="{{ file.uuid }}">
+                <i class="icon orange trash"></i>
+                {{ labels.delete }}
+            </div>     
+        {% else %}            
+            <div class="item share-file" uuid="{{ file.uuid }}" path="{{ file.path }}" {{ buttons.share.title|attr('title') }}>
+                <i class="icon share"></i>
+                {{ labels.share }}
+            </div>
+            <div class="item file-link-button" data-title="{{ labels.link }}" data-content="{{ file.getDownloadUrl() }}" uuid="{{ file.uuid }}" path="{{ file.path }}" {{ buttons.share.title|attr('title') }}>
+                <i class="icon linkify"></i>
+                {{ labels.link }}
+            </div>
+            <div class="item delete-file" path="{{ file.path }}" {{ buttons.delete.title|attr('title') }}>
+                <i class="icon orange trash"></i>
+                {{ labels.delete }}
+            </div>
+        {% endif %}    
+    </div>
+</div>

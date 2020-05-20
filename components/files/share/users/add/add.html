@@ -1,0 +1,15 @@
+<div class="mt-2">
+    <div class="ui divider"></div>
+    <form id="share_user_form" class="ui form" method="POST">
+        <div class="inline field">
+            <label>{{ fields.user }}</label>
+            <div class="ui right action left icon input">
+                <i class="icon user"></i>
+                <input type="text" name="user_name" id="user_name">
+                <button class="ui button green save-button add-user-button" {{ labels.add|attr('title') }} file-id="{{ file_id }}">
+                    {{ labels.share }}
+                </button>
+            </div>          
+        </div>     
+    </form>    
+</div>

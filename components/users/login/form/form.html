@@ -1,7 +1,7 @@
 {% set login_with = getOption('users.login.with',1) %}
 {% set captcha_protect = getOption('users.login.captcha.protect',true) %}
 
-<form class="ui form" id="login_form">
+<form class="ui form" id="login_form" onsubmit="return false;">
     {% if login_with == 1 %}
         <div class="field">
             <label>{{ fields.user_name.label }}</label>

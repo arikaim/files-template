@@ -1,0 +1,11 @@
+{
+    "include": {
+        "js":[                      
+            "components:paginator",
+            "components:view.type.button"
+        ] 
+    },
+    "access": {
+        "auth": "session"
+    }
+}

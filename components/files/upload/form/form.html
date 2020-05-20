@@ -1,0 +1,25 @@
+{% set path = path|default('')%}
+<form class="ui form" id="file_form" enctype="multipart/form-data">
+    <input type="hidden" id="path" value="{{ path }}">
+    {% if hide_path != true %}
+    <div class="ui field segment">
+        <label>{{ labels.path }}</label>        
+        {{  component('components:breadcrumb',{ 
+                class: 'fluid',
+                path: path,
+                hide_links: true,
+                id: 'breadcrumb_path' 
+            }) 
+        }}        
+    </div>
+    {% endif %}
+    <div class="field">               
+        <label>{{ labels.file }}</label>           
+        <input name="file[]" id="file" type="file">                       
+    </div>        
+    <div class="field">
+        <label>{{ labels.note }}</label>
+        <textarea id="note" name="note" rows="2">{{ file.note }}</textarea>
+    </div>
+    {{ component('components:form.footer',{ button_title: buttons.upload, show_cancel_button: true }) }}    
+</form>

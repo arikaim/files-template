@@ -1,0 +1,53 @@
+{% set path = path|default('') %}
+{% set model = createModel('Files','storage') %}
+{% set user_id = access().getId() %}  
+{% set filesystem = model.getUserFilesystemName() %}
+{% set filesystem_path = model.getUserFilesystemPath(user_id) %}
+{% set result = service('storage').mountLocal(filesystem,filesystem_path) %}
+{% set filesList = getDirectoryFiles(path,false,filesystem) %}
+{% set view_type = view_type|default(getViewType('files')) %}
+
+{% if view_type == 'table' %}
+<div class="ui big list" id="files_items">
+{% else %}
+<div class="ui horizontal cards" id="files_items">
+{% endif %}
+
+{% if filesList|length == 0 %}
+    <div class="ui item">..</div>
+{% endif %}
+{% for item in filesList %}
+    {%  set file = model.saveFile(item.path,user_id,{ 
+            type: item.type,
+            size: item.size,
+            date_created: item.timestamp,
+            mime_type: service('storage').getMimetype(item.path,filesystem)  
+        },false) 
+    %}
+    {% if file.isDirectory() == true %}
+        {% set items_count = getDirectoryFiles(item.path,false,filesystem)|length %}
+    {% endif %}
+
+    {% if item.path != 'bin' %}
+        {% if view_type == 'table' %}
+            {{  component('storage>files.view.items.item',{ 
+                    path: item.path,
+                    user_id: user_id,
+                    file: file,
+                    count: items_count,  
+                    trash: trash 
+                }) 
+            }}
+        {% else %}
+            {{  component('storage>files.view.items.card',{ 
+                    path: item.path,
+                    user_id: user_id,  
+                    count: items_count,                
+                    file: file,
+                    trash: trash  
+                }) 
+            }}
+        {% endif %}
+    {% endif %}
+{% endfor %}
+</div>

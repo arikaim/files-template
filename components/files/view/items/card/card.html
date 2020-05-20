@@ -1,0 +1,65 @@
+<div class="ui horizontal card" id="row_{{ file.uuid }}">
+    <div class="ui mini image fluid center aligned">
+    {% if file.isDirectory() == true %}                          
+        <a class="ui link open-directory" path="{{ path }}" trash="{{ trash }}">    
+            <div class="mt-4">             
+            {{ component('storage>files.icon',{ type: file.mime_type, class: 'massive' }) }}   
+            </div>                        
+        </a>                           
+    {% elseif trash != true %}                                 
+        <a class="ui link" href="{{ file.getDownloadUrl() }}" target="download">            
+            {% if file.isImage() == true %}                                                                        
+                <img src="{{ file.getViewImageUrl() }}"/>                             
+            {% else %} 
+            <div class="mt-4">                                             
+                {{ component('storage>files.icon',{ type: file.mime_type, class: 'massive' }) }}   
+            </div>                        
+            {% endif %}           
+        </a>
+    {% else %}
+        <div class="mt-4">       
+            {{ component('storage>files.icon',{ type: file.mime_type, class: 'massive' }) }}
+        </div>      
+    {% endif %}  
+    </div> 
+    <div class="content">           
+        <div class="ui header tiny">
+            {{ file.file_name }}
+            <div class="ui right floated">
+                {% if trash == 1 %}
+                    {{ component('storage>files.trash.actions',{ file: file, class: 'inline' }) }}
+                {% else %}
+                    {{ component('storage>files.view.items.actions',{ file: file, class: 'inline' }) }}
+                {% endif %}      
+            </div>     
+        </div>       
+        <div class="ui mini labels mt-1">         
+            {% if file.isDirectory() == false %}
+                <div class="ui basic label">
+                    {{ file.size|fileSize }}
+                </div>           
+                {% if file.downloads > 0 %}
+                    <div class="ui basic label" title="{{ labels.downloads }}">
+                        <i class="icon download"></i>                     
+                        {{ file.downloads }}        
+                    </div>
+                {% endif %}  
+            {% else %}
+                <div class="ui basic label">
+                    <div class="detail">
+                        {{ count }}                       
+                    </div>
+                    {{ labels.items }}
+                </div>
+            {% endif %}  
+            {% if file.isPublic() == true %}
+                <div class="ui basic green label">{{ labels.public }}</div>
+            {% elseif file.hasPermissions() == true %}
+                <div class="ui basic olive label">{{ labels.shared }}</div>           
+            {% endif %} 
+        </div>       
+        <span class="ui text small">
+            {{ file.date_created|dateFormat }}
+        </span>                           
+    </div>    
+</div>

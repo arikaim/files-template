@@ -1,0 +1,23 @@
+{% set model = createModel('FilePermissions','storage') %}
+{% set user_id = access().getId() %}  
+{% set view_type = view_type|default(getViewType('files')) %}
+{% set files = model.getSharedFilesQuery(user_id) %}
+{% set items = paginate(files,'files') %}  
+
+{% if view_type == 'table' %}
+<div class="ui big list">
+{% else %}
+<div class="ui ten cards">
+{% endif %}
+
+{% if items.getItems()|length == 0 %}
+    <div class="ui item">{{ labels.empty }}</div>
+{% endif %}
+{% for item in items.getItems() %}   
+    {% if view_type == 'table' %}
+        {{ component('storage>files.shared.items.item',{ user_id: user_id, file: item.file }) }}
+    {% else %}
+        {{ component('storage>files.shared.items.card',{ user_id: user_id, file: item.file }) }}
+    {% endif %}   
+{% endfor %}
+</div>

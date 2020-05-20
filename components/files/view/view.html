@@ -1,0 +1,8 @@
+<div class="ui segment">           
+    <div class="fourteen wide column" id="path_content">  
+        {{ component('storage>files.view.path',{ path: path, view_type: view_type }) }}        
+    </div>  
+</div>
+<div class="ui segment height-90" id="view_content">    
+    {{ component('storage>files.view.items',{ path: path, view_type: view_type }) }}   
+</div>

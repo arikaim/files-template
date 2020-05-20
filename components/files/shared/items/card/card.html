@@ -1,0 +1,35 @@
+<div class="ui card" id="row_{{ file.uuid }}">
+    <div class="content">
+        {{ component('storage>files.shared.items.actions',{ file: file, class: 'inline' }) }}
+        <span class="font-bold">{{ file.path }}</span>
+    </div>
+    <div class="content">
+        <div class="ui center aligned">                                      
+            <a class="ui link" href="{{ file.getDownloadUrl() }}">
+                <div class="ui rounded fluid image h-32">
+                    {% if isImage(file.mime_type) == true %}                                                 
+                        <img src="{{ file.getViewImageUrl() }}"/>                             
+                    {% else %}                           
+                        {{ component('storage>files.icon',{ type: file.mime_type, class: 'massive' }) }}   
+                        <div class="h-8"></div>    
+                    {% endif %}
+                </div> 
+            </a>                       
+        </div>          
+    </div>
+    <div class="extra content">          
+        <span class="ui text small">
+            {{ file.date_created|dateFormat }}
+        </span>
+        <div class="ui mini labels right floated">            
+            <div class="ui basic label">
+                {{ file.size|fileSize }}
+            </div>          
+            {% if file.public == 1 %}
+                <div class="ui basic green label">{{ labels.public }}</div>
+            {% elseif file.hasPermission(user_id) == true %}
+                <div class="ui basic olive label">{{ labels.shared }}</div>           
+            {% endif %} 
+        </div>
+    </div>
+</div>

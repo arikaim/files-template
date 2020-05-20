@@ -1,0 +1,51 @@
+{
+    "update": "File note was saved successfully.",
+    "restore": "File was restored successfully.",
+    "directory": {
+        "create": "Directory was created successfully.",
+        "delete": "Directory was deleteted successfully."
+    },   
+    "trash": {
+        "move": "File was moved to recycle bin successfully.",
+        "restore": "Files was restored successfully.",
+        "empty": "All files deleted successfully."
+    },
+    "errors": {
+        "notfound": "File not found.",
+        "link": "Not valid download link.",
+        "access": "Access denied.",
+        "id": "Not valid file",
+        "user": {
+            "id": "Not valid user"
+        },
+        "permission": {
+            "delete": "Can't delete permission",
+            "add": "Can't add permission"
+        },
+        "directory": {
+            "exists": "Directory exists"
+        },       
+        "download": "Not valid file url"     
+    },
+    "messages": {
+        "move": {
+            "title": "Recycle Bin",
+            "description": "Move file <b><% file_name %></b> to Recycle Bin."
+        },
+        "directory": {
+            "description": "Move directory <b><% file_name %></b> to Recycle Bin."           
+        },
+        "delete": {
+            "title": "Confirm Delete",
+            "description": "Delete <b><% file_name %></b>."
+        },
+        "deleteUser": {
+            "title": "Confirm Delete",
+            "description": "Remove user share."
+        },
+        "empty": {
+            "title": "Recycle Bin",
+            "description": "Delete all files in Recycle Bin."
+        }      
+    }
+}

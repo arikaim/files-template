@@ -1,0 +1,13 @@
+{
+    "labels": {
+        "trash": "Recycle Bin",
+        "create": "Create Directory",
+        "upload": "Upload File"
+    },
+    "messages": {
+        "empty": {
+            "title": "Recycle Bin",
+            "description": "Delete all files in Recycle Bin."
+        }      
+    }  
+}

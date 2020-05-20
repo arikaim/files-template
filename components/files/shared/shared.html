@@ -1,0 +1,19 @@
+{% set view_type = getViewType('files') %}
+{% set model = createModel('Files','storage') %}
+<div class="ui segment">  
+    <div class="ui grid">    
+        <div class="ten wide column">           
+        </div>       
+        <div class="four wide column right floated">     
+            <div class="ui buttons right floated">       
+                {{ component('components:view.type.button',{ namespace: 'files' }) }}
+            </div>               
+        </div>  
+    </div>     
+</div>
+<div class="ui segment height-90" id="files_items" component="storage>files.shared.items" namespace="files">    
+    {{ component('storage>files.shared.items',{ view_type: view_type }) }}   
+</div>
+<div class="mt-2">
+    {{ component('components:paginator',{ namespace: 'files' }) }}
+</div>

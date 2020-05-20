@@ -22,13 +22,11 @@ Arikaim CMS Files Manager site theme
   * footer 
   * post
   * title
+  * files
 
 #### Pages
   * home
   * about
-  * privacy
-  * content
-  * blog-page
   * user
   * user.login
   * user.signup

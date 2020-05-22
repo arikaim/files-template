@@ -20,6 +20,7 @@
     {%  set file = model.saveFile(item.path,user_id,{ 
             type: item.type,
             size: item.size,
+            filesystem: filesystem,
             date_created: item.timestamp,
             mime_type: service('storage').getMimetype(item.path,filesystem)  
         },false) 

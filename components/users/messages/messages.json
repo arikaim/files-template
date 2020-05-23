@@ -1,0 +1,24 @@
+{
+    "signup": "Registration was successful!",
+    "update": "Saved successfully.",
+    "login": "Login successfully.",
+    "password": "Password was changed successfully.", 
+    "reset": {
+        "password": {
+            "email": "Email with password reset link send."
+        }
+    },
+    "errors": {
+        "token": "Not valid or expired access token",
+        "username": "This username already exists. Please use a different username",
+        "email": "User with this email address already exists. Please use a different email",
+        "signup": "User registration error",
+        "login": "Login details are incorrect",
+        "update": "Can't save user details",
+        "password": "Can't change password",
+        "repeat_password": "Password and repeat password does not match.",
+        "captcha": "Captcha verification failed.",
+        "reset-password": "Error send password reset link.",
+        "not-valid": "Not vaalid email address"   
+    }
+}

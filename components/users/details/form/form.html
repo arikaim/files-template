@@ -2,7 +2,7 @@
 {% set user = createModel('Users').findById(user.uuid) %}
 {% set user_details = createModel('UserDetails','users').findByColumn(user.id,'user_id') %}   
 
-<form class="ui equal width form" id="user_details_form">   
+<form class="ui equal width form" id="user_details_form" method="POST">   
     <div class="two fields">
         <div class="field required">
             <label>{{ fields.user_name.label }}</label>
@@ -58,6 +58,6 @@
                 <input name="phone_2" id="phone_2" placeholder="{{ fields.phone2.placeholder }}" type="text" value="{{ user_details.phone_2 }}">
             </div>
         </div>
-    </div>    
+    </div>       
     {{ component('components:form.footer') }}    
 </form>

@@ -2,7 +2,9 @@
     "include": {
         "js": [
             "components:upload",
-            "storage::files"
+            "files>files",
+            "components:paginator",
+            "components:view.type.button"
         ]
     },
     "access": {

@@ -1,11 +1,4 @@
 {
-    "include": {
-        "js":[                      
-            "components:paginator",
-            "components:breadcrumb",
-            "components:view.type.button"
-        ] 
-    },
     "access": {
         "auth": "session"
     }

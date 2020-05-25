@@ -1,6 +1,21 @@
 'use strict';
 
 $(document).ready(function() {
+    arikaim.ui.form.addRules("#change_password_form",{
+        inline: false,
+        fields: {
+            password: {
+                rules: [{ type: "minLength[4]" }]
+            },
+            repeat_password: {              
+                rules: [
+                    { type: "minLength[4]" },
+                    { type: "match[password]" }
+                ]
+            }
+        }
+    });
+    
     arikaim.ui.button('#login_page_link',function(element) {
         arikaim.page.loadContent({
             id : 'change_password_panel',

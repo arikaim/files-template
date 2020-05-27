@@ -9,6 +9,7 @@
         }
     },
     "errors": {
+        "html": "Html tags not allowed",
         "token": "Not valid or expired access token",
         "username": "This username already exists. Please use a different username",
         "email": "User with this email address already exists. Please use a different email",

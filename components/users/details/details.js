@@ -2,7 +2,7 @@
 
 $(document).ready(function() {
     arikaim.ui.form.addRules("#user_details_form",{
-        inline: false,          
+        inline: false,        
         fields: {
             user_name: {
                 indentifier: 'user_name', 

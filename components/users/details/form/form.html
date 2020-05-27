@@ -41,11 +41,11 @@
         <div class="two fields">
             <div class="field">
                 <label>{{ fields.first_name.label }}</label>
-                <input name="first_name" id="first_name" placeholder="{{ fields.first_name.placeholder }}" type="text" value="{{ user_details.first_name }}">
+                <input rule="htmlTags" name="first_name" id="first_name" optional="true" placeholder="{{ fields.first_name.placeholder }}" type="text" value="{{ user_details.first_name }}">
             </div>
             <div class="field">
                 <label>{{ fields.last_name.label }}</label>
-                <input name="last_name" id="last_name" placeholder="{{ fields.last_name.placeholder }}" type="text" value="{{ user_details.last_name }}">
+                <input rule="htmlTags" name="last_name" id="last_name" optional="true" placeholder="{{ fields.last_name.placeholder }}" type="text" value="{{ user_details.last_name }}">
             </div>
         </div>
         <div class="two fields">

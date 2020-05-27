@@ -6,7 +6,10 @@ $(document).ready(function() {
         fields: {
             user_name: {
                 indentifier: 'user_name', 
-                rules: [{ type: 'minLength[2]' }]
+                rules: [
+                    { type: 'minLength[2]' },
+                    { type: 'htmlTags' }
+                ]
             },
             email: {
                 indentifier: 'email', 

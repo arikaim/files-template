@@ -51,11 +51,11 @@
         <div class="two fields">
             <div class="field">
                 <label>{{ fields.phone.label }}</label>
-                <input error-prompt="{{ fields.phone.error }}" rule="integer,minLength[2]" optional="true" name="phone" id="phone" placeholder="{{ fields.phone.placeholder }}" type="text" value="{{ user_details.phone }}">
+                <input error-prompt="{{ fields.phone.error }}" rule="integer,minLength[2]" optional="true" name="phone" id="phone" placeholder="{{ fields.phone.placeholder }}" type="number" value="{{ user_details.phone }}">
             </div>
             <div class="field">
                 <label>{{ fields.phone2.label }}</label>
-                <input error-prompt="{{ fields.phone.error }}" rule="integer,minLength[2]" optional="true" name="phone_2" id="phone_2" placeholder="{{ fields.phone2.placeholder }}" type="text" value="{{ user_details.phone_2 }}">
+                <input error-prompt="{{ fields.phone.error }}" rule="integer,minLength[2]" optional="true" name="phone_2" id="phone_2" placeholder="{{ fields.phone2.placeholder }}" type="number" value="{{ user_details.phone_2 }}">
             </div>
         </div>
     </div>       

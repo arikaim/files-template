@@ -1,3 +1,4 @@
+{% set logged = access().isLogged() %}
 <div class="row bg-blue-800 shadow-lg column">   
     <div class="one wide mobile only tablet only column">
         <div class="ui icon dropdown mobile-menu mt-6">
@@ -13,14 +14,20 @@
         </div>          
     </div>
     <div class="ten wide computer nine wide tablet only column pt-2">                        
-        {{ component('files>navbar.menu') }}
+        {{ component('files>navbar.menu',{ logged: logged }) }}
     </div>      
-    <div class="three wide computer twelve wide mobile two wide tablet column right aligned pt-6">    
-        <div class="ui menu inverted secondary right floated large navbar-menu">
-            {% set logged = access().isLogged() %}
+    <div class="three wide computer twelve wide mobile two wide tablet column pt-6">    
+        <div class="ui menu inverted secondary right floated large">            
             {% if logged == true %} 
             <div class="item">                                  
-                {{ component('users>users.dropdown',{ icon: user_icon, show_user_name: show_user_name }) }}                          
+                {{  component('users>users.dropdown',{ 
+                        class: 'fluid',
+                        icon: 'olive user', 
+                        item_class: 'left aligned fluid',
+                        show_user_name: true,
+                        menu_class: 'vertical left aligned fluid' 
+                    }) 
+                }}                          
             </div>
             {% endif %}
             <div class="item">

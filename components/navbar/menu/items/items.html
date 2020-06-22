@@ -1,12 +1,14 @@
 <div class="item navbar-item {{ (active == 'home') ? 'active': '' }}">
     <a href="{{ url('') }}">{{ labels.home }}</a>
 </div>  
+{% if logged != true %}
 <div class="item navbar-item {{ (active == 'login') ? 'active': '' }}">   
     <a href="{{ url('/login') }}">{{ labels.login }}</a>            
 </div>
 <div class="item navbar-item {{ (active == 'signup') ? 'active': '' }}">   
     <a href="{{ url('/signup') }}">{{ labels.signup }}</a>            
 </div>
+{% endif %}
 <div class="item navbar-item {{ (active == 'about') ? 'active': '' }}">
     <a href="{{ url('/about') }}">{{ labels.about }}</a>
 </div>      

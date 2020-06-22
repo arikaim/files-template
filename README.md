@@ -6,7 +6,8 @@ Arikaim CMS Files Manager site theme
 
 #### Requirements 
   * [Arikaim CMS](https://github.com/arikaim/arikaim)
- 
+  * [Files Manager Script](https://codecanyon.net/item/files-manager-script/26802254)
+  
   * UI libraries
     * adsense
     * jquery

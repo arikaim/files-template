@@ -1,8 +1,8 @@
 {% component 'files>layout.page' %}
 {% set active = 'signup' %}
-<div class="ui centered grid"> 
-    <div class="seven wide column mt-64">         
-        {{ component('users>users.signup') }}           
-    </div>    
+<div class="flex pt-64 w-full justify-center" id="login_box">
+    <div class="flex-shrink-0 self-center w-77">
+        {{ component('users>users.signup') }}         
+    </div>        
 </div>
 {% endcomponent %}

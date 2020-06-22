@@ -1,27 +1,31 @@
 <div class="row bg-blue-800 shadow-lg column">   
     <div class="one wide mobile only tablet only column">
-        <div class="ui icon inverted dropdown mobile-menu mt-5">
+        <div class="ui icon dropdown mobile-menu mt-6">
             <i class="icon big bars pl-4 inverted white open-sidebar"></i>
             <div class="ui menu">            
                 {{ component('files>navbar.menu.items',{ active: active }) }}   
             </div>
         </div>   
     </div>
-    <div class="two wide column">       
-        <div class="navbar-title mt-6 pl-4 navbar-item pt-2">
+    <div class="three wide column">       
+        <div class="navbar-title mt-6 pl-4 navbar-item pt-2 mr-4">
             {{ title }}      
         </div>          
     </div>
-    <div class="ten wide computer only column pt-2">                        
+    <div class="ten wide computer nine wide tablet only column pt-2">                        
         {{ component('files>navbar.menu') }}
-    </div>
-    <div class="four wide right aligned column pt-2">         
-        {{  component('users>users.menu.login',{
-                class: 'inverted secondary right floated large navbar-menu',
-                show_user_name: true,
-                user_icon: 'user olive',
-                active: active
-            }) 
-        }}                                                                                                                                     
-    </div>          
+    </div>      
+    <div class="three wide computer twelve wide mobile two wide tablet column right aligned pt-6">    
+        <div class="ui menu inverted secondary right floated large navbar-menu">
+            {% set logged = access().isLogged() %}
+            {% if logged == true %} 
+            <div class="item">                                  
+                {{ component('users>users.dropdown',{ icon: user_icon, show_user_name: show_user_name }) }}                          
+            </div>
+            {% endif %}
+            <div class="item">
+                {{ component("components:language.dropdown") }}      
+            </div>
+        </div>                             
+    </div>       
 </div>

@@ -54,11 +54,20 @@ body {
 .height-94 {
     height: 94%;
 }
+.w-77 {
+    width: 35rem;
+}
 .w-76 {
     width: 34rem;
 }
 .w-74 {
     width: 30rem;
+}
+.h-76 {
+    height: 34rem;
+}
+.h-74 {
+    height: 30rem;
 }
 .pt-19 {
     padding-top: 4.7rem;

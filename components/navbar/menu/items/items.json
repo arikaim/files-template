@@ -1,6 +1,8 @@
 {
     "labels": {
         "home": "Home",
-        "about": "About"
+        "about": "About",
+        "login": "Login",
+        "signup": "Sign Up"
     }
 }

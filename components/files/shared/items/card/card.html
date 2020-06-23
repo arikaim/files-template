@@ -1,35 +1,45 @@
-<div class="ui card" id="row_{{ file.uuid }}">
-    <div class="content">
-        {{ component('storage>files.shared.items.actions',{ file: file, class: 'inline' }) }}
-        <span class="font-bold">{{ file.path }}</span>
-    </div>
+<div class="w-full h-full rounded border border-solid border-gray-400 overflow-hidden shadow-lg" id="row_{{ file.uuid }}">
+    <div class="content p-2">
+        <div class="flex">            
+            {{ component('storage>files.shared.items.actions',{ file: file, class: 'inline' }) }}          
+            <div class="pl-2 font-bold show-popup" data-content="{{ file.file_name }} ">                 
+                {{ file.file_name|sliceLabel(20,'...') }}                   
+            </div>       
+        </div>               
+    </div>      
     <div class="content">
         <div class="ui center aligned">                                      
             <a class="ui link" href="{{ file.getDownloadUrl() }}">
-                <div class="ui rounded fluid image h-32">
-                    {% if isImage(file.mime_type) == true %}                                                 
-                        <img src="{{ file.getViewImageUrl() }}"/>                             
-                    {% else %}                           
+                {% if file.isImage() == true %}
+                    <img class="w-full h-32" src="{{ file.getViewImageUrl() }}">
+                {% else %} 
+                    <div class="mt-1">                                             
                         {{ component('storage>files.icon',{ type: file.mime_type, class: 'massive' }) }}   
-                        <div class="h-8"></div>    
-                    {% endif %}
-                </div> 
+                    </div>                        
+                {% endif %}                
             </a>                       
         </div>          
     </div>
-    <div class="extra content">          
-        <span class="ui text small">
-            {{ file.date_created|dateFormat }}
-        </span>
+    <div class="content p-2">                  
         <div class="ui mini labels right floated">            
-            <div class="ui basic label">
+            <div class="ui basic label show-popup" data-content="{{ labels.size }}">
                 {{ file.size|fileSize }}
-            </div>          
+            </div>         
+            {% if file.downloads > 0 %}
+            <div class="ui basic label show-popup" data-content="{{ labels.downloads }}">
+                <i class="icon download"></i>                     
+                {{ file.downloads }}        
+            </div>
+            {% endif %}   
             {% if file.public == 1 %}
                 <div class="ui basic green label">{{ labels.public }}</div>
             {% elseif file.hasPermission(user_id) == true %}
                 <div class="ui basic olive label">{{ labels.shared }}</div>           
             {% endif %} 
         </div>
+        <span class="ui text small show-popup" data-content="{{ labels.date }}">
+            <i class="icon blue outline calendar"></i>
+            {{ file.date_created|dateFormat }}
+        </span>  
     </div>
 </div>

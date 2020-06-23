@@ -1,6 +1,6 @@
 {      
     "title": "Files Manager",
-    "version": "1.1.4",
+    "version": "1.1.5",
     "name": "files",
     "package-type": "template",
     "icon": "file",
@@ -53,7 +53,7 @@
             "arikaim",
             "arikaim-ui",
             "fomantic",
-            "tailwind"
+            "tailwind:1.4.6"
         ],
         "loader": "components:loader.dimmer"
     }   

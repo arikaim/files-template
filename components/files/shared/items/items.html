@@ -7,7 +7,7 @@
 {% if view_type == 'table' %}
 <div class="ui big list">
 {% else %}
-<div class="ui ten cards">
+<div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-10 gap-4">
 {% endif %}
 
 {% if items.getItems()|length == 0 %}

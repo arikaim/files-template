@@ -2,6 +2,9 @@
     "labels": {
         "public": "Public",
         "shared": "Shared",
-        "downloads": "Downloads"
+        "downloads": "Downloads",
+        "items": "Items",       
+        "date": "Date Created",
+        "size": "File Size"       
     }
 }

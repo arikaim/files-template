@@ -3,6 +3,7 @@
         "public": "Public",
         "items": "Items",
         "shared": "Shared",
+        "date": "Date Created",
         "downloads": "Downloads"
     }
 }

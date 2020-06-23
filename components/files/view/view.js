@@ -78,6 +78,8 @@ function FilesView() {
     };
 
     this.initRows = function() { 
+        $('.show-popup').popup({});
+
         $('.file-link-button').popup({
             on: 'click'
         });        

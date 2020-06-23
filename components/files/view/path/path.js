@@ -1,6 +1,8 @@
 'use strict';
 
 arikaim.page.onReady(function() {
+    $('.show-popup').popup({});
+    
     breadcrumb.init({
         onSelect: function(path) {  
             arikaim.page.loadContent({

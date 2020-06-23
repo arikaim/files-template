@@ -23,13 +23,17 @@
             {{ component('storage>files.icon',{ type: file.mime_type, class: 'large ' ~ color_icon }) }} 
             {{ file.file_name }}         
         {% endif %}
+        <div class="ui basic horizontal label right floated show-popup" data-content="{{ labels.date }}">
+            <i class="icon blue outline calendar"></i>
+            {{ file.date_created|dateFormat }}
+        </div>   
         {% if file.isDirectory() == true %}
-            <div class="ui basic horizontal label right floated" title="{{ labels.items }}">                               
+            <div class="ui basic horizontal label right floated show-popup" data-content="{{ labels.items }}">                               
                 {{ count }}
             </div>
         {% endif %}   
         {% if file.downloads > 0 %}
-            <div class="ui basic horizontal label right floated" title="{{ labels.downloads }}">
+            <div class="ui basic horizontal label right floated show-popup" data-content="{{ labels.downloads }}">
                 <i class="icon download"></i>                     
                 {{ file.downloads }}        
             </div>
@@ -37,7 +41,9 @@
         {% if file.isPublic() == true %}
             <div class="ui basic green horizontal label right floated">{{ labels.public }}</div>
         {% elseif file.hasPermissions() == true %}
-            <div class="ui basic olive horizontal label right floated">{{ labels.shared }}</div>
+            <div class="ui basic olive horizontal label right floated">
+                {{ labels.shared }}
+            </div>
         {% endif %}              
     </div>  
 </div>

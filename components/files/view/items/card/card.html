@@ -40,7 +40,7 @@
                         {{ file.size|fileSize }}
                     </div>           
                     {% if file.downloads > 0 %}
-                        <div class="ui basic label" title="{{ labels.downloads }}">
+                        <div class="ui basic label show-popup" data-content="{{ labels.downloads }}">
                             <i class="icon download"></i>                     
                             {{ file.downloads }}        
                         </div>
@@ -59,7 +59,8 @@
                     <div class="ui basic olive label">{{ labels.shared }}</div>           
                 {% endif %} 
             </div>       
-            <span class="ui text small">
+            <span class="ui text small show-popup" data-content="{{ labels.date }}">
+                <i class="icon blue outline calendar"></i>
                 {{ file.date_created|dateFormat }}
             </span>                           
         </div>         

@@ -7,8 +7,8 @@
                 {% else %}
                     {{ component('storage>files.view.items.actions',{ file: file, class: 'inline' }) }}
                 {% endif %} 
-                <div class="pl-2 font-bold">                 
-                    {{ file.file_name }}                   
+                <div class="pl-2 font-bold show-popup" data-content="{{ file.file_name }} ">                 
+                    {{ file.file_name|sliceLabel(20,'...') }}                   
                 </div>       
             </div>               
         </div>   
@@ -36,7 +36,7 @@
         <div class="content p-2">                          
             <div class="ui mini labels mt-1">         
                 {% if file.isDirectory() == false %}
-                    <div class="ui basic label">
+                    <div class="ui basic label show-popup" data-content="{{ labels.size }}">
                         {{ file.size|fileSize }}
                     </div>           
                     {% if file.downloads > 0 %}

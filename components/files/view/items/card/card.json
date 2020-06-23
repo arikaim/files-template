@@ -4,6 +4,7 @@
         "public": "Public",
         "shared": "Shared",
         "date": "Date Created",
+        "size": "File Size",
         "downloads": "Downloads"
     }
 }

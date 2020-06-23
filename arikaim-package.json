@@ -1,6 +1,6 @@
 {      
     "title": "Files Manager",
-    "version": "1.1.2",
+    "version": "1.1.3",
     "name": "files",
     "package-type": "template",
     "icon": "file",

@@ -11,7 +11,10 @@
     "errors": {
         "html": "Html tags not allowed",
         "token": "Not valid or expired access token",
-        "username": "This username already exists. Please use a different username",
+        "username": {
+            "valid": "Username not valid, must start with letter, only letters and numbers allowed",
+            "exist": "User with this username already exists. Please use a different username"
+        }, 
         "email": "User with this email address already exists. Please use a different email",
         "signup": "User registration error",
         "login": "Login details are incorrect",

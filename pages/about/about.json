@@ -1,6 +1,7 @@
 {
     "title": "About",
     "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",  
         "title": "About",
         "description": "About page",
         "keywords": "about, site"

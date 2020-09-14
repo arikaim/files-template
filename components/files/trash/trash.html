@@ -26,6 +26,6 @@
         {{ component('components:view.type.button',{ namespace: 'trash' }) }}
     </div>  
 </div>
-<div class="ui segment height-90" id="view_content" component="storage>files.view.items" namespace="files" path="bin" trash="true"> 
-    {{ component("storage>files.view.items",{ path: 'bin', trash: true }) }}
+<div class="ui segment height-90" id="view_content" component="files>files.view.items" namespace="files" path="bin" trash="true"> 
+    {{ component("files>files.view.items",{ path: 'bin', trash: true, view_type: view_type }) }}
 </div>

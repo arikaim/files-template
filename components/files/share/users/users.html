@@ -1,7 +1,7 @@
 <div>
     {% if hasExtension('users') == true %}
-        {{ component('storage>files.share.users.view',{ file_id: file }) }}      
-        {{ component('storage>files.share.users.add',{ file_id: file }) }}      
+        {{ component('files>files.share.users.view',{ file_id: file }) }}      
+        {{ component('files>files.share.users.add',{ file_id: file }) }}      
     {% else %}
         <div class="ui message">
             {{ message }}

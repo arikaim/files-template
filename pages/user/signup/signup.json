@@ -1,5 +1,6 @@
 {
     "head": {
-        "title": "Sign Up"
+        "title": "Sign Up",
+        "favicon": "{{ template_url }}/images/favicon.png"      
     }
 }

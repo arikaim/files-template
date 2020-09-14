@@ -1,9 +1,8 @@
 {
-    "labels": {
-        "public": "Public",
-        "shared": "Shared",
+    "labels": {        
         "downloads": "Downloads",
-        "items": "Items",       
+        "download": "Download",
+        "password": "Password Protected",          
         "date": "Date Created",
         "size": "File Size"       
     }

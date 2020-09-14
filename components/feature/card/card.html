@@ -1,0 +1,13 @@
+{% set color_class = color_class|default('text-gray-700') %}
+
+<div class="shadow-lg pb-4 feature-panel min-h-full">
+    <div class="flex justify-center">
+        <svg class="svg-icon w-32 h-32 {{ color_class }}">
+            <use xlink:href="{{ template_url }}/images/icons/{{ icon }}"/>
+        </svg>  
+    </div>                 
+    <div class="feature-title">{{ title }}</div>   
+    <p class="mt-2 p-1 feature-description">
+       {{ description }}
+    </p>  
+</div>      

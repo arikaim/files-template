@@ -1,9 +1,9 @@
 {% set user = service('access').getUser() %}
-{{ component('users>users.title',{ title: title }) }}
+{{ component('files>users.title',{ title: title, icon: 'file outline alternate blue' }) }}
 <div class="flex mt-6 pl-2 height-94">    
     <div class="w-76 flex-shrink-0 hidden file-details mr-2" id="file_details">        
     </div>
     <div class="w-full flex-shrink-1 mr-2" id="files_content">                                  
-        {{ component('storage>files.view') }}                 
+        {{ component('files>files.view') }}                 
     </div>    
 </div>

@@ -1,13 +1,13 @@
 'use strict';
 
-arikaim.page.onReady(function() {
+$(document).ready(function() {
     $('.show-popup').popup({});
-    
+
     breadcrumb.init({
         onSelect: function(path) {  
             arikaim.page.loadContent({
                 id: 'view_content',           
-                component: 'storage>files.view.items',
+                component: 'files>files.view.items',
                 params: { 
                     path: path               
                 }

@@ -2,9 +2,7 @@
     "title": "User Accont",
     "items": {
         "dashboard": "Dashboard",
-        "details": "Edit Details",
-        "change_password": "Change Password",  
-        "settings": "Settings",
+        "account": "Account",
         "logout": "Log out"
     }
 }

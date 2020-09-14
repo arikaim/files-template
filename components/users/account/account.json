@@ -1,0 +1,8 @@
+{
+    "title": "Account",
+    "menu": {
+        "details": "Details",
+        "password": "Change Password",      
+        "settings": "Settings"
+    }
+}

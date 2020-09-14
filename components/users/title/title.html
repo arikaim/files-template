@@ -1,6 +1,12 @@
-<div class="shadow-lg border-0 border-b-2 border-blue-600 border-dotted bg-white pb-1 {{ class }}">
-    {% if icon is not empty %}
-    <i class="icon pl-2 {{ icon }}"></i>
-    {% endif %}
-    <h3 class="content p-title font-bold">{{ title }}</h3>
+<div class="shadow-lg border-0 border-b-2 border-blue-600 border-dotted bg-white pb-1 {{ class }}">  
+    <div class="flex items-center">
+        {% if icon is not empty %}
+            <div class="pr-2">
+                <i class="icon large pl-4 {{ icon }}"></i>
+            </div>        
+        {% endif %}
+        <h3 class="content p-title font-bold pl-2">        
+            {{ title }}
+        </h3>
+    </div>  
 </div>

@@ -7,7 +7,7 @@ $(document).ready(function() {
             arikaim.page.loadContent({
                 id: 'avatar_image',
                 params: { },
-                component: 'users>users.avatar.image'
+                component: 'files>users.avatar.image'
             },function(result) {
 
             });

@@ -1,0 +1,21 @@
+{% component 'files>users.dashboard.card' %}
+    {% set icon = 'info circle' %}
+    <div class="ui header mini">
+        <div class="content">
+            <i class="icon blue calendar"></i>
+            {{ labels.login }}
+            <div class="sub header">
+                <span class="pl-4">{{ user.date_login|dateTimeFormat }}</span>
+            </div>            
+        </div>        
+    </div>
+    <div class="ui header mini">
+        <div class="content">
+            <i class="icon blue calendar"></i>
+            {{ labels.signup }}
+            <div class="sub header">
+                <span class="pl-4">{{ user.date_created|dateTimeFormat }}</span>
+            </div>
+        </div>        
+    </div>   
+{% endcomponent %}

@@ -11,7 +11,7 @@ function TrashView() {
     this.mesages = {};
 
     this.init = function() {
-        arikaim.component.loadProperties('storage>files.messages',function(params) { 
+        arikaim.component.loadProperties('files>files.messages',function(params) { 
             self.messages = params.messages;
         });
       
@@ -23,7 +23,7 @@ function TrashView() {
 
         viewTypeButton.init(function(view) {  
             var path = breadcrumb.getCurrentPath(); 
-            return self.loadTrashItems(path);                   
+            return self.loadTrashItems(path,view);                   
         });
 
         arikaim.ui.button('.empty-trash',function(element) {       
@@ -78,13 +78,14 @@ function TrashView() {
         }); 
     };
 
-    this.loadTrashItems = function(path) {
+    this.loadTrashItems = function(path,viewType) {
         return arikaim.page.loadContent({
             id: 'view_content',           
-            component: 'storage>files.view.items',
+            component: 'files>files.view.items',
             params: { 
                 path: path,
-                trash: true               
+                trash: true,              
+                view_type: viewType                
             }
         });
     }

@@ -1,5 +1,15 @@
 {
+    "include": {
+        "js":[            
+            "components:upload",
+            "components:breadcrumb",
+            "components:paginator",
+            "components:pdf",
+            "components:view.type.button"
+        ] 
+    },
     "access": {
-        "auth": "session"
+        "auth": "session",
+        "redirect": "/user"
     }
 }

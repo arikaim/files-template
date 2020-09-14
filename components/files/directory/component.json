@@ -1,5 +1,6 @@
 {
     "access": {
-        "auth": "session"
+        "auth": "session",
+        "redirect": "/user"
     }
 }

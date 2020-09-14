@@ -1,0 +1,20 @@
+{{ component('files>users.title',{ title: title, icon: 'user blue' }) }}
+<div class="flex mt-6 pl-2 height-94">  
+    <div class="w-64 flex-shrink-0 todo-details mr-2" id="menu_panel">        
+        <div class="ui segment h-full p-4">
+            <div class="ui secondary fluid vertical menu">
+                <a class="item account-menu-item active" component="files>users.account.details" >
+                    <i class="left icon edit blue"></i>
+                    {{ menu.details }}
+                </a>
+                <a class="item account-menu-item" component="files>users.account.password">
+                    <i class="left icon lock blue"></i>
+                    {{ menu.password }}
+                </a>  
+            </div>
+        </div>
+    </div>
+    <div class="w-full flex-shrink-1 mr-2" id="account_content">         
+        {{ component('files>users.account.details') }}                        
+    </div>
+</div>

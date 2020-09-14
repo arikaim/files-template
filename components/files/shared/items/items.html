@@ -15,9 +15,9 @@
 {% endif %}
 {% for item in items.getItems() %}   
     {% if view_type == 'table' %}
-        {{ component('storage>files.shared.items.item',{ user_id: user_id, file: item.file }) }}
+        {{ component('files>files.shared.items.item',{ user_id: user_id, file: item.file }) }}
     {% else %}
-        {{ component('storage>files.shared.items.card',{ user_id: user_id, file: item.file }) }}
+        {{ component('files>files.shared.items.card',{ user_id: user_id, file: item.file }) }}
     {% endif %}   
 {% endfor %}
 </div>

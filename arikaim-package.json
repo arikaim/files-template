@@ -1,6 +1,6 @@
 {      
     "title": "Files Manager",
-    "version": "1.1.5",
+    "version": "1.2.0",
     "name": "files",
     "package-type": "template",
     "icon": "file",
@@ -11,7 +11,10 @@
             "jquery",
             "arikaim",
             "arikaim-ui",
-            "fomantic",          
+            "fomantic",  
+            "plyr", 
+            "pdf-js",      
+            "highlight", 
             "tailwind"
         ],
         "extensions": [
@@ -39,6 +42,9 @@
             "name": "privacy"                   
         }
     ],
+    "languages": [
+        "en"      
+    ],
     "include": {     
         "components": [    
             "files>users",
@@ -50,9 +56,12 @@
         "library": [
             "jquery",    
             "filepond",               
-            "arikaim",
-            "arikaim-ui",
+            "arikaim:source",
+            "arikaim-ui:source",
             "fomantic",
+            "plyr",   
+            "highlight",
+            "pdf-js",   
             "tailwind:1.4.6"
         ],
         "loader": "components:loader.dimmer"

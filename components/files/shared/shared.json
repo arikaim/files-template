@@ -1,3 +1,9 @@
 {
-    
+    "labels": {
+        "paginator": "Rows per page"
+    },
+    "preview": {
+        "title": "Preview",
+        "close": "Close"
+    }  
 }

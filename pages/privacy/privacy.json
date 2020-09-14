@@ -1,6 +1,7 @@
 {
     "title": "Privacy Policy",
     "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",  
         "title": "Privacy Policy"
     }
 }

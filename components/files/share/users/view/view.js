@@ -15,7 +15,7 @@ function FilePermissionsView() {
     };
 
     this.initRows = function() { 
-        arikaim.component.loadProperties('storage>files.messages',function(params) { 
+        arikaim.component.loadProperties('files>files.messages',function(params) { 
             self.messages = params.messages;
         }); 
 

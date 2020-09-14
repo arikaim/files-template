@@ -18,7 +18,7 @@ arikaim.page.onReady(function() {
     arikaim.ui.button('#forgotten_button',function() {
         return arikaim.page.loadContent({
             id : 'login_panel',
-            component: 'users>users.reset-password'
+            component: 'files>users.reset-password'
         });
     });
     

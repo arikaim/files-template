@@ -1,3 +1,4 @@
+{% set class = class|default('basic mini button') %}
 <div class="ui dropdown file-actions icon {{ class }}">
     <i class="ellipsis vertical icon"></i>
     <div class="menu">
@@ -9,7 +10,17 @@
         {% else %}            
             <div class="item share-file" uuid="{{ file.uuid }}" path="{{ file.path }}" {{ buttons.share.title|attr('title') }}>
                 <i class="icon share"></i>
-                {{ labels.share }}
+                {% if file.hasPermissions() == true %}
+                    {{ labels.edit }}
+                {% else %}
+                    {{ labels.share }}
+                {% endif %}
+            </div>
+            <div class="item">
+                <a class="ui link" href="{{ file.getDownloadUrl() }}">       
+                    <i class="icon show-popup download" title="{{ labels.download }}"></i> 
+                    <span class="pl-2">{{ labels.download }}</span>                                    
+                </a> 
             </div>
             <div class="item file-link-button" data-title="{{ labels.link }}" data-content="{{ file.getDownloadUrl() }}" uuid="{{ file.uuid }}" path="{{ file.path }}" {{ buttons.share.title|attr('title') }}>
                 <i class="icon linkify"></i>

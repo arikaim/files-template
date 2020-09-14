@@ -10,20 +10,15 @@
     {% endif %}
     <div class="ui menu {{ menu_class }}">
         {% if service('access').isLogged() == true %}
-            <a class="item {{ item_class }} {{ (selected == 'dashboard') ? 'active' : '' }} dropdown-user-menu-item" component="users>users.dashboard" href="{{ url('/user/dashboard') }}">
+            <a class="item {{ item_class }} {{ (selected == 'dashboard') ? 'active' : '' }} dropdown-user-menu-item" component="files>users.dashboard" href="{{ url('/user/dashboard') }}">
                 <i class="icon dashboard {{ icon_class }}"></i>
                 {{ items.dashboard }}
             </a>
-            <a class="item {{ item_class }} {{ (selected == 'details') ? 'active' : '' }} dropdown-user-menu-item" component="users>users.details" href="{{ url('/user/details') }}">
-                <i class="icon edit {{ icon_class }}"></i>
-                {{ items.details }}
+            <a class="item {{ item_class }} {{ (selected == 'account') ? 'active' : '' }} dropdown-user-menu-item" component="files>users.account" href="{{ url('/user/account') }}">
+                <i class="icon cog {{ icon_class }}"></i>
+                {{ items.account }}
             </a>
-            <a class="item {{ item_class }} {{ (selected == 'change-password') ? 'active' : '' }} dropdown-user-menu-item" component="users>users.password" href="{{ url('/user/change-password') }}">
-                <i class="icon lock {{ icon_class }}"></i>
-                {{ items.change_password }}
-            </a>       
-            {{ content }}
-            <a class="item {{ item_class }} dropdown-user-menu-item" component="users>users.logout" href="{{ url('/logout') }}">
+            <a class="item {{ item_class }} dropdown-user-menu-item" component="files>users.logout" href="{{ url('/logout') }}">
                 <i class="icon sign out {{ icon_class }}"></i>
                 {{ items.logout }}
             </a>

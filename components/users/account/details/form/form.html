@@ -11,13 +11,8 @@
                 <input type="text" name="user_name" id="user_name" {{ fields.user_name.placeholder|attr('placeholder') }} value="{{ user.user_name }}"> 
             </div>
         </div>   
-        {{  component('components:form.fields.checkbox',{ 
-                value: user_details.public_profile, 
-                name: 'public_profile',
-                field_class : 'toggle',
-                label: fields.public.label 
-            }) 
-        }}  
+        <div class="field">                  
+        </div>
     </div>
     <div class="two fields">
         <div class="field">
@@ -27,10 +22,7 @@
                 <input type="text" name="email" id="email" {{ fields.email.placeholder|attr('placeholder') }} value="{{ user.email }}">  
             </div>
         </div>  
-        <div class="field">
-            <div class="mt-8">
-                <a class="ui button tertiary blue" target="profile" href="{{ user_details.getUserProfileUrl() }}">View Profile</a>
-            </div>         
+        <div class="field">                  
         </div>
     </div>
     <div class="ui horizontal divider"></div>   

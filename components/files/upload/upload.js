@@ -1,6 +1,11 @@
 'use strict';
 
 $(document).ready(function() {
+
+    arikaim.ui.button('.close-button',function(element) {              
+        $('.upload-file').click();      
+    });
+
     var fileUpload = new FileUpload('#file_form',{
         url: '/api/storage/upload',
         maxFiles: 1,
@@ -16,12 +21,13 @@ $(document).ready(function() {
             }          
         },
         onSuccess: function(result) {
+            arikaim.page.toastMessage(result.message);
             arikaim.ui.form.clear('#file_form');          
             fileUpload.reset();
              
             return arikaim.page.loadContent({
                 id: 'files_content',
-                component: 'storage>files.view',
+                component: 'files>files.view',
                 params: { path: result.path },                
             });
         }

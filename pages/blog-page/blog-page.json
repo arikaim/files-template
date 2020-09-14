@@ -3,6 +3,7 @@
         "title": "Home"
     },
     "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",  
         "title": "Blog",
         "description": "Blog"
     }    

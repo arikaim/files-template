@@ -18,6 +18,12 @@ function FilesApi() {
         return arikaim.put('/api/storage/permission/add/user',data,onSuccess,onError);
     };
 
+    this.downloadProtetedFile = function(fileName, formId, onSuccess, onError) {
+        var data = arikaim.ui.form.serialize('#' + formId);
+           
+        return arikaim.downloadFile('/api/storage/file/download/','PUT',fileName,data,onSuccess,onError);           
+    };
+
     this.deletePermission = function(uuid, onSuccess, onError) {
         return arikaim.delete('/api/storage/permission/delete/' + uuid,onSuccess,onError);
     };
@@ -47,6 +53,10 @@ function FilesApi() {
 
     this.updateNote = function(formId, onSuccess, onError) {
         return arikaim.put('/api/storage/note/update',formId,onSuccess,onError);
+    };
+
+    this.updatePassword = function(formId, onSuccess, onError) {
+        return arikaim.put('/api/storage/password/update',formId,onSuccess,onError);
     };
 
     this.moveToTrash = function(path, fileName, onSuccess, onError) {

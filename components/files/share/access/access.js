@@ -1,6 +1,7 @@
 'use strict';
 
 $(document).ready(function() {
+
     $('#access').checkbox({
         onChecked: function() {   
             var uuid = $(this).attr('uuid');         
@@ -10,7 +11,7 @@ $(document).ready(function() {
                 var uuid = $('#note_tab').attr('uuid');
                 arikaim.page.loadContent({
                     id: 'share_tab_content',
-                    component: 'storage>files.share.note',
+                    component: 'files>files.share.note',
                     params: { uuid: uuid }
                 });             
             });
@@ -25,7 +26,7 @@ $(document).ready(function() {
                 
                 arikaim.page.loadContent({
                     id: 'share_tab_content',
-                    component: 'storage>files.share.users',
+                    component: 'files>files.share.users',
                     params: { 
                         uuid: uuid,
                         file: file

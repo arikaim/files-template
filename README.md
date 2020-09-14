@@ -15,6 +15,7 @@ Arikaim CMS Files Manager site theme
     * arikaim-ui
     * fomantic
     * tailwind
+    * plyr
   
 #### Html Components
   * layout

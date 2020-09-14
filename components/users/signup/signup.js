@@ -31,7 +31,7 @@ $(document).ready(function() {
     },function(result) {             
         arikaim.page.loadContent({
             id: 'signup_content',
-            component: 'users>users.signup.message',
+            component: 'files>users.signup.message',
             params: { uuid: result.uuid }
         });  
     });

@@ -1,0 +1,53 @@
+{% set file = createModel('Files','storage').findById(uuid) %}
+{% set file_type = file.getFileType() %}
+<div></div>
+<div class="pt-1" id="preview_file_type" file-type="{{ file_type }}">
+    {% if file_type == 'image' %}
+        <img class="image w-full h-full" src="{{ file.getViewImageUrl() }}">
+    {% elseif file_type == 'video' %}
+        <video class="h-full w-full" id="player" playsinline controls>
+            <source src="{{ file.getViewImageUrl() }}" type="{{ file.mime_type }}" />        
+        </video>
+    {% elseif file_type == 'audio' %}
+        <audio id="player" controls >
+            <source src="{{ file.getViewImageUrl() }}" type="{{ file.mime_type }}" />       
+        </audio>   
+    {% elseif file_type == 'text' %}     
+        {% set url = file.getViewImageUrl(null,true) %} 
+        <div class="p-2 overscroll-auto">
+            <pre><code class="language-php" id="code" url="{{ url }}"></code></pre>
+        </div>        
+    {% elseif file_type == 'pdf' %}    
+    <div id="pdf_view_container" worker="{{ getLibraryUrl('pdf-js') }}/pdf.worker.js" url="{{ file.getViewImageUrl() }}">
+        {{ component('components:pdf',{ file_name: file.getBasename() }) }}
+    </div>    
+    {% elseif file_type == 'zip' %} 
+    <div class="p-1">
+        <div class="flex">
+            <div>
+                <i class="file archive outline massive icon"></i>
+            </div>
+            <div class="pl-2">
+                <h3 class="font-bold">
+                    {{ labels.zip }}
+                </h3>
+            </div>
+        </div>
+    </div>
+    {% else %}
+    <div class="p-1">
+        <div class="flex">
+            <div>
+                <svg class="svg-icon w-32 h-32 {{ color_class }}">
+                    <use xlink:href="{{ template_url }}/images/icons/file-text.svg#file_text"/>
+                </svg>
+            </div>
+            <div class="pl-2">
+                <h3 class="font-bold">
+                    {{ labels.unknown }}
+                </h3>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+</div>

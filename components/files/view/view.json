@@ -9,5 +9,9 @@
             "title": "Recycle Bin",
             "description": "Delete all files in Recycle Bin."
         }      
+    },
+    "preview": {
+        "title": "Preview",
+        "close": "Close"
     }  
 }

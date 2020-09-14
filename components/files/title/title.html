@@ -1,10 +1,19 @@
 <div class="ui segment">
-    <div class="p-2">
-        <div class="ui header">       
-            <i class="icon  blue {{ icon }}"></i>  
-            <div class="content">                
-                <h4>{{ title }}</h4>
-            </div>           
-        </div>  
+    <div class="ui grid">
+        <div class="ten wide column">
+            <div class="pt-2">
+                <div class="ui header">       
+                    <i class="icon blue {{ icon }}"></i>  
+                    <div class="content">                
+                        {{ title }}                    
+                    </div>                      
+                </div>  
+            </div>
+        </div>
+        <div class="six wide column right aligned">   
+            <button class="ui icon tertiary button right aligned floated close-button" title="{{ labels.close }}">
+                <i class="icon blue close"></i>
+            </button>   
+        </div>
     </div>
 </div>

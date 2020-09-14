@@ -26,7 +26,7 @@ $(document).ready(function() {
                     uuid: result.uuid,
                 },
                 append: true,
-                component: 'storage>files.share.users.view.rows.row'
+                component: 'files>files.share.users.view.rows.row'
             },function(result) {                  
                 filePermissions.initRows();
             });    

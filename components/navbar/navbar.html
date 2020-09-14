@@ -9,8 +9,15 @@
         </div>   
     </div>
     <div class="three wide column">       
-        <div class="navbar-title mt-6 pl-4 navbar-item pt-2 mr-4">
-            {{ title }}      
+        <div class="flex items-center navbar-title mt-6 pl-4 navbar-item mr-4">
+            <div>
+                <svg class="svg-icon w-12 h-12">
+                    <use xlink:href="{{ template_url }}/images/icons/file-text.svg#file_text"/>
+                </svg>
+            </div>
+            <div class="pt-1 pl-4">
+                {{ title }}     
+            </div>             
         </div>          
     </div>
     <div class="ten wide computer nine wide tablet only column pt-2">                        
@@ -25,7 +32,7 @@
                         icon: 'olive user', 
                         item_class: 'left aligned fluid',
                         show_user_name: true,
-                        menu_class: 'vertical left aligned fluid' 
+                        menu_class: 'vertical  fluid' 
                     }) 
                 }}                          
             </div>

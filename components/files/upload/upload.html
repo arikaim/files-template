@@ -1,7 +1,7 @@
-{{ component('storage>files.title',{ title: title.content, icon: title.icon }) }} 
+{{ component('files>files.title',{ title: title.content, icon: title.icon }) }} 
 <div class="ui segment">    
     <div class="mt-4">
-        {{  component('storage>files.upload.form',{ 
+        {{  component('files>files.upload.form',{ 
                 path: path,
                 hide_path: false 
             }) 

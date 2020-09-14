@@ -11,15 +11,17 @@ function FilesView() {
     this.mesages = {};
 
     this.init = function() {  
-        arikaim.component.loadProperties('storage>files.messages',function(params) { 
+        arikaim.component.loadProperties('files>files.messages',function(params) { 
             self.messages = params.messages;
         }); 
-          
+        
+        paginator.init('view_content');   
+
         viewTypeButton.init(function(view) {  
             var path = breadcrumb.getCurrentPath();     
             arikaim.page.loadContent({
                 id: 'view_content',           
-                component: 'storage>files.view.items',
+                component: 'files>files.view.items',
                 params: { 
                     path: path,
                     view_type: view 
@@ -39,7 +41,7 @@ function FilesView() {
 
                 arikaim.page.loadContent({
                     id: 'file_details',           
-                    component: 'storage>files.upload',
+                    component: 'files>files.upload',
                     params: { path: path }
                 }); 
             }
@@ -56,7 +58,7 @@ function FilesView() {
                 var path = breadcrumb.getCurrentPath();
                 arikaim.page.loadContent({
                     id: 'file_details',           
-                    component: 'storage>files.directory.create',
+                    component: 'files>files.directory.create',
                     params: { path: path }
                 }); 
             }
@@ -69,7 +71,7 @@ function FilesView() {
     
         return arikaim.page.loadContent({
             id: 'view_content',           
-            component: 'storage>files.view.items',
+            component: 'files>files.view.items',
             params: { 
                 path: path,
                 trash: trash               
@@ -85,6 +87,27 @@ function FilesView() {
         });        
         $('.file-actions').dropdown({});
     
+        arikaim.ui.button('.preview-file',function(element) {
+            var uuid = $(element).attr('uuid');
+            $('#preview_file_content').html("");
+
+            $('#preview_file').modal({
+                centered: true,
+                onVisible: function() {
+                    arikaim.page.loadContent({
+                        id: 'preview_file_content',           
+                        component: 'files>files.file.preview',
+                        params: { 
+                            uuid: uuid
+                        }
+                    });
+                },
+                onHide: function() {
+                    $('#preview_file_content').html("");
+                }   
+            }).modal('show');                         
+        });
+
         arikaim.ui.button('.delete-file',function(element) {
             var path = $(element).attr('path');
             var fileName = $(element).attr('name');
@@ -138,7 +161,7 @@ function FilesView() {
 
             return arikaim.page.loadContent({
                 id: 'file_details',           
-                component: 'storage>files.share',
+                component: 'files>files.share',
                 params: { 
                     uuid: uuid,
                     path: path 

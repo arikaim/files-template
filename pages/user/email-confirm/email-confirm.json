@@ -1,6 +1,7 @@
 {
     "head": {
-        "title": "Email Confirm"
+        "title": "Email Confirm",
+        "favicon": "{{ template_url }}/images/favicon.png"      
     },
     "message": "Your email has been confirmed."
 }

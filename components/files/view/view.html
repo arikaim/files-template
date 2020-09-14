@@ -1,8 +1,26 @@
 <div class="ui segment">           
     <div class="fourteen wide column" id="path_content">  
-        {{ component('storage>files.view.path',{ path: path, view_type: view_type }) }}        
+        {{ component('files>files.view.path',{ path: path, view_type: view_type }) }}        
     </div>  
 </div>
-<div class="ui segment height-90" id="view_content">    
-    {{ component('storage>files.view.items',{ path: path, view_type: view_type }) }}   
+<div class="ui segment">
+    <div id="view_content" component="files>files.view.items" namespace="myfiles">    
+        {{ component('files>files.view.items',{ path: path, view_type: view_type }) }}   
+    </div> 
+    <div class="pt-4 pb-4" id="paginator">
+        {{ component('components:paginator',{ namespace: 'myfiles' }) }}
+    </div>
+</div>
+<div class="ui modal" id="preview_file">    
+    <div class="header">
+        {{ preview.title }}
+    </div>
+    <i class="close icon"></i>
+    <div class="scrolling content" id="preview_file_content">       
+    </div>
+    <div class="actions">
+        <div class="ui basic right approve button">
+        {{ preview.close }}       
+        </div>
+    </div>
 </div>

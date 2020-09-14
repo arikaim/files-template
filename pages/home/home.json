@@ -13,6 +13,7 @@
         "users": "Users managment"
     },
     "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",  
         "title": "Files Manager",
         "description": "Files Manager",
         "keywords": "site, files, share file"

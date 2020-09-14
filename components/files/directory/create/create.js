@@ -1,6 +1,11 @@
 'use strict';
 
 $(document).ready(function() {
+    
+    arikaim.ui.button('.close-button',function(element) {              
+        $('.create-directory').click();      
+    });
+
     arikaim.ui.form.onSubmit("#create_directory_form",function() {
         if (isEmpty(breadcrumb) == false) {           
             $('#path').val(breadcrumb.getCurrentPath());
@@ -12,7 +17,7 @@ $(document).ready(function() {
 
         return arikaim.page.loadContent({
             id: 'view_content',           
-            component: 'storage>files.view.items',
+            component: 'files>files.view.items',
             params: { path: result.path }
         });  
     });

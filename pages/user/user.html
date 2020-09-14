@@ -5,10 +5,8 @@
             {{ component('users>users.menu.panel',{ user: user, class: 'fluid', selected: menu }) }}
         </div>
         <div class="w-full flex-shrink-1" id="user_area_content">  
-            {% if menu == 'change-password' %}
-                {{ component('users>users.password') }}
-            {% elseif menu == 'details' %}
-                {{ component('users>users.details') }}
+            {% if menu == 'account' %}
+                {{ component('users>users.account') }}
             {% elseif menu == 'dashboard' %}
                 {{ component('users>users.dashboard') }}
             {% else %}

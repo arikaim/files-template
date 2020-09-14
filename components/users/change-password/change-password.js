@@ -19,7 +19,7 @@ $(document).ready(function() {
     arikaim.ui.button('#login_page_link',function(element) {
         arikaim.page.loadContent({
             id : 'change_password_panel',
-            component: 'users>users.login'
+            component: 'files>users.login'
         });
     });
 

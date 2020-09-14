@@ -18,7 +18,7 @@ $(document).ready(function() {
                     avatar: result.avatar,
                     uuid: result.uuid, 
                 },
-                component: 'users>users.avatar.image'
+                component: 'files>users.avatar.image'
             });           
         },
         onError: function(error) {       

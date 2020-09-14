@@ -4,16 +4,40 @@
     <div class="ui grid">    
         <div class="ten wide column">           
         </div>       
-        <div class="four wide column right floated">     
-            <div class="ui buttons right floated">       
-                {{ component('components:view.type.button',{ namespace: 'files' }) }}
+        <div class="four wide column right floated">    
+            <div class="ui buttons right floated">  
+                <div class="pr-2">
+                    {{  component('components:paginator.dropdown',{
+                            namespace: 'files',
+                            class: 'show-popup',
+                            title: labels.paginator  
+                        }) 
+                    }}      
+                </div> 
+                {{ component('components:view.type.button',{ class: 'basic icon show-popup', namespace: 'files' }) }}
             </div>               
         </div>  
     </div>     
 </div>
-<div class="ui segment height-90" id="files_items" component="storage>files.shared.items" namespace="files">    
-    {{ component('storage>files.shared.items',{ view_type: view_type }) }}   
+<div class="ui segment">
+    <div id="files_items" component="files>files.shared.items" namespace="files">    
+        {{ component('files>files.shared.items',{ view_type: view_type }) }}   
+    </div>
+    <div class="pt-4 pb-4" id="paginator">
+        {{ component('components:paginator',{ namespace: 'files' }) }}
+    </div>
 </div>
-<div class="mt-2">
-    {{ component('components:paginator',{ namespace: 'files' }) }}
+<div class="ui modal" id="preview_file">    
+    <div class="header">
+        {{ preview.title }}
+    </div>
+    <i class="close icon"></i>
+    <div class="scrolling content" id="preview_file_content">       
+    </div>
+    <div class="actions">
+        <div class="ui basic right approve button">
+        {{ preview.close }}       
+        </div>
+    </div>
 </div>
+{{ component('files>files.file.password-modal') }}

@@ -1,5 +1,6 @@
 {
     "head": {
-        "title": "Logout"
+        "title": "Logout",
+        "favicon": "{{ template_url }}/images/favicon.png"      
     }
 }

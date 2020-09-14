@@ -1,7 +1,9 @@
 {
     "labels": {
         "delete": "Delete",
+        "download": "Download",
         "share": "Share",
+        "edit": "Edit Share",
         "link": "Download Link"
     }
 }

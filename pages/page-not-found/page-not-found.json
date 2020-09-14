@@ -2,6 +2,7 @@
     "message": "Page not found",
     "title": "Alert",
     "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",  
         "title": "Page not found"
     }
 }

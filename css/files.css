@@ -49,10 +49,16 @@ body {
     box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 .height-90 {
-    height: 90%;
+    height: 90%!important;
+}
+.height-91 {
+    height: 91!important;
 }
 .height-94 {
-    height: 94%;
+    height: 94%!important;
+}
+.height-92 {
+    height: 92%!important;
 }
 .w-77 {
     width: 35rem;

@@ -5,6 +5,8 @@
 {% set filesystem_path = model.getUserFilesystemPath(user_id) %}
 {% set result = service('storage').mountLocal(filesystem,filesystem_path) %}
 {% set filesList = getDirectoryFiles(path,false,filesystem) %}
+{% set items = paginate(filesList,'myfiles') %}  
+
 {% set view_type = view_type|default(getViewType('files')) %}
 
 {% if view_type == 'table' %}
@@ -13,10 +15,10 @@
 <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-5 lg:grid-cols-7 xl:grid-cols-10 gap-4" id="files_items">
 {% endif %}
 
-{% if filesList|length == 0 %}
+{% if items.getItems()|length == 0 %}
     <div class="ui item">..</div>
 {% endif %}
-{% for item in filesList %}
+{% for item in items.getItems() %}
     {%  set file = model.saveFile(item.path,user_id,{ 
             type: item.type,
             size: item.size,
@@ -31,7 +33,7 @@
 
     {% if item.path != 'bin' %}
         {% if view_type == 'table' %}
-            {{  component('storage>files.view.items.item',{ 
+            {{  component('files>files.view.items.item',{ 
                     path: item.path,
                     user_id: user_id,
                     file: file,
@@ -40,7 +42,7 @@
                 }) 
             }}
         {% else %}
-            {{  component('storage>files.view.items.card',{ 
+            {{  component('files>files.view.items.card',{ 
                     path: item.path,
                     user_id: user_id,  
                     count: items_count,                

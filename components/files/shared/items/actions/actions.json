@@ -1,6 +1,7 @@
 {
     "labels": {
         "download": "Download",       
-        "link": "Download Link"
+        "link": "Download Link",
+        "preview": "Preview file"
     }
 }

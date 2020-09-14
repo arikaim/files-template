@@ -1,8 +1,8 @@
 <div class="ui icon buttons files-buttons">                 
-    <button class="ui button create-directory basic show-popup" data-content="{{ labels.create }}">
+    <button class="ui button create-directory basic show-popup file-button" data-content="{{ labels.create }}">
         <i class="icon blue folder plus"></i>
     </button>
-    <button class="ui button upload-file basic show-popup" data-content="{{ labels.upload }}">
+    <button class="ui button upload-file basic show-popup file-button" data-content="{{ labels.upload }}">
         <i class="upload blue icon"></i>      
     </button> 
 </div>       
@@ -11,7 +11,15 @@
         class: 'paded massive pl-2',      
         icon: 'folder open outline blue'           
     }) 
-}}               
-<div class="ui buttons right floated">       
+}}       
+<div class="ui buttons right floated">   
+    <div class="pr-1">
+        {{  component('components:paginator.dropdown',{
+                namespace: 'myfiles',
+                class: 'show-popup',
+                title: labels.paginator  
+            }) 
+        }}    
+    </div>   
     {{ component('components:view.type.button',{ namespace: 'files' }) }}
 </div>         

@@ -1,6 +1,8 @@
 {
     "update": "File note was saved successfully.",
+    "password": "File password was saved successfully.",
     "restore": "File was restored successfully.",
+    "upload": "File was uploaded  successfully.",
     "directory": {
         "create": "Directory was created successfully.",
         "delete": "Directory was deleteted successfully."
@@ -12,6 +14,8 @@
     },
     "errors": {
         "notfound": "File not found.",
+        "invalid_password": "Not valid file password",
+        "password": "Can't save file password",
         "link": "Not valid download link.",
         "access": "Access denied.",
         "id": "Not valid file",

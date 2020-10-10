@@ -1,6 +1,7 @@
 {% set settings = service('options').get('users.signup.form') %}
 
 <form class="ui equal width form" id="signup_form">  
+    <input type="hidden" name="user_type_slug" value="files-user">
     <div class="two fields mt-4">     
         {% if settings.username.show == 'true' %}
             <div class="field required">

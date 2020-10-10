@@ -8,10 +8,11 @@
 
 function FilesApi() {
 
-    this.addUserPermission = function(userName, fileId, permissions, onSuccess, onError) {
+    this.addUserPermission = function(userName, fileId, permissions, permissionName, onSuccess, onError) {
         var data = {
             user: userName,
             entity: fileId,
+            permission_name: permissionName,
             permissions: permissions
         };
 

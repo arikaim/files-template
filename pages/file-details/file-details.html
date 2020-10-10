@@ -1,0 +1,56 @@
+{% component 'files>layout.page' %}
+<div class="ui centered container grid">
+    <div class="row mt-64">
+        <div class="ten wide column">
+            <div class="ui header">
+                {{ title }}
+            </div>
+            <div class="mt-4">
+                <table class="ui table definition">
+                    <tbody>                      
+                        <tr>
+                            <td>{{ labels.date }}</td>
+                            <td>{{ file.date_created|dateTimeFormat }}</td>
+                        </tr>                        
+                        <tr>
+                            <td>{{ labels.name }}</td>
+                            <td>{{ file.path }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ labels.type }}</td>
+                            <td>
+                                {{ component('storage::files.icon',{ type: file.mime_type, class: 'large' }) }}    
+                                {{ file.mime_type }}
+                            </td>
+                        </tr>
+                        <tr>
+                            <td>{{ labels.size }}</td>
+                            <td>{{ file.size|fileSize }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ labels.owner }}</td>
+                            <td>{{ file.user.user_name_or_email }}</td>
+                        </tr>
+                        <tr>
+                            <td>{{ labels.downloads }}</td>
+                            <td>{{ file.downloads }}</td>
+                        </tr>
+                        {% if file.note is not empty %}
+                        <tr>
+                            <td>{{ labels.note }}</td>
+                            <td>{{ file.note }}</td>
+                        </tr>
+                        {% endif %}
+                    </tbody>
+                </table>       
+            </div>    
+            <div class="mt-4">
+                <a href="{{ file.getDownloadUrl() }}" class="ui blue button circular" target="file_download">
+                    <i class="cloud download alternate icon"></i>
+                    {{ labels.link }}
+                </a>
+            </div>
+        </div>
+    </div>
+</div>
+{% endcomponent %}

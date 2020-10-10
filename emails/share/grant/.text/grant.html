@@ -1,0 +1,8 @@
+Shared file details
+
+File Name: {{ file.path|baseName }} 
+Size: {{ file.size|fileSize }} 
+
+{{ labels.details }}
+
+{{ getPageUrl('file.details','storage',{ uuid: file.uuid }) }}

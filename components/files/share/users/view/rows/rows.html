@@ -1,5 +1,12 @@
 {% set permissions = createModel('FilePermissions','storage').getPermissionsQuery(file) %}  
 {% set items = paginate(permissions,'permissions') %}
-{% for item in items.getItems() %}    
-    {{ component('files>files.share.users.view.rows.row',{ item: item }) }}    
-{% endfor %}
+{% set items = items.getItems() %}
+{% if items|length == 0 %}
+<tr class="empty-row">
+    <td>..</td>
+</tr>
+{% else %}
+    {% for item in items %}    
+        {{ component('files>files.share.users.view.rows.row',{ item: item }) }}    
+    {% endfor %}
+{% endif %}

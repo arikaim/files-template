@@ -2,7 +2,11 @@
     "update": "File note was saved successfully.",
     "password": "File password was saved successfully.",
     "restore": "File was restored successfully.",
-    "upload": "File was uploaded  successfully.",
+    "upload": "File was uploaded successfully.",
+    "permission": {
+        "delete": "User share removed successfully.",
+        "add": "User share added successfully."
+    },
     "directory": {
         "create": "Directory was created successfully.",
         "delete": "Directory was deleteted successfully."
@@ -18,7 +22,7 @@
         "password": "Can't save file password",
         "link": "Not valid download link.",
         "access": "Access denied.",
-        "id": "Not valid file",
+        "id": "Not valid file id.",
         "user": {
             "id": "Not valid user"
         },

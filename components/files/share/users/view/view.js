@@ -12,13 +12,13 @@ function FilePermissionsView() {
 
     this.init = function() {
         paginator.init('permissions_rows');  
-    };
 
-    this.initRows = function() { 
         arikaim.component.loadProperties('files>files.messages',function(params) { 
             self.messages = params.messages;
         }); 
+    };
 
+    this.initRows = function() { 
         arikaim.ui.button('.delete-permission',function(element) {
             var title = self.messages.deleteUser.title;
             var description = self.messages.deleteUser.description;

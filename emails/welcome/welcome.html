@@ -1,0 +1,10 @@
+
+Welcome, <b>{{ (user_name is empty) ? email : user_name }}</b>
+<br>
+<br>
+<br>
+
+Login page
+<br>
+<br>
+<a href="{{ url('/login',true) }}">{{ labels.login }}</a>

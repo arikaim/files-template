@@ -1,0 +1,10 @@
+{
+    "labels": {
+        "title": "Главная"
+    },
+    "head": {
+        "favicon": "{{template_url}} / images / favicon.png",
+        "title": "Блог",
+        "description": "Блог"
+    }
+}

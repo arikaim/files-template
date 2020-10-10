@@ -1,6 +1,6 @@
 {      
     "title": "Files Manager",
-    "version": "1.2.0",
+    "version": "1.3.0",
     "name": "files",
     "package-type": "template",
     "icon": "file",
@@ -34,12 +34,6 @@
             "page": "files>about",
             "language-path": true,
             "name": "About"                   
-        },
-        {
-            "path": "/privacy",           
-            "page": "files>privacy",
-            "language-path": true,
-            "name": "privacy"                   
         }
     ],
     "languages": [
@@ -64,6 +58,6 @@
             "pdf-js",   
             "tailwind:1.4.6"
         ],
-        "loader": "components:loader.dimmer"
-    }   
+        "framework": "fomantic"
+    }
 }

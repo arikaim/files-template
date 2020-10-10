@@ -1,0 +1,12 @@
+<b>Shared file details</b>
+<br>
+<br>
+<b>File Name </b> {{ file.path|baseName }}
+<br>
+<b>Size </b> {{ file.size|fileSize }} 
+<br>
+<br>
+<br>
+<a href="{{ getPageUrl('file.details','storage',{ uuid: file.uuid }) }}" target="_blank">{{ labels.details }}</a>
+<br>
+<br>

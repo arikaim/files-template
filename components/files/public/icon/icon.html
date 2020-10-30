@@ -1,0 +1,15 @@
+{% if type == 'directory' %}
+    <i class="icon outline folder {{ class }}"></i>
+{% elseif type == 'zip' %}
+    <i class="file archive outline icon {{ class }}"></i>
+{% elseif type == 'image' %}
+    <i class="image icon {{ class }}"></i>
+{% elseif type == 'video' %}
+    <i class="film icon {{ class }}"></i>
+{% elseif type == 'audio' %}
+    <i class="file audio outline icon {{ class }}"></i>
+{% elseif type == 'pdf' %}
+    <i class="file pdf outline icon {{ class }}"></i>
+{% else %}
+    <i class="file alternate outline icon {{ class }}"></i>
+{% endif %}

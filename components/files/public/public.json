@@ -4,6 +4,7 @@
         "size": "File Size",
         "date": "Date Uploaded",
         "password": "Password Protected",
-        "downloads": "Downloads"
+        "downloads": "Downloads",
+        "download": "Download File"
     }
 }

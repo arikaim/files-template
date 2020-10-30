@@ -12,6 +12,12 @@ function SharedFiles() {
     this.init = function() {    
         paginator.init('files_items');    
 
+        search.init({
+            id: 'files_items',
+            component: 'files>files.shared.items',
+            event: 'files.search.load'
+        },'files')  
+
         viewTypeButton.init(function(view) {             
             arikaim.page.loadContent({
                 id: 'files_items',           
@@ -20,7 +26,12 @@ function SharedFiles() {
                     view_type: view 
                 }
             });           
-        });          
+        });        
+        
+        arikaim.events.on('files.search.load',function(result) {      
+            paginator.reload();
+            self.initRows();    
+        },'filesSearch');     
     };
 
     this.openPasswordModal = function(uuid, fileName) {

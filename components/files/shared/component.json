@@ -2,6 +2,7 @@
     "include": {
         "js":[            
             "components:upload",
+            "components:search",
             "components:breadcrumb",
             "components:paginator",
             "components:pdf",

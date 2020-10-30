@@ -1,9 +1,10 @@
 {
     "labels": {
-        "paginator": "Rows per page"
+        "paginator": "Rows per page",
+        "placeholder": "Search file"
     },
     "preview": {
         "title": "Preview",
         "close": "Close"
-    }  
+    }    
 }

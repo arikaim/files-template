@@ -1,0 +1,10 @@
+{     
+    "include": {
+        "js":[                      
+            "components:paginator"           
+        ] 
+    },      
+    "access": {
+        "auth": "none"        
+    }
+}

@@ -1,6 +1,9 @@
 <div class="item navbar-item {{ (active == 'home') ? 'active': '' }}">
     <a href="{{ url('') }}">{{ labels.home }}</a>
 </div>  
+<div class="item navbar-item {{ (active == 'files') ? 'active': '' }}">
+    <a href="{{ url('/files') }}">{{ labels.files }}</a>
+</div> 
 {% if logged != true %}
 <div class="item navbar-item {{ (active == 'login') ? 'active': '' }}">   
     <a href="{{ url('/login') }}">{{ labels.login }}</a>            

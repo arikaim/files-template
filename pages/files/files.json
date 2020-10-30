@@ -1,0 +1,9 @@
+{
+    "title": "Public Files",
+    "head": {
+        "favicon": "{{ template_url }}/images/favicon.png",  
+        "title": "Public Files",
+        "description": "Public Files",
+        "keywords": "files, shared files, public files"
+    }
+}

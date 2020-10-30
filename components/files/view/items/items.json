@@ -1,0 +1,13 @@
+{
+    "labels": {
+        "public": "Public",
+        "private": "Private",
+        "items": "Items",
+        "shared": "Shared",
+        "date": "Date Uploaded",
+        "size": "File size",
+        "download": "Download file",
+        "password": "Password protected",
+        "downloads": "Downloads"
+    }
+}

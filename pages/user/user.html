@@ -2,15 +2,15 @@
     {% set user = access().getUser() %}
     <div class="flex h-full pt-19">    
         <div class="w-64 flex-shrink-0" id="user_menu">
-            {{ component('users>users.menu.panel',{ user: user, class: 'fluid', selected: menu }) }}
+            {{ component('files>users.menu.panel',{ user: user, class: 'fluid', selected: menu }) }}
         </div>
         <div class="w-full flex-shrink-1" id="user_area_content">  
             {% if menu == 'account' %}
-                {{ component('users>users.account') }}
+                {{ component('files>users.account') }}
             {% elseif menu == 'dashboard' %}
-                {{ component('users>users.dashboard') }}
+                {{ component('files>users.dashboard') }}
             {% else %}
-                {{ component('users>users.dashboard') }}
+                {{ component('files>users.dashboard') }}
             {% endif %}                   
         </div>    
     </div>

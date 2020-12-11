@@ -1,0 +1,9 @@
+{
+    "labels": {
+        "details": "Details",
+        "files": "Files",        
+        "filesystem": "Filesystem", 
+        "size": "Files Size",
+        "path": "Path"                     
+    }    
+}

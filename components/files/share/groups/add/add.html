@@ -1,0 +1,7 @@
+<div class="mt-2">
+    <div class="ui divider"></div>
+    {{ component('users::users.groups',{ data_field: 'id', icon: 'blue' }) }}   
+    <div class="ui button green icon add-group-permission" {{ labels.add|attr('title') }} file-id="{{ file_id }}">
+        {{ labels.share }}
+    </div>
+</div>

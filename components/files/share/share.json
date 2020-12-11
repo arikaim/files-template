@@ -5,6 +5,8 @@
     },
     "labels": {
         "file": "File",
+        "filesystem": "Filesystem",
+        "local": "Local",
         "directory": "Directory"
     }
 }

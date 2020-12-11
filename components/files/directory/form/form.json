@@ -3,6 +3,8 @@
         "name": "Name",
         "path": "Path",
         "create": "Create",
+        "filesystem": "Filesystem",
+        "local": "Local",
         "directory": "Parent Directory"
     },
     "fields": {

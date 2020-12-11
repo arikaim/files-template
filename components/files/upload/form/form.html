@@ -1,9 +1,16 @@
 {% set path = path|default('')%}
 <form class="ui form" id="file_form" enctype="multipart/form-data">
     <input type="hidden" id="path" value="{{ path }}">
+    <input type="hidden" id="filesystem" name="filesystem" value="{{ filesystem }}">
     {% if hide_path != true %}
     <div class="ui field segment">
-        <label>{{ labels.path }}</label>        
+        <span class="font-bold">
+            {{ labels.filesystem }}
+        </span>
+        <span class="pl-2">
+            {{ (filesystem is empty) ? labels.local : filesystem }}
+        </span> 
+        <label class="pt-2">{{ labels.path }}</label>        
         {{  component('components:breadcrumb',{ 
                 class: 'fluid',
                 path: path,

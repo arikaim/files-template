@@ -1,0 +1,10 @@
+{% set permissions = createModel('FilePermissions','storage').getPermissionsQuery(file,'group') %}  
+{% set items = permissions.get() %}
+{% if items.toArray()|length == 0 %}
+<tr>
+    <td colspan="3">{{ labels.empty }}</td>
+</tr>
+{% endif %}
+{% for item in items %}    
+    {{ component('files>files.share.groups.view.rows.row',{ item: item }) }}    
+{% endfor %}

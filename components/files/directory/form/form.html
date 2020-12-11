@@ -1,8 +1,15 @@
 <form class="ui form" id="create_directory_form">
     <input type="hidden" name="path" id="path" value="{{ path }}">   
+    <input type="hidden" name="filesystem" id="filesystem" value="{{ filesystem }}">   
     {% if hide_path != true %}       
     <div class="ui field segment">
-        <label>{{ labels.path }}</label>        
+        <span class="font-bold">
+            {{ labels.filesystem }}
+        </span>
+        <span class="pl-2">
+            {{ (filesystem is empty) ? labels.local : filesystem }}
+        </span> 
+        <label class="mt-1 pt-2">{{ labels.path }}</label>        
         {{  component('components:breadcrumb',{ 
                 class: 'fluid',
                 path: path,

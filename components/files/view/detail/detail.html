@@ -1,0 +1,33 @@
+<div class="ui basic labels right floated">                                         
+    {% if file.hasPassword() == true %}
+        <div class="ui icon label show-popup" data-content="{{ labels.password }}">
+            <i class="icon blue lock"></i>   
+        </div>
+    {% endif %}           
+    <div class="ui label show-popup" data-content="{{ labels.date }}">
+        <i class="icon blue outline calendar"></i>
+        {{ file.date_created|dateFormat }}
+    </div>   
+    {% if file.isDirectory() == false %}
+        {% if file.isPublic() == true %}
+        <div class="ui green label">
+            {{ labels.public|pad(18,' ') }}
+        </div>
+        {% elseif file.hasPermissions() == true %}
+        <div class="ui olive label">
+            {{ labels.shared|pad(18,' ') }}
+        </div>
+        {% else %}
+        <div class="ui red label">
+            {{ labels.private|pad(18,' ') }}
+        </div>
+        {% endif %}               
+        <div class="ui label show-popup" data-content="{{ labels.size }}">                
+            {{ file.size|fileSize|padLeft(18,' ') }}
+        </div>  
+        <div class="ui label show-popup" data-content="{{ labels.downloads }}">
+            <i class="icon download"></i>                     
+            {{ file.downloads|padLeft(10,' ') }}        
+        </div>
+    {% endif %}     
+</div>         

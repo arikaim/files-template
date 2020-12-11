@@ -5,15 +5,7 @@ $(document).ready(function() {
 
     breadcrumb.init({
         onSelect: function(path) {  
-            arikaim.page.loadContent({
-                id: 'view_content',           
-                component: 'files>files.view.items',
-                params: { 
-                    path: path               
-                }
-            },function(result) {
-                filesView.initRows();
-            }); 
+            filesView.openDirectory(path);            
         }
     });
 });

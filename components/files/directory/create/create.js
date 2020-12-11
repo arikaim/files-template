@@ -15,10 +15,6 @@ $(document).ready(function() {
         arikaim.page.toastMessage(result.message);
         arikaim.ui.form.clear('#create_directory_form');
 
-        return arikaim.page.loadContent({
-            id: 'view_content',           
-            component: 'files>files.view.items',
-            params: { path: result.path }
-        });  
+        filesView.openDirectory(result.path);       
     });
 });

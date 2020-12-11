@@ -1,0 +1,11 @@
+{% set icon = icon|default('folder outline open massive blue') %}
+{% set view_type = view_type|default(getViewType('files')) %}
+{% set col_span = (view_type == 'grid') ? 'col-span-7' : '' %}
+<div class="min-h-full h-full h-64 pt-64 {{ col_span }}">
+    <div class="flex w-full items-center justify-center">
+        <div class="text-center h-64 w-64 pt-8 pl-2">
+            <i class="icon {{ icon }}"></i>            
+            <div class="font-bold">{{ empty }}</div>           
+        </div>
+    </div>  
+</div>

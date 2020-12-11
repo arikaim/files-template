@@ -1,4 +1,4 @@
-{% set permissions = createModel('FilePermissions','storage').getPermissionsQuery(file) %}  
+{% set permissions = createModel('FilePermissions','storage').getPermissionsQuery(file,'user') %}  
 {% set items = paginate(permissions,'permissions') %}
 {% set items = items.getItems() %}
 {% if items|length == 0 %}

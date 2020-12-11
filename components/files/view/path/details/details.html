@@ -1,0 +1,33 @@
+{% set file = createModel('Files','storage') %}
+{% set user_id = access().getId() %}
+{% set filesystem = (filesystem is empty) ? file.getUserFilesystemName() : filesystem %}
+<div class="p-1 ui segment file-details-content">
+    <div class="ui header">      
+        <div class="content">
+            <i class="icon info blue"></i>
+            {{ labels.details }}           
+        </div>       
+    </div>
+    <div class="ui divider"></div>
+    <table class="ui very basic table">
+        <tbody>  
+            <tr>
+                <td class="three wide">
+                    <i class="icon folder iutline blue"></i>                 
+                    {{ labels.path }}
+                </td>
+                <td>
+                    {{ '/' ~ path }}
+                </td>
+            </tr>  
+            <tr>
+                <td>
+                    <i class="icon server blue show-popup" title="{{ labels.filesystem }}"></i>                                     
+                </td>
+                <td>
+                    {{ filesystem }}
+                </td>
+            </tr>                                           
+        </tbody>
+    </table>
+</div>

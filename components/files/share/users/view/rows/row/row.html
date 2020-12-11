@@ -7,10 +7,15 @@
             <i class="icon orange trash"></i>
         </button>
     </td>
-    <td>
+    <td>       
        {{ item.related.user_name_or_email }}
     </td>  
     <td>
-        {{ component('files>files.permissions.label',{ item: item, labels_class: 'horizontal mini' }) }}
+        {{  component('files>files.permissions.label',{ 
+                item: item, 
+                hide_name: true, 
+                labels_class: 'horizontal mini' 
+            }) 
+        }}
     </td>         
 </tr>

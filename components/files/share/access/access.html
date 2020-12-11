@@ -15,6 +15,10 @@
             <i class="icon user blue"></i>
             {{ fields.users }}     
         </div>  
+        <div id="groups_tab" {{ hidden }} class="item link share-tab-item" component="files>files.share.groups" uuid="{{ uuid }}" file="{{ file.id }}">
+            <i class="icon users blue"></i>
+            {{ fields.groups }}     
+        </div>  
         <div id="note_tab" class="item link share-tab-item {{ (file.isPublic() == true) ? 'active' : '' }}" component="files>files.share.note" uuid="{{ uuid }}">
             <i class="file alternate outline icon blue"></i>
             {{ fields.note.label }}     

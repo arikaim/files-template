@@ -1,9 +1,4 @@
 {
-    "include": {
-        "js": [
-            "components:orm.options"           
-        ]
-    },
     "access": {
         "auth": "session",
         "redirect": "/user"

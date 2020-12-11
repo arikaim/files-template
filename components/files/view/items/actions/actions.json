@@ -2,6 +2,7 @@
     "labels": {
         "delete": "Delete",
         "download": "Download",
+        "details": "Details",
         "share": "Share",
         "edit": "Edit Share",
         "link": "Download Link"

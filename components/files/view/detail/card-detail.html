@@ -1,0 +1,50 @@
+<div class="content p-2">      
+    <div class="ui mini basic labels mt-1">         
+        {% if file.isDirectory() == false %}                           
+            <div class="ui left pointing label show-popup" title="{{ labels.downloads }}">  
+                <i class="icon blue download"></i>                            
+                {{ file.downloads }}        
+            </div>               
+        {% endif %}          
+        {% if file.isPublic() == true %}
+            <div class="ui basic green label">
+                {{ labels.public }}
+            </div>
+        {% elseif file.hasPermissions() == true %}
+            <div class="ui basic olive label">
+                {{ labels.shared }}
+            </div>    
+        {% else %}   
+            <div class="ui basic red label">
+                {{ labels.private }}
+            </div>    
+        {% endif %} 
+        {% if file.hasPassword() == true %}
+            <div class="ui icon basic label show-popup" data-content="{{ labels.password }}">
+                <i class="icon blue lock"></i>   
+            </div>
+        {% endif %}
+    </div>                                        
+</div>         
+
+
+<div class="content meta p-2"> 
+    <div class="ui mini basic horizontal labels">        
+        <div class="ui label show-popup" data-content="{{ labels.date }}">
+            <i class="icon blue outline calendar"></i>
+            {{ file.date_created|dateFormat }}
+        </div>  
+        {% if file.isDirectory() == false %}
+            <div class="ui label show-popup right aligned" data-content="{{ labels.size }}">
+                {{ file.size|fileSize }}
+            </div>                                             
+        {% else %}
+            <div class="ui label show-popup right floated" data-content="{{ labels.items }}">
+                <div class="detail">
+                    {{ count }}                       
+                </div>
+                {{ labels.items }}
+            </div>
+        {% endif %} 
+    </div> 
+</div>  

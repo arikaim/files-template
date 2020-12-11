@@ -1,0 +1,12 @@
+{
+    "labels": {    
+        "on": "On",
+        "off": "Off",
+        "edit": "Edit",
+        "create": "Create Connection",
+        "delete": "Delete",
+        "check": "Check Connection",
+        "active": "Active",
+        "status": "Connection Status"
+    }
+}

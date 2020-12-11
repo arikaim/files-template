@@ -1,0 +1,91 @@
+{% set file = createModel('Files','storage').findById(uuid) %}
+{% set type_icon = component('files>file.icon',{ type: file.getFileType(), class: 'blue ' }) %}
+<div class="p-1 ui segment file-details-content">
+    <div class="ui header">
+        <button class="ui icon button basic compact mini close-details-button right floated" on-close="{{ on_close }}">
+            <i class="icon close"></i>
+        </button>
+        <div class="content">
+            {{ type_icon }} 
+            {{ file.getBasename() }}           
+        </div>       
+    </div>
+    <div class="ui divider"></div>
+    <table class="ui very basic table">
+        <tbody>           
+            <tr>
+                <td>
+                    {{ type_icon }}
+                    {{ labels.type }}
+                </td>
+                <td>
+                    {{ file.mime_type }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="icon calendar outline blue"></i>
+                    {{ labels.date }}
+                </td>
+                <td>
+                    {{ file.date_created|dateFormat }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="icon user outline blue"></i>
+                    {{ labels.owner }}
+                </td>
+                <td>
+                    {{ file.user.user_name }}
+                </td>
+            </tr>
+            {% if file.isDirectory() == false %}
+                <tr>
+                    <td>
+                        <i class="icon angle double right blue"></i>                 
+                        {{ labels.size }}
+                    </td>
+                    <td>
+                        {{ file.size|fileSize }}
+                    </td>
+                </tr>           
+                <tr>
+                    <td>
+                        <i class="icon download blue"></i>
+                        {{ labels.downloads }}
+                    </td>
+                    <td>
+                        {{ file.downloads }}
+                    </td>
+                </tr>
+            {% endif %}
+            <tr>
+                <td>
+                    <i class="icon server blue"></i>
+                    {{ labels.filesystem }}
+                </td>
+                <td>
+                    {{ file.filesystem }}
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    <i class="icon lock blue"></i>
+                    {{ labels.access }}
+                </td>
+                <td>
+                    {% if file.hasPermissions() == true %}
+                        <div class="ui green basic label">
+                            {{ labels.shared }}
+                        </div>
+                    {% else %}
+                        <div class="ui red basic label">
+                            {{ labels.private }}
+                        </div>
+                    {% endif %}  
+                </td>
+            </tr>             
+        </tbody>
+    </table>
+</div>

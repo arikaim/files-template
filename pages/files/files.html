@@ -1,7 +1,6 @@
 {% component 'files>layout.page' %}
-    {% set active = 'about' %}
+    {% set active = 'files' %}
     {{ component('files>title',{ title: title }) }}
-   
     <div class="mt-12">
         <div id="files_items" component="files>files.public" namespace="files">    
             {{ component('files>files.public') }}   
@@ -10,5 +9,4 @@
             {{ component('components:paginator',{ namespace: 'files' }) }}
         </div>
     </div>
-
 {% endcomponent %}

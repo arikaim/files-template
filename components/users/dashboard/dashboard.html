@@ -1,9 +1,10 @@
 {% component 'files>users.content' %}
 {% set icon = 'dashboard blue' %}
     <div class="seven wide column">
-        {% set user = service('access').getUser() %}
+        {% set user = access().getUser() %}
         <div class="ui cards">     
             {{ component('files>users.dashboard.info',{ user: user }) }}
-        </div>
+            {{ component('files>users.dashboard.summary',{ user_id: user.id }) }}
+        </div>       
     </div>
 {% endcomponent %}

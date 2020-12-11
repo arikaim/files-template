@@ -1,6 +1,6 @@
 {      
     "title": "Files Manager",
-    "version": "1.3.2",
+    "version": "1.4.0",
     "name": "files",
     "package-type": "template",
     "icon": "file",
@@ -55,16 +55,15 @@
             "files.css"
         ],        
         "library": [
-            "jquery",    
+            "jquery",             
             "filepond",               
             "arikaim:source",
             "arikaim-ui:source",
             "fomantic",
             "plyr",   
             "highlight",
-            "pdf-js",   
+            "pdf-js", 
             "tailwind:1.4.6"
-        ],
-        "framework": "fomantic"
+        ]       
     }
 }

@@ -7,7 +7,7 @@
             </a>
             <a class="item {{ (selected == 'myfiles') ? 'active' : '' }} user-menu-item" component="files>users.myfiles">
                 <i class="left icon file alternate outline {{ icon_class }}"></i>
-                {{ items.myfiles }}
+                {{ items.myfiles }}                                                                               
             </a>
             <a class="item {{ (selected == 'myfiles') ? 'active' : '' }} user-menu-item" component="files>users.shared">
                 <i class="left icon share {{ icon_class }}"></i>
@@ -18,8 +18,8 @@
                 {{ items.trash }}
             </a>
             <a class="item {{ (selected == 'account') ? 'active' : '' }} user-menu-item" component="files>users.account">
-                <i class="left icon user {{ icon_class }}"></i>
-                {{ items.acount }}
+                <i class="left icon cog {{ icon_class }}"></i>
+                {{ items.settings }}
             </a>   
             {{ content }}
             <a class="item user-menu-item" component="files>users.logout">

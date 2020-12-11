@@ -3,7 +3,7 @@
     <i class="ellipsis vertical icon"></i>
     <div class="menu">
         {% if file.isDirectory() == true %}
-            <div class="item delete-directory" path="{{ file.path }}" {{ buttons.delete.title|attr('title') }} uuid="{{ file.uuid }}">
+            <div class="item delete-directory" path="{{ file.path }}" {{ buttons.delete.title|attr('title') }}>
                 <i class="icon orange trash"></i>
                 {{ labels.delete }}
             </div>     
@@ -26,10 +26,21 @@
                 <i class="icon linkify"></i>
                 {{ labels.link }}
             </div>
-            <div class="item delete-file" path="{{ file.path }}" {{ buttons.delete.title|attr('title') }}>
-                <i class="icon orange trash"></i>
-                {{ labels.delete }}
-            </div>
+            {% if file.isLocal() == true %}
+                <div class="item move-trash-file" name="{{ file.path }}" path="{{ file.path }}" {{ buttons.delete.title|attr('title') }}>
+                    <i class="icon orange trash"></i>
+                    {{ labels.delete }}
+                </div>
+            {% else %}
+                <div class="item delete-file" name="{{ file.path }}" path="{{ file.path }}" {{ buttons.delete.title|attr('title') }}>
+                    <i class="icon orange trash"></i>
+                    {{ labels.delete }}
+                </div>
+            {% endif %}
         {% endif %}    
+        <div class="item file-details" uuid="{{ file.uuid }}" {{ buttons.details.title|attr('title') }}>
+            <i class="icon info"></i>
+            {{ labels.details }}
+        </div>
     </div>
 </div>

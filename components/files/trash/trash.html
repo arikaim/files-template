@@ -1,17 +1,12 @@
-{% set model = createModel('Files','storage') %}  
-{% set user_id = access().getId() %}  
-{% set filesystem = model.getUserFilesystemName() %}
-{% set filesystem_path = model.getUserFilesystemPath(user_id) %}
-{% set result = service('storage').mountLocal(filesystem,filesystem_path) %}
-{% set emptyBin = service('storage').isEmpty('bin',filesystem) %}
-{% set disabled = (emptyBin == true) ? 'disabled' : '' %}
-{% set path = path|default('bin') %}
+{% set path = path|default(bin_path) %}
+{% set disabled = (empty == true) ? 'disabled' : '' %}
+
 <div class="ui segment">     
     <div class="ui icon buttons files-buttons">      
-        <button class="ui basic orange button empty-trash {{ disabled }} trash-button" {{ buttons.empty.title|attr('title') }}>
+        <button class="ui basic orange button empty-trash {{ disabled }} trash-button show-popup" {{ buttons.empty.title|attr('title') }}>
             <i class="icon trash alternate outline orange"></i>               
         </button>
-        <button class="ui basic green button restore-trash {{ disabled }} trash-button" {{ buttons.restore.title|attr('title') }}>
+        <button class="ui basic green button restore-trash {{ disabled }} trash-button show-popup" {{ buttons.restore.title|attr('title') }}>
             <i class="trash restore olive icon"></i>               
         </button>
     </div>
@@ -22,10 +17,9 @@
             icon: 'trash open blue'           
         }) 
     }}  
-    <div class="ui buttons right floated">       
-        {{ component('components:view.type.button',{ namespace: 'trash' }) }}
-    </div>  
 </div>
-<div class="ui segment height-90" id="view_content" component="files>files.view.items" namespace="files" path="bin" trash="true"> 
-    {{ component("files>files.view.items",{ path: 'bin', trash: true, view_type: view_type }) }}
+<div class="bg-white shadow p-4 flex-grow rounded-lg border border-gray-300"> 
+    <div id="view_content" class="ui list">
+        {{ component("files>files.trash.rows",{ view_type: view_type }) }}
+    </div>
 </div>

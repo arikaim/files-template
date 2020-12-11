@@ -1,0 +1,18 @@
+<table class="ui compact stackable borderless basic table">
+    <thead class="table-head">
+        <tr>                      
+            <th class="collapsing center aligned two wide">
+                {{ columns.actions }}
+            </th>
+            <th class="four wide">                    
+                {{ columns.group }}
+            </th>
+            <th>
+                {{ columns.permissions }}
+            </th>                                      
+        </tr>
+    </thead>
+    <tbody id="permissions_rows" component="files>files.share.groups.view.rows" namespace="files.share" file="{{ file_id }}">
+        {{ component('files>files.share.groups.view.rows',{ file: file_id }) }}
+    </tbody>
+</table>

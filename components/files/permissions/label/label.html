@@ -1,8 +1,10 @@
 {% set permission = item.toArray() %}
 {% set name = item.permission.name %}
 {% set label_class = label_class|default('basic text-gray-800 underline') %}
-<div class="{{ class }}">     
-    {{ name }}     
+<div class="{{ class }}">  
+    {% if hide_name != true %}   
+    <span class="font-bold">{{ name }}</span> 
+    {% endif %}
     <div class="ui labels {{ labels_class }}">
         {% if permission.read == 1 %}
             <span class="ui label {{ label_class }}">{{ labels.read }}</span>

@@ -1,0 +1,19 @@
+{
+    "labels": {
+        "date": "Date",
+        "note": "Note",       
+        "public": "Public", 
+        "private": "Private",
+        "shared": "Shared",          
+        "access": "Access",
+        "type": "Mime Type",
+        "size": "Size",
+        "user": "User",
+        "path": "Path",
+        "owner": "Owner",  
+        "filesystem": "Filesystem",     
+        "downloads": "Downloads",
+        "name": "Name",
+        "link": "Download"
+    }    
+}

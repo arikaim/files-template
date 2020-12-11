@@ -1,0 +1,21 @@
+{% if item is empty %}
+    {% set item = createModel('FilePermissions','storage').findById(uuid) %}
+{% endif %}
+<tr id="row_{{ item.uuid }}">          
+    <td>
+        <button class="ui icon button mini basic delete-permission" uuid="{{ item.uuid }}">
+            <i class="icon orange trash"></i>
+        </button>
+    </td>
+    <td>      
+       {{ item.related.title }}
+    </td>  
+    <td>
+        {{  component('files>files.permissions.label',{ 
+                item: item,
+                hide_name: true, 
+                labels_class: 'horizontal mini' 
+            }) 
+        }}
+    </td>         
+</tr>

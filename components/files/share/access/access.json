@@ -1,6 +1,7 @@
 {
     "fields": {
         "users": "Users",
+        "groups": "Groups",
         "public": "Public", 
         "password": "Password",      
         "note": {

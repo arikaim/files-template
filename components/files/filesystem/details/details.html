@@ -1,0 +1,44 @@
+{% set file = createModel('Files','storage') %}
+{% set user_id = access().getId() %}
+{% set filesystem = (filesystem is empty) ? file.getUserFilesystemName() : filesystem %}
+<div class="p-1 ui segment file-details-content">
+    <div class="ui header">      
+        <div class="content">
+            <i class="icon server blue"></i>
+            {{ labels.filesystem }}           
+        </div>       
+    </div>
+    <div class="ui divider"></div>
+    <table class="ui very basic table">
+        <tbody>   
+            <tr>
+                <td>
+                    <i class="icon file outline blue"></i>                 
+                    {{ labels.name }}
+                </td>
+                <td>
+                    {{ filesystem }}
+                </td>
+            </tr>  
+            <tr>
+                <td>
+                    <i class="icon file outline blue"></i>                 
+                    {{ labels.files }}
+                </td>
+                <td>
+                    {{ file.userFiles(user_id,filesystem).count() }}
+                </td>
+            </tr>            
+            <tr>
+                <td>
+                    <i class="icon angle database blue"></i>                 
+                    {{ labels.size }}
+                </td>
+                <td>
+                    {{ file.userFiles(user_id,filesystem).sum('size')|fileSize }}
+                </td>
+            </tr>            
+                        
+        </tbody>
+    </table>
+</div>

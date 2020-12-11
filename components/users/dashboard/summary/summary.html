@@ -1,0 +1,26 @@
+{% component 'files>users.dashboard.card' %}
+    {% set files = createModel('Files','storage') %}
+    {% set icon = 'pie chart' %}
+    <div class="content">
+        <div class="ui two statistics">
+            <div class="ui small green statistic">
+                <div class="value">                   
+                    {{ files.userFiles(user_id).count() }}
+                </div>
+                <div class="label">
+                    {{ labels.files }}
+                </div>
+            </div>           
+            <div class="ui small blue statistic">
+                <div class="value">                
+                    {{ files.userFiles(user_id).sum('downloads') }}
+                </div>
+                <div class="label">
+                    {{ labels.downloads }}
+                </div>
+            </div>    
+        </div>
+        
+    </div>
+   
+{% endcomponent %}

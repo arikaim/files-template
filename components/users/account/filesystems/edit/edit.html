@@ -1,0 +1,11 @@
+{% set model = createModel('StorageFilesystems','storage') %}  
+{% set config = model.getConfig(access().getId(),driver_name) %}
+{% set config = createProperties(config) %}
+
+<div class="ui segment">
+    <form class="ui equal width form" id="filesystem_config_form">
+        <input type="hidden" name="driver_name" id="driver_name" value="{{ driver_name }}">  
+        {{ component('components:properties.fields',{ properties: config }) }}
+        {{ component('components:form.footer') }}   
+    </form>
+</div>        

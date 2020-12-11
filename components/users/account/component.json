@@ -1,0 +1,12 @@
+{
+    "include": {
+        "js": [
+            "components:orm.options",
+            "storage::filesystems"                
+        ]
+    },
+    "access": {
+        "auth": "session",
+        "redirect": "/user"
+    }
+}

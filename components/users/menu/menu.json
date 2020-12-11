@@ -2,10 +2,9 @@
     "title": "Accont",
     "items": {
         "dashboard": "Dashboard",
-        "myfiles": "My Files",
+        "myfiles": "My Files",       
         "shared": "Shared Files",
-        "trash": "Recycle Bin",
-        "acount": "Account",
+        "trash": "Recycle Bin",       
         "details": "Account Details",
         "change_password": "Change Password",  
         "settings": "Settings",

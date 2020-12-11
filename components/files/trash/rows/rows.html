@@ -1,0 +1,32 @@
+{% set path = path|default(bin_path) %}
+{% set items = getDirectoryFiles(path,false,filesystem) %}
+{% if items|length == 0 %}
+    {{ component('files>files.view.items.empty',{ icon: 'trash alternate outline massive blue' }) }}
+{% endif %}
+
+{% for item in items %}
+    {% set uuid = createUuid() %}
+    {% set mime_type = (item.type == 'dir') ? 'directory' : service('storage').getMimetype(item.path,filesystem) %}
+    <div class="item" id="row_{{ uuid }}">          
+        <div class="content">
+            <button class="ui icon button mini basic restore-file show-popup" uuid="{{ uuid }}" path="{{ item.path }}" title="{{ labels.restore }}">
+                <i class="trash restore olive alternate icon"></i>
+            </button>   
+            {% if item.type == 'dir' or item.type == 'directory' %}
+                <a class="ui link open-directory" path="{{ item.path }}" driver-name="{{ driver_name }}">
+                    <i class="icon folder outline large" title="{{ item.path }}"></i>                    
+                </a>
+                {{ item.basename }}       
+            {% else %}
+                {{ component('storage::file.icon',{ type: mime_type, class: 'large ' ~ color_icon }) }}    
+            {% endif %}
+            {{ item.basename }}      
+            <div class="right floated pt-1">
+                <div class="ui basic label show-popup" title="{{ labels.date }}">
+                    <i class="icon blue calendar"></i>
+                    {{ item.timestamp|dateTimeFormat }}
+                </div> 
+            </div>                   
+        </div>                                                 
+    </div>
+{% endfor %}

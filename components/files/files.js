@@ -8,13 +8,18 @@
 
 function FilesApi() {
 
-    this.addUserPermission = function(userName, fileId, permissions, permissionName, onSuccess, onError) {
-        var data = {
-            user: userName,
+    this.addUserPermission = function(id, fileId, type, permissions, permissionName, onSuccess, onError) {
+        var data = {         
             entity: fileId,
+            type: type,
             permission_name: permissionName,
             permissions: permissions
         };
+        if (type == 'group') {
+            data.group = id;
+        } else {
+            data.user = id
+        }
 
         return arikaim.put('/api/storage/permission/add/user',data,onSuccess,onError);
     };
@@ -25,6 +30,10 @@ function FilesApi() {
         return arikaim.downloadFile('/api/storage/file/download/','PUT',fileName,data,onSuccess,onError);           
     };
 
+    this.details = function(uuid, onSuccess, onError) {
+        return arikaim.get('/api/storage/file/details/' + uuid,onSuccess,onError);
+    };
+
     this.deletePermission = function(uuid, onSuccess, onError) {
         return arikaim.delete('/api/storage/permission/delete/' + uuid,onSuccess,onError);
     };
@@ -33,10 +42,10 @@ function FilesApi() {
         return arikaim.post('/api/storage/directory',data,onSuccess,onError);
     };
 
-    this.deleteDirectory = function(path, uuid, onSuccess, onError) {
+    this.deleteDirectory = function(path, filesystem, onSuccess, onError) {
         var data = {
             path: path,
-            uuid: uuid
+            filesystem: filesystem          
         };
 
         return arikaim.put('/api/storage/directory/delete',data,onSuccess,onError);
@@ -67,6 +76,16 @@ function FilesApi() {
         };
 
         return arikaim.put('/api/storage/move/trash',data,onSuccess,onError);
+    };
+
+    this.delete = function(path, fileName, filesystem, onSuccess, onError) {
+        var data = {
+            path: path,
+            filesystem: filesystem,
+            name: fileName
+        };
+
+        return arikaim.put('/api/storage/admin/delete/file',data,onSuccess,onError);
     };
 
     this.restore = function(path, onSuccess, onError) {

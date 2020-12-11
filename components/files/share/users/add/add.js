@@ -19,7 +19,7 @@ $(document).ready(function() {
         var userName = $('#user_name').val();
         arikaim.ui.form.clear('#share_user_form');
 
-        return files.addUserPermission(userName,fileId,'full','file',function(result) {
+        return files.addUserPermission(userName,fileId,'user','full','file',function(result) {
             $('.empty-row').remove();
 
             return arikaim.page.loadContent({

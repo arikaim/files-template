@@ -13,6 +13,7 @@ $(document).ready(function() {
         acceptedFileTypes: [],
         formFields: {            
             note: '#note',
+            filesystem: '#filesystem',
             path: '#path'
         },
         onStart: function(file) {
@@ -24,12 +25,8 @@ $(document).ready(function() {
             arikaim.page.toastMessage(result.message);
             arikaim.ui.form.clear('#file_form');          
             fileUpload.reset();
-             
-            return arikaim.page.loadContent({
-                id: 'files_content',
-                component: 'files>files.view',
-                params: { path: result.path },                
-            });
+            
+            filesView.openDirectory(result.path);                  
         }
     });   
 });

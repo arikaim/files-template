@@ -8,12 +8,16 @@
 
 function TrashView() {
     var self = this;  
-    this.mesages = {};
+    this.mesages = null;
 
     this.init = function() {
-        arikaim.component.loadProperties('files>files.messages',function(params) { 
-            self.messages = params.messages;
-        });
+        $('.show-popup').popup({});
+
+        if (isObject(this.mesages) == false) {
+            arikaim.component.loadProperties('files>files.messages',function(params) { 
+                self.messages = params.messages;
+            });
+        }
       
         breadcrumb.init({
             onSelect: function(path) {
@@ -32,7 +36,7 @@ function TrashView() {
                 description: self.messages.empty.description 
             },function() {         
                 files.emtyTrash(function(result) {
-                    $('#view_content').html('..');
+                    self.loadEmpty();
                 },function(error) {                   
                 });
             });               
@@ -41,7 +45,7 @@ function TrashView() {
         arikaim.ui.button('.restore-trash',function(element) {   
             files.restoreTrash(function(result) {
                 $('.trash-button').addClass('disabled');
-                $('#view_content').html('..');
+                self.loadEmpty();
                 arikaim.page.toastMessage(result.message);
             },function(error) {
                 arikaim.ui.toastMessage({
@@ -52,15 +56,24 @@ function TrashView() {
         });
     };
 
+    this.loadEmpty = function() {
+        return arikaim.page.loadContent({
+            id: 'view_content',           
+            component: 'files>files.view.items.empty'
+        });
+    };
+
     this.initRows = function() { 
         $('.file-actions').dropdown({});
 
         arikaim.ui.button('.restore-file',function(element) {   
             var path = $(element).attr('path');
-        
+            var uuid = $(element).attr('uuid');
+
             files.restore(path,function(result) {
-                arikaim.ui.table.removeRow('#row_' + result.uuid,null,function(element) {
+                arikaim.ui.table.removeRow('#row_' + uuid,null,function(element) {
                     $('.trash-button').addClass('disabled');
+                    self.loadEmpty();
                 });
                 arikaim.page.toastMessage(result.message);                   
             },function(error) {
@@ -81,14 +94,13 @@ function TrashView() {
     this.loadTrashItems = function(path,viewType) {
         return arikaim.page.loadContent({
             id: 'view_content',           
-            component: 'files>files.view.items',
+            component: 'files>files.trash.rows',
             params: { 
-                path: path,
-                trash: true,              
+                path: path,                  
                 view_type: viewType                
             }
         });
-    }
+    };
 }
 
 var trashView = new TrashView();

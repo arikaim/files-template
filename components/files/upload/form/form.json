@@ -2,6 +2,8 @@
     "labels": {
         "file": "File",
         "upload": "Uplaod File",
+        "filesystem": "Filesystem",
+        "local": "Local",
         "note": "Note",
         "path": "Path"
     },

@@ -1,0 +1,9 @@
+{
+    "labels": {
+        "files": "Files",        
+        "filesystem": "Filesystem", 
+        "size": "Files Size",
+        "owner": "Owner",                
+        "name": "Name"    
+    }    
+}

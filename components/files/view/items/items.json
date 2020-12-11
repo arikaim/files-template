@@ -3,11 +3,13 @@
         "public": "Public",
         "private": "Private",
         "items": "Items",
+        "details": "File Details",
         "shared": "Shared",
         "date": "Date Uploaded",
         "size": "File size",
         "download": "Download file",
         "password": "Password protected",
-        "downloads": "Downloads"
+        "downloads": "Downloads",
+        "error": "Connection Error"
     }
 }

@@ -7,6 +7,9 @@
         "delete": "User share removed successfully.",
         "add": "User share added successfully."
     },
+    "file": {
+        "delete": "File was deleteted successfully."
+    },
     "directory": {
         "create": "Directory was created successfully.",
         "delete": "Directory was deleteted successfully."
@@ -23,12 +26,22 @@
         "link": "Not valid download link.",
         "access": "Access denied.",
         "id": "Not valid file id.",
+        "file": {
+            "delete": "Can't delete file."
+        },
+        "trash": {
+            "move": "Cant move file to trash",
+            "filesystem": "Can't move file form remote filesystem."
+        },
         "user": {
             "id": "Not valid user"
         },
         "permission": {
             "delete": "Can't delete permission",
-            "add": "Can't add permission"
+            "user": "Not valid user.",
+            "group": "Not valid group.",
+            "add": "Can't add permission",
+            "id": "Not valid permission id."
         },
         "directory": {
             "exists": "Directory exists"
@@ -43,17 +56,25 @@
         "directory": {
             "description": "Move directory <b><% file_name %></b> to Recycle Bin."           
         },
+        "connection_delete": {
+            "title": "Confirm Delete ",
+            "description": "Delete connection <b><% driver_name %></b>."
+        }, 
         "delete": {
             "title": "Confirm Delete",
             "description": "Delete <b><% file_name %></b>."
-        },
-        "deleteUser": {
+        },        
+        "user_permission": {
             "title": "Confirm Delete",
             "description": "Remove user share."
         },
+        "group_permission": {
+            "title": "Confirm Delete",
+            "description": "Remove group share."
+        },
         "empty": {
             "title": "Recycle Bin",
-            "description": "Delete all files in Recycle Bin."
+            "description": "Delete all files from Recycle Bin."
         }      
     }
 }

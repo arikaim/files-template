@@ -1,7 +1,4 @@
-{% component 'files>users.content' %}
-    <div class="seven wide column">
-        <div class="ui segment">
-            {{ component('files>users.account.details.form') }}
-        </div>
-    </div>
-{% endcomponent %}
+{{ component('files>users.title',{ title: title, icon: icon }) }} 
+<div class="ui segment">
+    {{ component('files>users.account.details.form') }}
+</div>   

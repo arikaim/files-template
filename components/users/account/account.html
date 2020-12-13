@@ -1,7 +1,7 @@
 {{ component('files>users.title',{ title: title, icon: 'user blue' }) }}
-<div class="flex mt-6 pl-2 height-94">  
-    <div class="w-64 flex-shrink-0 todo-details mr-2" id="menu_panel">        
-        <div class="ui segment h-full p-4">
+<div class="flex height-94 flex-nowrap mt-2 ml-2" id="menu_panel">        
+    <div class="w-64 flex-col flex-grow flex-shrink-0">   
+        <div class="ui segment h-full">          
             <div class="ui secondary fluid vertical menu">
                 <a class="item account-menu-item active" component="files>users.account.details" >
                     <i class="left icon edit blue"></i>
@@ -19,10 +19,15 @@
                     <i class="left icon mail outline blue"></i>
                     {{ menu.notifications }}
                 </a>  
+            </div>       
+        </div>   
+    </div>           
+    <div class="w-full flex-col flex-shrink-1 ml-2">       
+        <div class="ui grid">  
+            <div class="seven wide column" id="account_content">         
+                {{ component('files>users.account.details') }}                        
             </div>
-        </div>
-    </div>
-    <div class="w-full flex-shrink-1 mr-2" id="account_content">         
-        {{ component('files>users.account.details') }}                        
+        </div>        
     </div>
 </div>
+

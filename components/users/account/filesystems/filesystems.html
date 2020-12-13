@@ -1,18 +1,16 @@
-{% component 'files>users.content' %}
+{{ component('files>users.title',{ title: title, icon: icon }) }} 
 {% set model = createModel('StorageFilesystems','storage') %}  
 {% set drivers = service('driver').getList('flysystem') %}
-<div class="seven wide column">   
-    <div class="ui segment">  
-        <div class="ui accordion filesystems-list">
-            {% for driver in drivers %}
-                <div class="title">                  
-                    <i class="dropdown icon"></i>
-                    <span class="font-bold text-lg">{{ driver.title }}</span>
-                </div>
-                <div class="content driver-config-content" id="driver_config_{{ driver.name }}" driver-name="{{ driver.name }}">                                                            
-                </div>
-            {% endfor %}
-        </div>
+
+<div class="ui segment">  
+    <div class="ui accordion filesystems-list">
+        {% for driver in drivers %}
+            <div class="title">                  
+                <i class="dropdown icon"></i>
+                <span class="font-bold text-lg">{{ driver.title }}</span>
+            </div>
+            <div class="content driver-config-content" id="driver_config_{{ driver.name }}" driver-name="{{ driver.name }}">                                                            
+            </div>
+        {% endfor %}
     </div>
 </div>
-{% endcomponent %}

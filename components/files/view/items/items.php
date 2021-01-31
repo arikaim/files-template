@@ -28,11 +28,14 @@ return new class() implements ComponentDataInterface
             // mount remote 
             $filesystem = $driverName;
             $model = Model::StorageFilesystems('storage');
+            
             $config = $model->getConfig($userId,$driverName);
             $driver = $container->get('driver')->create($driverName,[],$config);
             $storage->mountFilesystem($driverName,$driver->getFilesystem());
-            $connectionStatus = ($config->status != 1) ? $driver->checkConnection() : true;
+            
+            $connectionStatus = ($model->status != 1) ? $driver->checkConnection() : true;
             $filesystemPath = $driver->getRootPath();
+          
         } else {
             // mount local
             $filesystem = $file->getUserFilesystemName();

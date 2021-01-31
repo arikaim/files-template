@@ -1,5 +1,6 @@
 {% set path = path|default('') %}
 {% set view_type = view_type|default(getViewType('files')) %}
+
 {% if connection_status == 1 %}
     {% set files_list = getDirectoryFiles(path,false,filesystem) %}
 {% else %}

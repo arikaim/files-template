@@ -287,7 +287,7 @@ function FilesView() {
 
 var filesView = new FilesView();
 
-arikaim.page.onReady(function() {
+$(document).ready(function() {
     filesView.init();
     filesView.initRows();
 });

@@ -1,6 +1,6 @@
 'use strict';
 
-arikaim.page.onReady(function() {
+$(document).ready(function() {
     arikaim.ui.form.addRules("#login_form",{
         inline: false,
         fields: {

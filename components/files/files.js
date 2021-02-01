@@ -85,7 +85,7 @@ function FilesApi() {
             name: fileName
         };
 
-        return arikaim.put('/api/storage/admin/delete/file',data,onSuccess,onError);
+        return arikaim.put('/api/storage/delete/file',data,onSuccess,onError);
     };
 
     this.restore = function(path, onSuccess, onError) {

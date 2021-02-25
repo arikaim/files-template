@@ -1,7 +1,7 @@
 {% set path = path|default(bin_path) %}
 {% set items = getDirectoryFiles(path,false,filesystem) %}
 {% if items|length == 0 %}
-    {{ component('files>files.view.items.empty',{ icon: 'trash alternate outline massive blue' }) }}
+    {{ component('files:files.view.items.empty',{ icon: 'trash alternate outline massive blue' }) }}
 {% endif %}
 
 {% for item in items %}

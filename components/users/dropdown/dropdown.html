@@ -10,15 +10,15 @@
     {% endif %}
     <div class="ui menu {{ menu_class }}">
         {% if service('access').isLogged() == true %}
-            <a class="item {{ item_class }} {{ (selected == 'dashboard') ? 'active' : '' }} dropdown-user-menu-item" component="files>users.dashboard" href="{{ url('/user/dashboard') }}">
+            <a class="item {{ item_class }} {{ (selected == 'dashboard') ? 'active' : '' }} dropdown-user-menu-item" component="files:users.dashboard" href="{{ url('/user/dashboard') }}">
                 <i class="icon dashboard {{ icon_class }}"></i>
                 {{ items.dashboard }}
             </a>
-            <a class="item {{ item_class }} {{ (selected == 'account') ? 'active' : '' }} dropdown-user-menu-item" component="files>users.account" href="{{ url('/user/account') }}">
+            <a class="item {{ item_class }} {{ (selected == 'account') ? 'active' : '' }} dropdown-user-menu-item" component="files:users.account" href="{{ url('/user/account') }}">
                 <i class="icon cog {{ icon_class }}"></i>
                 {{ items.account }}
             </a>
-            <a class="item {{ item_class }} dropdown-user-menu-item" component="files>users.logout" href="{{ url('/logout') }}">
+            <a class="item {{ item_class }} dropdown-user-menu-item" component="files:users.logout" href="{{ url('/logout') }}">
                 <i class="icon sign out {{ icon_class }}"></i>
                 {{ items.logout }}
             </a>

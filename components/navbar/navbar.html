@@ -4,7 +4,7 @@
         <div class="ui icon dropdown mobile-menu mt-6">
             <i class="icon big bars pl-4 inverted white open-sidebar"></i>
             <div class="ui menu">            
-                {{ component('files>navbar.menu.items',{ active: active }) }}   
+                {{ component('files:navbar.menu.items',{ active: active }) }}   
             </div>
         </div>   
     </div>
@@ -21,7 +21,7 @@
         </div>          
     </div>
     <div class="ten wide computer nine wide tablet only column pt-2">                        
-        {{ component('files>navbar.menu',{ logged: logged }) }}
+        {{ component('files:navbar.menu',{ logged: logged }) }}
     </div>      
     <div class="three wide computer twelve wide mobile two wide tablet column pt-6">    
         <div class="ui menu inverted secondary right floated large">            

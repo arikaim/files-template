@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
 
     arikaim.ui.form.addRules("#share_user_form",{
         inline: false,
@@ -28,7 +28,7 @@ $(document).ready(function() {
                     uuid: result.uuid,
                 },
                 append: true,
-                component: 'files>files.share.users.view.rows.row'
+                component: 'files:files.share.users.view.rows.row'
             },function(result) {                  
                 filePermissions.initRows();
             });    

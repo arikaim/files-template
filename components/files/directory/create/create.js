@@ -1,7 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
-    
+arikaim.component.onLoaded(function() {
     arikaim.ui.button('.close-button',function(element) {              
         $('.create-directory').click();      
     });

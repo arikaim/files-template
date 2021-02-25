@@ -1,9 +1,9 @@
-{% component 'files>layout.page' %}
+{% component 'files:layout.page' %}
     {% set active = 'files' %}
-    {{ component('files>title',{ title: title }) }}
+    {{ component('files:title',{ title: title }) }}
     <div class="mt-12">
-        <div id="files_items" component="files>files.public" namespace="files">    
-            {{ component('files>files.public') }}   
+        <div id="files_items" component="files:files.public" namespace="files">    
+            {{ component('files:files.public') }}   
         </div>
         <div class="pt-4 pb-4" id="paginator">
             {{ component('components:paginator',{ namespace: 'files' }) }}

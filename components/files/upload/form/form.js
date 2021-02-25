@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     arikaim.ui.form.addRules("#file_form");
     
     arikaim.ui.button('.cancel-button',function(element) {

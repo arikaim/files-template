@@ -13,7 +13,7 @@ function FilePermissionsView() {
     this.init = function() {
         paginator.init('permissions_rows');  
         if (isObject(this.messages) == false) {
-            arikaim.component.loadProperties('files>files.messages',function(params) { 
+            arikaim.component.loadProperties('files:files.messages',function(params) { 
                 self.messages = params.messages;
             }); 
         }
@@ -46,7 +46,7 @@ function FilePermissionsView() {
 
 var filePermissions = new FilePermissionsView();
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     filePermissions.init();
     filePermissions.initRows();
 });

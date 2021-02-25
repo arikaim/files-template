@@ -1,4 +1,4 @@
-{% component 'files>layout.page' %}
+{% component 'files:layout.page' %}
 <div class="ui centered container grid">
     <div class="row mt-64">
         <div class="ten wide column">
@@ -19,7 +19,7 @@
                         <tr>
                             <td>{{ labels.type }}</td>
                             <td>
-                                {{ component('files>file.icon',{ type: file.mime_type, class: 'large' }) }}    
+                                {{ component('files:file.icon',{ type: file.mime_type, class: 'large' }) }}    
                                 {{ file.mime_type }}
                             </td>
                         </tr>

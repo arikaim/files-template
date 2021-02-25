@@ -34,8 +34,8 @@
     </div>     
 </div>
 <div class="bg-white shadow p-4 flex-grow rounded-lg border border-gray-300">
-    <div id="files_items" component="files>files.shared.items" namespace="files">    
-        {{ component('files>files.shared.items',{ view_type: view_type }) }}   
+    <div id="files_items" component="files:files.shared.items" namespace="files">    
+        {{ component('files:files.shared.items',{ view_type: view_type }) }}   
     </div>
     <div class="pt-4 pb-8 absolute bottom-0" id="paginator">
         {{ component('components:paginator',{ namespace: 'files' }) }}
@@ -54,4 +54,4 @@
         </div>
     </div>
 </div>
-{{ component('files>files.file.password-modal') }}
+{{ component('files:files.file.password-modal') }}

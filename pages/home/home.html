@@ -1,4 +1,4 @@
-{% component 'files>layout.page' %}
+{% component 'files:layout.page' %}
 {% set active = 'home' %}
 <div class="ui centered equal width stackable grid">
     <div class="row mt-64">
@@ -14,7 +14,7 @@
     </div>
     <div class="row mt-64">
         <div class="center aligned column">
-           {{   component('files>feature.card',{ 
+           {{   component('files:feature.card',{ 
                     icon: 'open-source-icon.svg#open_source',
                     title: labels.open,
                     description: text.open 
@@ -22,7 +22,7 @@
             }} 
         </div>
         <div class="center aligned column">
-            {{  component('files>feature.card',{ 
+            {{  component('files:feature.card',{ 
                     icon: 'code-icon.svg#code_icon',
                     color_class: 'text-green-700',
                     title: labels.code,
@@ -31,7 +31,7 @@
             }}           
         </div>
         <div class="center aligned column">
-            {{  component('files>feature.card',{ 
+            {{  component('files:feature.card',{ 
                     icon: 'lock-icon.svg#lock_icon',
                     color_class: 'text-red-700',
                     title: labels.permission,
@@ -40,7 +40,7 @@
             }}                      
         </div>
         <div class="center aligned column">
-            {{  component('files>feature.card',{ 
+            {{  component('files:feature.card',{ 
                     icon: 'group-icon.svg#group_icon',
                     color_class: 'text-blue-700',
                     title: labels.users,

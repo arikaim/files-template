@@ -1,4 +1,4 @@
-{{ component('files>users.title',{ title: title, icon: icon }) }} 
+{{ component('files:users.title',{ title: title, icon: icon }) }} 
 {% set user_id = access().getId() %}
 {% set user_details = createModel('UserDetails','users').findOrCreate(user_id) %}
 {% set result = user_details.createOptions() %}

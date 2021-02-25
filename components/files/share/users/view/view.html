@@ -12,8 +12,8 @@
             </th>                                      
         </tr>
     </thead>
-    <tbody id="permissions_rows" component="files>files.share.users.view.rows" namespace="files.share" file="{{ file_id }}">
-        {{ component('files>files.share.users.view.rows',{ file: file_id }) }}
+    <tbody id="permissions_rows" component="files:files.share.users.view.rows" namespace="files.share" file="{{ file_id }}">
+        {{ component('files:files.share.users.view.rows',{ file: file_id }) }}
     </tbody>
 </table>
 <div id="paginator">

@@ -1,5 +1,5 @@
 {% set file = createModel('Files','storage').findById(uuid) %}
-{% set type_icon = component('files>file.icon',{ type: file.getFileType(), class: 'blue ' }) %}
+{% set type_icon = component('files:file.icon',{ type: file.getFileType(), class: 'blue ' }) %}
 <div class="p-1 ui segment file-details-content">
     <div class="ui header">
         <button class="ui icon button basic compact mini close-details-button right floated" on-close="{{ on_close }}">

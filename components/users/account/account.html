@@ -1,21 +1,21 @@
-{{ component('files>users.title',{ title: title, icon: 'user blue' }) }}
+{{ component('files:users.title',{ title: title, icon: 'user blue' }) }}
 <div class="flex height-94 flex-nowrap mt-2 ml-2" id="menu_panel">        
     <div class="w-64 flex-col flex-grow flex-shrink-0">   
         <div class="ui segment h-full">          
             <div class="ui secondary fluid vertical menu">
-                <a class="item account-menu-item active" component="files>users.account.details" >
+                <a class="item account-menu-item active" component="files:users.account.details" >
                     <i class="left icon edit blue"></i>
                     {{ menu.details }}
                 </a>
-                <a class="item account-menu-item" component="files>users.account.password">
+                <a class="item account-menu-item" component="files:users.account.password">
                     <i class="left icon lock blue"></i>
                     {{ menu.password }}
                 </a>
-                <a class="item account-menu-item" component="files>users.account.filesystems">
+                <a class="item account-menu-item" component="files:users.account.filesystems">
                     <i class="left icon cloud download alternate blue"></i>
                     {{ menu.filesystems }}
                 </a>    
-                <a class="item account-menu-item" component="files>users.account.settings">
+                <a class="item account-menu-item" component="files:users.account.settings">
                     <i class="left icon mail outline blue"></i>
                     {{ menu.notifications }}
                 </a>  
@@ -25,7 +25,7 @@
     <div class="w-full flex-col flex-shrink-1 ml-2">       
         <div class="ui grid">  
             <div class="seven wide column" id="account_content">         
-                {{ component('files>users.account.details') }}                        
+                {{ component('files:users.account.details') }}                        
             </div>
         </div>        
     </div>

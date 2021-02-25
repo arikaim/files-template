@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     arikaim.ui.button('.close-details-button',function(element) {
         var onClose = $(element).attr('on-close');       
         $('#file_details_content').transition({

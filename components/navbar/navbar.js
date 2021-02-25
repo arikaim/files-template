@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     $('.mobile-menu').dropdown({});
     
     $('#language_dropdown').dropdown({

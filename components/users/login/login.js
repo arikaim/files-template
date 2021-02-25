@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     arikaim.ui.form.addRules("#login_form",{
         inline: false,
         fields: {
@@ -18,7 +18,7 @@ $(document).ready(function() {
     arikaim.ui.button('#forgotten_button',function() {
         return arikaim.page.loadContent({
             id : 'login_panel',
-            component: 'files>users.reset-password'
+            component: 'files:users.reset-password'
         });
     });
     

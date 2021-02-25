@@ -1,28 +1,28 @@
 <div class="bg-blue-700 shadow-xl min-h-full">
     <div class="ui menu vertical user-menu {{ class }}">
         {% if service('access').isLogged() == true %}
-            <a class="item {{ (selected == '') ? 'active' : '' }} user-menu-item" component="files>users.dashboard">
+            <a class="item {{ (selected == '') ? 'active' : '' }} user-menu-item" component="files:users.dashboard">
                 <i class="left icon dashboard {{ icon_class }}"></i>
                 {{ items.dashboard }}
             </a>
-            <a class="item {{ (selected == 'myfiles') ? 'active' : '' }} user-menu-item" component="files>users.myfiles">
+            <a class="item {{ (selected == 'myfiles') ? 'active' : '' }} user-menu-item" component="files:users.myfiles">
                 <i class="left icon file alternate outline {{ icon_class }}"></i>
                 {{ items.myfiles }}                                                                               
             </a>
-            <a class="item {{ (selected == 'myfiles') ? 'active' : '' }} user-menu-item" component="files>users.shared">
+            <a class="item {{ (selected == 'myfiles') ? 'active' : '' }} user-menu-item" component="files:users.shared">
                 <i class="left icon share {{ icon_class }}"></i>
                 {{ items.shared }}
             </a>
-            <a class="item {{ (selected == 'trash') ? 'active' : '' }} user-menu-item" component="files>users.trash">
+            <a class="item {{ (selected == 'trash') ? 'active' : '' }} user-menu-item" component="files:users.trash">
                 <i class="left icon orange trash {{ icon_class }}"></i>
                 {{ items.trash }}
             </a>
-            <a class="item {{ (selected == 'account') ? 'active' : '' }} user-menu-item" component="files>users.account">
+            <a class="item {{ (selected == 'account') ? 'active' : '' }} user-menu-item" component="files:users.account">
                 <i class="left icon cog {{ icon_class }}"></i>
                 {{ items.settings }}
             </a>   
             {{ content }}
-            <a class="item user-menu-item" component="files>users.logout">
+            <a class="item user-menu-item" component="files:users.logout">
                 <i class="left icon sign out {{ icon_class }}"></i>
                 {{ items.logout }}
             </a>

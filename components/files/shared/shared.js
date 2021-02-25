@@ -14,14 +14,14 @@ function SharedFiles() {
 
         search.init({
             id: 'files_items',
-            component: 'files>files.shared.items',
+            component: 'files:files.shared.items',
             event: 'files.search.load'
         },'files')  
 
         viewTypeButton.init(function(view) {             
             arikaim.page.loadContent({
                 id: 'files_items',           
-                component: 'files>files.shared.items',
+                component: 'files:files.shared.items',
                 params: {                 
                     view_type: view 
                 }
@@ -66,7 +66,7 @@ function SharedFiles() {
 
             arikaim.page.loadContent({
                 id: 'preview_file_content',           
-                component: 'files>files.file.preview',
+                component: 'files:files.file.preview',
                 params: { 
                     uuid: uuid
                 }
@@ -92,7 +92,7 @@ function SharedFiles() {
             
             return arikaim.page.loadContent({
                 id: 'file_details_content',           
-                component: 'files>files.file.details',
+                component: 'files:files.file.details',
                 hideLoader: true,
                 params: { 
                     uuid: uuid,
@@ -110,7 +110,7 @@ function SharedFiles() {
 
 var sharedFiles = new SharedFiles();
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     sharedFiles.init();
     sharedFiles.initRows();
 });

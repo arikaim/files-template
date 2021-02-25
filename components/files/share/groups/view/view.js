@@ -12,7 +12,7 @@ function FileGroupPermissionsView() {
 
     this.init = function() {
         if (isObject(this.messages) == false) {
-            arikaim.component.loadProperties('files>files.messages',function(params) { 
+            arikaim.component.loadProperties('files:files.messages',function(params) { 
                 self.messages = params.messages;
             });
         }       
@@ -44,7 +44,7 @@ function FileGroupPermissionsView() {
 
 var fileGroupPermissions = new FileGroupPermissionsView();
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     fileGroupPermissions.init();
     fileGroupPermissions.initRows();
 });

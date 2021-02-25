@@ -12,7 +12,7 @@ function FilesView() {
 
     this.init = function() {  
         if (isObject(this.messages) == false) {
-            arikaim.component.loadProperties('files>files.messages',function(params) { 
+            arikaim.component.loadProperties('files:files.messages',function(params) { 
                 self.messages = params.messages;
             }); 
         }
@@ -43,7 +43,7 @@ function FilesView() {
 
                 arikaim.page.loadContent({
                     id: 'file_details',           
-                    component: 'files>files.upload',
+                    component: 'files:files.upload',
                     params: { 
                         path: path, 
                         filesystem: driverName
@@ -65,7 +65,7 @@ function FilesView() {
 
                 arikaim.page.loadContent({
                     id: 'file_details',           
-                    component: 'files>files.directory.create',
+                    component: 'files:files.directory.create',
                     params: { 
                         path: path, 
                         filesystem: driverName 
@@ -80,7 +80,7 @@ function FilesView() {
     this.loadEmpty = function() {
         return arikaim.page.loadContent({
             id: 'view_content',           
-            component: 'files>files.view.items.empty'
+            component: 'files:files.view.items.empty'
         });
     };
 
@@ -94,7 +94,7 @@ function FilesView() {
         }
         return arikaim.page.loadContent({
             id: 'file_details_content',           
-            component: 'files>files.view.path.details',
+            component: 'files:files.view.path.details',
             params: { 
                 path: path,
                 filesystem: filesystem                          
@@ -116,7 +116,7 @@ function FilesView() {
        
         return arikaim.page.loadContent({
             id: 'view_content',           
-            component: 'files>files.view.items',
+            component: 'files:files.view.items',
             params: { 
                 path: path,
                 driver_name: driverName            
@@ -146,7 +146,7 @@ function FilesView() {
             $('#preview_file_content').html('');
             arikaim.page.loadContent({
                 id: 'preview_file_content',           
-                component: 'files>files.file.preview',
+                component: 'files:files.file.preview',
                 params: { 
                     uuid: uuid
                 }
@@ -242,7 +242,7 @@ function FilesView() {
 
             return arikaim.page.loadContent({
                 id: 'file_details',           
-                component: 'files>files.share',
+                component: 'files:files.share',
                 params: { 
                     uuid: uuid,
                     filesystem: driverName,
@@ -270,7 +270,7 @@ function FilesView() {
             
             return arikaim.page.loadContent({
                 id: 'file_details_content',           
-                component: 'files>files.file.details',
+                component: 'files:files.file.details',
                 hideLoader: true,
                 params: { 
                     uuid: uuid                  
@@ -287,7 +287,7 @@ function FilesView() {
 
 var filesView = new FilesView();
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     filesView.init();
     filesView.initRows();
 });

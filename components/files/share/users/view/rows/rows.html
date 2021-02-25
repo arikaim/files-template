@@ -7,6 +7,6 @@
 </tr>
 {% else %}
     {% for item in items %}    
-        {{ component('files>files.share.users.view.rows.row',{ item: item }) }}    
+        {{ component('files:files.share.users.view.rows.row',{ item: item }) }}    
     {% endfor %}
 {% endif %}

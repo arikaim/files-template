@@ -1,7 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
-
+arikaim.component.onLoaded(function() {
     $('.file-button').removeClass('active');
     $('.file-button').attr('active','false');
 
@@ -16,7 +15,7 @@ $(document).ready(function() {
         } else {
             arikaim.page.loadContent({
                 id: 'form_content',
-                component: 'files>files.share.access',
+                component: 'files:files.share.access',
                 params: { uuid: selected }
             },function(result) {              
             });  

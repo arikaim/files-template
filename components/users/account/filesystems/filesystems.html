@@ -1,4 +1,4 @@
-{{ component('files>users.title',{ title: title, icon: icon }) }} 
+{{ component('files:users.title',{ title: title, icon: icon }) }} 
 {% set model = createModel('StorageFilesystems','storage') %}  
 {% set drivers = service('driver').getList('flysystem') %}
 

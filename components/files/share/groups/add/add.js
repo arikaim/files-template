@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     $('.groups-dropdown').dropdown({});
 
     arikaim.ui.button('.add-group-permission',function(element) {
@@ -14,7 +14,7 @@ $(document).ready(function() {
                     uuid: result.uuid,
                 },
                 append: true,
-                component: 'files>files.share.groups.view.rows.row'
+                component: 'files:files.share.groups.view.rows.row'
             },function(result) {                  
                 filePermissions.initRows();
             });    

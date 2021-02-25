@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     var type = $('#preview_file_type').attr('file-type');
  
     if (type == 'text') {

@@ -4,9 +4,9 @@
             <h2 class="ui dividing header">
             {{ title }}
             </h2>
-            {{ component('files>users.login.form') }}
+            {{ component('files:users.login.form') }}
             {% if hasExtension('oauth') == true %}                            
-                {{  component('files>users.connect.buttons',{ 
+                {{  component('files:users.connect.buttons',{ 
                         button_class: 'basic icon primary',
                         class: 'fluid',
                         hide_button_title: true 

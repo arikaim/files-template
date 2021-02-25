@@ -1,5 +1,5 @@
 {% set file = createModel('Files','storage').findById(uuid) %}
-{{ component('files>files.title',{ title: title.content, icon: title.icon }) }} 
+{{ component('files:files.title',{ title: title.content, icon: title.icon }) }} 
 <div class="ui segment">   
     <div class="mt-4">
         <div class="ui segment">        
@@ -13,7 +13,7 @@
                 <i class="ui icon file outline blue"></i>
                 {{ labels.file }}
             </div>
-            {{  component('files>files.breadcrumb',{ 
+            {{  component('files:files.breadcrumb',{ 
                     path: file.path,
                     class: 'paded pl-1',   
                     hide_links: true,   
@@ -25,7 +25,7 @@
         </div>
         <div id="form_content" class="ui form mt-8">    
             {% if uuid is not empty %}
-                {{ component('files>files.share.access',{ uuid: uuid }) }} 
+                {{ component('files:files.share.access',{ uuid: uuid }) }} 
             {% endif %}           
         </div>
     </div>

@@ -23,7 +23,7 @@
 {% endif %}
 
 {% if items.getItems()|length == 0 and connection_status == 1 %}    
-    {{ component('files>files.view.items.empty',{ icon: 'folder outline open massive blue' }) }}
+    {{ component('files:files.view.items.empty',{ icon: 'folder outline open massive blue' }) }}
 {% endif %}
 
 {% for item in items.getItems() if item.path != 'bin' %}
@@ -37,10 +37,10 @@
     %}    
     {% set file_type = file.getFileType() %}
     {% if view_type == 'table' %}     
-        {% set type_icon = component('files>file.icon',{ type: file_type, class: 'large ' ~ color_icon }) %}      
+        {% set type_icon = component('files:file.icon',{ type: file_type, class: 'large ' ~ color_icon }) %}      
         <div class="item" id="row_{{ file.uuid }}">   
             <div class="content">
-                {{ component('files>files.view.items.actions',{ file: file, class: 'compact' }) }}
+                {{ component('files:files.view.items.actions',{ file: file, class: 'compact' }) }}
                 <button uuid="{{ file.uuid }}" class="ui basic mini icon button compact file-details show-popup" title="{{ labels.details }}">
                     <i class="icon info"></i>
                 </button> 
@@ -67,7 +67,7 @@
         <div class="w-full h-64 rounded-lg border border-solid border-gray-400 overflow-hidden shadow-lg" id="row_{{ file.uuid }}">
             <div class="pl-2 pr-2 pt-2">
                 <div class="flex justify-between">
-                    {{ component('files>files.view.items.actions',{ file: file, class: 'mini basic compact button' }) }}
+                    {{ component('files:files.view.items.actions',{ file: file, class: 'mini basic compact button' }) }}
                     <div class="pl-2 pt-1 font-bold show-popup" data-content="{{ file.file_name }}">                 
                         {{ file.file_name|sliceLabel(16,'...') }}                   
                     </div>      
@@ -97,7 +97,7 @@
                             <img class="w-full h-64" src="{{ file.getViewImageUrl() }}">
                         {% else %} 
                         <div class="min-w-fill min-h-full pt-8">  
-                            {{ component('files>file.icon',{ type: file_type, class: 'massive ' ~ color_icon }) }} 
+                            {{ component('files:file.icon',{ type: file_type, class: 'massive ' ~ color_icon }) }} 
                         </div>                          
                         {% endif %}                                                     
                     </a>   

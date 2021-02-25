@@ -1,10 +1,10 @@
-{% component 'files>users.content' %}
+{% component 'files:users.content' %}
     {% set user = service('access').getUser() %}
     {% set user_details = createModel('UserDetails','users').findByColumn(user.id,'user_id') %}  
     <div class="seven wide column">       
         <div class="ui segment mt-8">
             <div class="mt-2 w-64 h-32" id="avatar_image">
-                {{ component('files>users.avatar.image',{ avatar: user_details.avatar, uuid: user.uuid }) }}
+                {{ component('files:users.avatar.image',{ avatar: user_details.avatar, uuid: user.uuid }) }}
             </div>      
             <div class="mt-4">
                 <form class="ui form" id="avatar_form" enctype="multipart/form-data">

@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() { 
+arikaim.component.onLoaded(function() {
     arikaim.ui.form.addRules("#signup_form",{
         inline: false,
         fields: {
@@ -31,7 +31,7 @@ $(document).ready(function() {
     },function(result) {             
         arikaim.page.loadContent({
             id: 'signup_content',
-            component: 'files>users.signup.message',
+            component: 'files:users.signup.message',
             params: { uuid: result.uuid }
         });  
     });

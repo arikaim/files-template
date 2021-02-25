@@ -2,7 +2,7 @@
     "include": {
         "js": [
             "components:upload",
-            "files>files",
+            "files:files",
             "components:paginator",
             "components:view.type.button"
         ]

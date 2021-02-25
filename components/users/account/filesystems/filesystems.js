@@ -12,7 +12,7 @@ function FilesystemsView() {
 
     this.init = function() {
         if (isObject(this.messages) == false) {
-            arikaim.component.loadProperties('files>files.messages',function(params) { 
+            arikaim.component.loadProperties('files:files.messages',function(params) { 
                 self.messages = params.messages;
             }); 
         }
@@ -31,7 +31,7 @@ function FilesystemsView() {
     this.loadConfig = function(driverName) {
         return arikaim.page.loadContent({
             id: 'driver_config_' + driverName,           
-            component: 'files>users.account.filesystems.config',
+            component: 'files:users.account.filesystems.config',
             params: { 
                 driver_name: driverName                              
             }
@@ -42,7 +42,7 @@ function FilesystemsView() {
     this.loadEditConfig = function(driverName) {
         return arikaim.page.loadContent({
             id: 'driver_config_' + driverName,           
-            component: 'files>users.account.filesystems.edit',
+            component: 'files:users.account.filesystems.edit',
             params: { 
                 driver_name: driverName                              
             }
@@ -121,7 +121,7 @@ function FilesystemsView() {
 
 var filesystemsView = new FilesystemsView();
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     filesystemsView.init(); 
     filesystemsView.initRows();
 });

@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     arikaim.ui.viewPasswordButton('.view-password','#file_password');
 
     arikaim.ui.button('.remove-password',function(element) {        

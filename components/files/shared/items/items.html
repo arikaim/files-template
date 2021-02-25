@@ -8,7 +8,7 @@
 {% endif %}
 
 {% if items|length == 0 %}
-    {{ component('files>files.view.items.empty',{ icon: 'folder outline open massive blue' }) }}
+    {{ component('files:files.view.items.empty',{ icon: 'folder outline open massive blue' }) }}
 {% endif %}
 
 {% for item in items %} 
@@ -18,7 +18,7 @@
     {% if view_type == 'table' %}       
         <div class="item" id="row_{{ file.uuid }}">   
             <div class="content">                
-                {{ component('files>files.shared.items.actions',{ file: file }) }}               
+                {{ component('files:files.shared.items.actions',{ file: file }) }}               
                 {% if file.isDirectory() == true %}
                     <button class="ui basic disabled mini icon button">
                         <i class="icon"></i>
@@ -41,7 +41,7 @@
                         </a> 
                     {% endif %}                 
                     <a class="ui link preview-file" uuid="{{ file.uuid }}">
-                        {{  component('files>file.icon',{ type: file_type, class: 'large ' ~ color_icon }) }} 
+                        {{  component('files:file.icon',{ type: file_type, class: 'large ' ~ color_icon }) }} 
                         {{ file.file_name }}  
                     </a>                   
                 {% endif %}                                        
@@ -58,7 +58,7 @@
         <div class="w-full h-64 rounded border border-solid border-gray-400 overflow-hidden shadow-lg" id="row_{{ file.uuid }}">           
             <div class="content p-2">                               
                 <div class="flex justify-between">                                                   
-                    {{ component('files>files.shared.items.actions',{ file: file, class: 'mini basic compact button' }) }}          
+                    {{ component('files:files.shared.items.actions',{ file: file, class: 'mini basic compact button' }) }}          
                     <div class="pl-2 font-bold show-popup" data-content="{{ file.file_name }} ">                 
                         {{ file.file_name|sliceLabel(16,'...') }}                   
                     </div>                     
@@ -81,7 +81,7 @@
                         <img class="w-full h-64" src="{{ file.getViewImageUrl() }}">
                     {% else %} 
                         <div class="mt-1 pb-4 pt-8">                                             
-                            {{ component('files>file.icon',{ type: file_type, class: 'massive' }) }}                                      
+                            {{ component('files:file.icon',{ type: file_type, class: 'massive' }) }}                                      
                         </div>                        
                     {% endif %}                
                 </a>                                  

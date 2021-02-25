@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     arikaim.ui.form.addRules("#change_password_form",{
         inline: false,
         fields: {
@@ -19,7 +19,7 @@ $(document).ready(function() {
     arikaim.ui.button('#login_page_link',function(element) {
         arikaim.page.loadContent({
             id : 'change_password_panel',
-            component: 'files>users.login'
+            component: 'files:users.login'
         });
     });
 

@@ -1,6 +1,6 @@
 {      
     "title": "Files Manager",
-    "version": "1.4.4",
+    "version": "1.5.0",
     "name": "files",
     "package-type": "template",
     "icon": "file",
@@ -9,7 +9,7 @@
     "require": {
         "library": [
             "jquery",
-            "arikaim",
+            "arikaim:source",
             "arikaim-ui",
             "fomantic",  
             "plyr", 
@@ -26,19 +26,19 @@
         {
             "path": "/",         
             "home": true,  
-            "page": "files>home",
+            "page": "files:home",
             "language-path": true,
             "name": "Home"                   
         },
         {
             "path": "/files",                   
-            "page": "files>files",
+            "page": "files:files",
             "language-path": true,
             "name": "Files"                   
         },
         {
             "path": "/about",           
-            "page": "files>about",
+            "page": "files:about",
             "language-path": true,
             "name": "About"                   
         }
@@ -48,7 +48,7 @@
     ],
     "include": {     
         "components": [    
-            "files>users",
+            "files:users",
             "components:modal"        
         ],         
         "css": [

@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     var fileUpload = new FileUpload('#avatar_form',{
         url: '/api/users/avatar/upload',
         maxFiles: 1,
@@ -18,7 +18,7 @@ $(document).ready(function() {
                     avatar: result.avatar,
                     uuid: result.uuid, 
                 },
-                component: 'files>users.avatar.image'
+                component: 'files:users.avatar.image'
             });           
         },
         onError: function(error) {       

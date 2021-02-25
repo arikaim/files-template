@@ -1,6 +1,6 @@
 'use strict';
 
-$(document).ready(function() {
+arikaim.component.onLoaded(function() {
     safeCall('filesView',function(obj) {
         obj.initRows();
     },false);

@@ -4,16 +4,17 @@
 {% if connection_status == 1 %}
     {% set files_list = getDirectoryFiles(path,false,filesystem) %}
 {% else %}
-<div class="ui warning message">          
-    <h4 class="ui header">
-        <i class="exclamation icon orange"></i>
-        {{ labels.error }}
-    </h4>
-    <p>
-        {{ connection_status }}      
-    </p>     
-</div>
+    <div class="ui warning message">          
+        <h4 class="ui header">
+            <i class="exclamation icon orange"></i>
+            {{ labels.error }}
+        </h4>
+        <p>
+            {{ connection_status }}      
+        </p>     
+    </div>
 {% endif %}
+
 {% set items = paginate(files_list,'myfiles') %}  
 
 {% if view_type == 'table' %}
@@ -26,84 +27,86 @@
     {{ component('files:files.view.items.empty',{ icon: 'folder outline open massive blue' }) }}
 {% endif %}
 
-{% for item in items.getItems() if item.path != 'bin' %}
-    {% set mime_type = (item.type == 'dir') ? 'directory' : service('storage').getMimetype(item.path,filesystem) %}     
-    {%  set file = files.saveFile(item.path,user_id,filesystem,{ 
-            type: item.type,
-            size: item.size,          
-            date_created: item.timestamp,
-            mime_type: mime_type
-        },false) 
-    %}    
-    {% set file_type = file.getFileType() %}
-    {% if view_type == 'table' %}     
-        {% set type_icon = component('files:file.icon',{ type: file_type, class: 'large ' ~ color_icon }) %}      
-        <div class="item" id="row_{{ file.uuid }}">   
-            <div class="content">
-                {{ component('files:files.view.items.actions',{ file: file, class: 'compact' }) }}
-                <button uuid="{{ file.uuid }}" class="ui basic mini icon button compact file-details show-popup" title="{{ labels.details }}">
-                    <i class="icon info"></i>
-                </button> 
-                {% if file.isDirectory() == true %}
-                    <button class="ui basic disabled mini icon button compact">
-                        <i class="icon"></i>
+{% for item in items.getItems() %}
+    {% if item.path != 'bin' %}
+        {% set mime_type = (item.type == 'dir') ? 'directory' : service('storage').getMimetype(item.path,filesystem) %}     
+        {%  set file = files.saveFile(item.path,user_id,filesystem,{ 
+                type: item.type,
+                size: item.size,          
+                date_created: item.timestamp,
+                mime_type: mime_type
+            },false) 
+        %}    
+        {% set file_type = file.getFileType() %}
+        {% if view_type == 'table' %}     
+            {% set type_icon = component('files:file.icon',{ type: file_type, class: 'large ' ~ color_icon }) %}      
+            <div class="item" id="row_{{ file.uuid }}">   
+                <div class="content">
+                    {{ component('files:files.view.items.actions',{ file: file, class: 'compact' }) }}
+                    <button uuid="{{ file.uuid }}" class="ui basic mini icon button compact file-details show-popup" title="{{ labels.details }}">
+                        <i class="icon info"></i>
                     </button> 
-                    <button class="ui link open-directory" path="{{ item.path }}">
-                        <i class="icon outline folder large blue"></i>                                                       
-                        {{ file.file_name }}      
-                    </button>                 
-                {% else %}      
-                    <a class="ui basic mini compact icon button show-popup" href="{{ file.getDownloadUrl() }}" title="{{ labels.download }}">
-                        <i class="icon blue download"></i>
-                    </a>
-                    <a class="ui link preview-file" uuid="{{ file.uuid }}">
-                        {{ type_icon }} 
-                        {{ file.file_name }}                        
-                    </a>                    
-                {% endif %}
-            </div>  
-        </div>           
-    {% else %}
-        <div class="w-full h-64 rounded-lg border border-solid border-gray-400 overflow-hidden shadow-lg" id="row_{{ file.uuid }}">
-            <div class="pl-2 pr-2 pt-2">
-                <div class="flex justify-between">
-                    {{ component('files:files.view.items.actions',{ file: file, class: 'mini basic compact button' }) }}
-                    <div class="pl-2 pt-1 font-bold show-popup" data-content="{{ file.file_name }}">                 
-                        {{ file.file_name|sliceLabel(16,'...') }}                   
-                    </div>      
-                    <div>
-                        {% if file.isDirectory() == false %}   
-                            <a class="ui icon mini basic compact button" href="{{ file.getDownloadUrl() }}">       
-                                <i class="icon blue show-popup download" title="{{ labels.download }}"></i>                  
-                            </a>   
-                        {% else %}
-                            <a title="{{ labels.open }}" class="ui icon mini basic compact button open-directory show-popup" path="{{ item.path }}">    
-                                <i class="icon blue open folder"></i>                    
-                            </a>   
-                        {% endif %}     
-                    </div>        
-                </div>               
-            </div>   
-            <div class="text-center pt-4">
-                {% if file.isDirectory() == true %}                          
-                    <a class="ui link open-directory cursor-pointer" path="{{ item.path }}">    
-                        <div class="mt-6 min-w-fill min-h-full">   
-                            <i class="icon outline folder massive blue"></i>                                         
-                        </div>                        
-                    </a>                           
-                {% else %}  
-                    <a class="preview-file cursor-pointer" uuid="{{ file.uuid }}">                                                                               
-                        {% if file_type == 'image' %}
-                            <img class="w-full h-64" src="{{ file.getViewImageUrl() }}">
-                        {% else %} 
-                        <div class="min-w-fill min-h-full pt-8">  
-                            {{ component('files:file.icon',{ type: file_type, class: 'massive ' ~ color_icon }) }} 
-                        </div>                          
-                        {% endif %}                                                     
-                    </a>   
-                {% endif %}     
-            </div>                          
-        </div>           
-    {% endif %}   
+                    {% if file.isDirectory() == true %}
+                        <button class="ui basic disabled mini icon button compact">
+                            <i class="icon"></i>
+                        </button> 
+                        <button class="ui link open-directory" path="{{ item.path }}">
+                            <i class="icon outline folder large blue"></i>                                                       
+                            {{ file.file_name }}      
+                        </button>                 
+                    {% else %}      
+                        <a class="ui basic mini compact icon button show-popup" href="{{ file.getDownloadUrl() }}" title="{{ labels.download }}">
+                            <i class="icon blue download"></i>
+                        </a>
+                        <a class="ui link preview-file" uuid="{{ file.uuid }}">
+                            {{ type_icon }} 
+                            {{ file.file_name }}                        
+                        </a>                    
+                    {% endif %}
+                </div>  
+            </div>           
+        {% else %}
+            <div class="w-full h-64 rounded-lg border border-solid border-gray-400 overflow-hidden shadow-lg" id="row_{{ file.uuid }}">
+                <div class="pl-2 pr-2 pt-2">
+                    <div class="flex justify-between">
+                        {{ component('files:files.view.items.actions',{ file: file, class: 'mini basic compact button' }) }}
+                        <div class="pl-2 pt-1 font-bold show-popup" data-content="{{ file.file_name }}">                 
+                            {{ file.file_name|sliceLabel(16,'...') }}                   
+                        </div>      
+                        <div>
+                            {% if file.isDirectory() == false %}   
+                                <a class="ui icon mini basic compact button" href="{{ file.getDownloadUrl() }}">       
+                                    <i class="icon blue show-popup download" title="{{ labels.download }}"></i>                  
+                                </a>   
+                            {% else %}
+                                <a title="{{ labels.open }}" class="ui icon mini basic compact button open-directory show-popup" path="{{ item.path }}">    
+                                    <i class="icon blue open folder"></i>                    
+                                </a>   
+                            {% endif %}     
+                        </div>        
+                    </div>               
+                </div>   
+                <div class="text-center pt-4">
+                    {% if file.isDirectory() == true %}                          
+                        <a class="ui link open-directory cursor-pointer" path="{{ item.path }}">    
+                            <div class="mt-6 min-w-fill min-h-full">   
+                                <i class="icon outline folder massive blue"></i>                                         
+                            </div>                        
+                        </a>                           
+                    {% else %}  
+                        <a class="preview-file cursor-pointer" uuid="{{ file.uuid }}">                                                                               
+                            {% if file_type == 'image' %}
+                                <img class="w-full h-64" src="{{ file.getViewImageUrl() }}">
+                            {% else %} 
+                            <div class="min-w-fill min-h-full pt-8">  
+                                {{ component('files:file.icon',{ type: file_type, class: 'massive ' ~ color_icon }) }} 
+                            </div>                          
+                            {% endif %}                                                     
+                        </a>   
+                    {% endif %}     
+                </div>                          
+            </div>           
+        {% endif %}  
+    {% endif %} 
 {% endfor %}
 </div>

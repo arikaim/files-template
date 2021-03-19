@@ -20,22 +20,40 @@ return new class() implements ComponentDataInterface
      */
     public function getData(array $params = [], $container = null): array
     {
+        $path = $params['path'] ?? '';
+        $folderId = $params['folder_id'] ?? null;
+
         $userId = $container->get('access')->getId();
         $search = Search::getSearchValue('search_text','files');
         $model = Model::FilePermissions('storage');
 
-        $model = $model
-            ->selectRaw(' DISTINCT entity_id ')
-            ->permissionsForUser($userId)
-            ->whereHas('file',function($query) use($search) {
-                $search = \strtoupper($search);
-                $query->whereRaw('UPPER(path) LIKE ?',['%' . $search . '%']);
-            });
-       
+        if (empty($path) == false ) {
+            if (empty($folderId) == false) {
+                $files = Model::Files('storage');
+                $folder = $files->findById($folderId);
+                if (\is_null($folder) == false) {
+                    if ($folder->hasAccess($userId,['read']) == true) {
+                        $path = \trim($path) . DIRECTORY_SEPARATOR . \trim($search);
+                        $model = $files->folderFiles($path);        
+                    } 
+                }    
+            }                    
+        } else {
+            $model = $model
+                ->selectRaw(' DISTINCT entity_id ')
+                ->permissionsForUser($userId)
+                ->whereHas('file',function($query) use($search) {
+                    $search = \strtoupper($search);
+                    $query->whereRaw('UPPER(path) LIKE ?',['%' . $search . '%']);
+                });
+        }
+        
         return [
-            'user_id' => $userId,
-            'search'  => $search,
-            'files'   => $model
+            'path'      => $path,
+            'folder_id' => $folderId,
+            'user_id'   => $userId,
+            'search'    => $search,
+            'files'     => $model
         ];
     }
 };

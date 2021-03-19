@@ -12,6 +12,13 @@ function SharedFiles() {
     this.init = function() {    
         paginator.init('files_items');    
 
+        breadcrumb.init({
+            onSelect: function(path) {                   
+                self.openDirectory(path.substring(1));            
+            },
+            disableLinks: true
+        });
+
         search.init({
             id: 'files_items',
             component: 'files:files.shared.items',
@@ -45,6 +52,27 @@ function SharedFiles() {
         }).modal('show');
     };
 
+    this.openDirectory = function(path,folderId) { 
+        path = getDefaultValue(path,'');
+        breadcrumb.setPath(path);    
+
+        paginator.setParams({
+            path: path,
+            folder_id: folderId
+        });
+
+        return arikaim.page.loadContent({
+            id: 'files_items',           
+            component: 'files:files.shared.items',
+            params: { 
+                path: path,
+                folder_id: folderId                                      
+            }
+        },function(result) {
+            paginator.reload();
+        }); 
+    };
+
     this.initRows = function() { 
         $('.show-popup').popup({});
         $('.file-link-button').popup({
@@ -52,7 +80,14 @@ function SharedFiles() {
         });
         
         $('.file-actions').dropdown({}); 
-        
+       
+        arikaim.ui.button('.open-directory',function(element) {
+            var path = $(element).attr('path');
+            var folderId = $(element).attr('folder-id');
+         
+            return self.openDirectory(path,folderId);
+        });
+
         arikaim.ui.button('.show-password-modal',function(element) {
             var uuid = $(element).attr('uuid');
             var fileName = $(element).attr('file-name');

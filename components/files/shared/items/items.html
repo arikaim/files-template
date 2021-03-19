@@ -1,6 +1,7 @@
 {% set view_type = view_type|default(getViewType('files')) %}
 {% set items = paginate(files,'files') %}  
 {% set items = items.getItems() %}
+
 {% if view_type == 'table' %}
     <div class="ui big list">
 {% else %}
@@ -12,20 +13,20 @@
 {% endif %}
 
 {% for item in items %} 
-    {% set file = item.file().first() %}   
+    {% set file = (path == '') ? item.file().first() : item %}   
     {% set file_type = file.getFileType() %}
   
     {% if view_type == 'table' %}       
         <div class="item" id="row_{{ file.uuid }}">   
-            <div class="content">                
+            <div class="content">                  
                 {{ component('files:files.shared.items.actions',{ file: file }) }}               
                 {% if file.isDirectory() == true %}
                     <button class="ui basic disabled mini icon button">
                         <i class="icon"></i>
                     </button> 
-                    <a class="ui link open-directory" path="{{ path }}">
+                    <a class="ui link open-directory" path="{{ file.path }}" folder-id="{{ file.uuid }}">
                         <i class="icon outline folder blue large"></i>                      
-                        {{ file.file_name }}      
+                        {{ file.path }}                          
                     </a>       
                 {% else %}     
                     <button class="ui basic mini icon file-details button" uuid="{{ file.uuid }}">
@@ -75,16 +76,25 @@
                     </div>                             
                 </div>                        
             </div>                 
-            <div class="text-center">                                      
-                <a class="ui link preview-file cursor-pointer" uuid="{{ file.uuid }}">
-                    {% if file.isImage() == true %}
-                        <img class="w-full h-64" src="{{ file.getViewImageUrl() }}">
-                    {% else %} 
+            <div class="text-center">    
+                {% if file.isDirectory() == true %}
+                    <a class="ui link open-directory" path="{{ file.path }}" folder-id="{{ file.uuid }}">
                         <div class="mt-1 pb-4 pt-8">                                             
-                            {{ component('files:file.icon',{ type: file_type, class: 'massive' }) }}                                      
-                        </div>                        
-                    {% endif %}                
-                </a>                                  
+                            {{ component('files:file.icon',{ type: file_type, class: 'massive' }) }}      
+                            {{ file.path }}                                     
+                        </div>                                                               
+                    </a>   
+                {% else %}                                  
+                    <a class="ui link preview-file cursor-pointer" uuid="{{ file.uuid }}">
+                        {% if file.isImage() == true %}
+                            <img class="w-full h-64" src="{{ file.getViewImageUrl() }}">
+                        {% else %} 
+                            <div class="mt-1 pb-4 pt-8">                                             
+                                {{ component('files:file.icon',{ type: file_type, class: 'massive' }) }}                                      
+                            </div>                        
+                        {% endif %}                
+                    </a>     
+                {% endif %}                             
             </div>                                                                    
         </div>       
     {% endif %}   

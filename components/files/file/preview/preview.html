@@ -1,6 +1,7 @@
 {% set file = createModel('Files','storage').findById(uuid) %}
 {% set file_type = file.getFileType() %}
-<div></div>
+<div>   
+</div>
 <div class="pt-1" id="preview_file_type" file-type="{{ file_type }}">
     {% if file_type == 'image' %}
         <img class="image w-full h-full" src="{{ file.getViewImageUrl() }}">

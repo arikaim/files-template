@@ -22,10 +22,6 @@ return new class() implements ComponentDataInterface
     {
         $path = $params['path'] ?? '';
         $folderId = $params['folder_id'] ?? null;
-
-        $path = (empty($path) == true) ? Search::getSearchValue('search_path','files') : $path;
-        $folderId = (empty($folderId) == true) ? Search::getSearchValue('folder_id','files') : $folderId;
-
         $userId = $container->get('access')->getId();
         $search = Search::getSearchValue('search_text','files');
         $model = Model::FilePermissions('storage');

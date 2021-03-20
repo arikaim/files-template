@@ -22,7 +22,13 @@ function SharedFiles() {
         search.init({
             id: 'files_items',
             component: 'files:files.shared.items',
-            event: 'files.search.load'
+            event: 'files.search.load',
+            beforeLoadResult: function(search) {
+                search.options.params = {
+                    path: breadcrumb.getPath(),
+                    folder_id: $('#folder_id').val()
+                };
+            }
         },'files');  
 
         viewTypeButton.init(function(view) {             

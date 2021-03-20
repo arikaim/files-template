@@ -23,7 +23,7 @@ function SharedFiles() {
             id: 'files_items',
             component: 'files:files.shared.items',
             event: 'files.search.load'
-        },'files')  
+        },'files');  
 
         viewTypeButton.init(function(view) {             
             arikaim.page.loadContent({
@@ -55,6 +55,8 @@ function SharedFiles() {
     this.openDirectory = function(path,folderId) { 
         path = getDefaultValue(path,'');
         breadcrumb.setPath(path);    
+        $('#search_path').val(path);
+        $('#folder_id').val(folderId);
 
         paginator.setParams({
             path: path,

@@ -23,18 +23,25 @@ return new class() implements ComponentDataInterface
         $path = $params['path'] ?? '';
         $folderId = $params['folder_id'] ?? null;
 
+        $path = (empty($path) == true) ? Search::getSearchValue('search_path','files') : $path;
+        $folderId = (empty($folderId) == true) ? Search::getSearchValue('folder_id','files') : $folderId;
+
         $userId = $container->get('access')->getId();
         $search = Search::getSearchValue('search_text','files');
         $model = Model::FilePermissions('storage');
 
-        if (empty($path) == false ) {
+        if (empty($path) == false) {
             if (empty($folderId) == false) {
                 $files = Model::Files('storage');
                 $folder = $files->findById($folderId);
                 if (\is_null($folder) == false) {
-                    if ($folder->hasAccess($userId,['read']) == true) {
-                        $path = \trim($path) . DIRECTORY_SEPARATOR . \trim($search);
-                        $model = $files->folderFiles($path);        
+                    if ($folder->hasAccess($userId,['read']) == true) {                    
+                        if (empty($search) == true) {
+                            $search = \trim($path) . DIRECTORY_SEPARATOR;                        
+                        } else {
+                            $search = \trim($path) . DIRECTORY_SEPARATOR . '%' . \trim($search) . '%';
+                        }
+                        $model = $files->folderFiles($search);       
                     } 
                 }    
             }                    

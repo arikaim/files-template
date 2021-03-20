@@ -1,32 +1,36 @@
 {% set view_type = getViewType('files') %}
 <div class="ui segment">  
-    <div class="ui grid"> 
-        <div class="five wide column">
+    <div class="ui grid">        
+        <div class="five wide column">                  
+            {% set search = getSearch('files') %}
+            <form class="ui form" id="search_form" method="pots">
+                <div class="ui fluid right action left icon input" id="search_input">
+                    <i class="search icon"></i>
+                    <input placeholder="{{ labels.placeholder }}" 
+                        class="search-field" 
+                        type="text" 
+                        name="search_text" 
+                        id="search_text" 
+                        value="{{ search.search_text }}">               
+                    <input class="search-field" type="hidden" name="search_path" value="{{ path }}" id="search_path">
+                    <input class="search-field" type="hidden" name="folder_id" value="{{ folder_id }}" id="folder_id">
+                    <div class="ui basic buttons">
+                        <button class="ui basic icon button" id="search_button">
+                            <i class="icon search"></i>
+                        </button>                       
+                    </div>
+                </div>               
+            </form>
+        </div>    
+        <div class="ten wide column">
             {{  component('components:breadcrumb',{ 
                     path: path,
                     class: 'paded massive pl-2',      
                     icon: 'folder open outline blue'           
                 }) 
             }}   
-        </div>   
-        <div class="five wide column">                  
-            {% set search = getSearch('files') %}
-            <form class="ui form" id="search_form" method="pots">
-                <div class="ui fluid right action left icon input" id="search_input">
-                    <i class="search icon"></i>
-                    <input placeholder="{{ labels.placeholder }}" class="search-field" type="text" name="search_text" id="search_text" value="{{ search.search_text }}">               
-                    <div class="ui basic buttons">
-                        <button class="ui basic icon button" id="search_button">
-                            <i class="icon search"></i>
-                        </button>
-                        <button class="ui icon button clear-search-form" title="{{ labels.clear }}">
-                            <i class="remove icon"></i>
-                        </button>
-                    </div>
-                </div>               
-            </form>
-        </div>       
-        <div class="six wide column right floated">    
+        </div>      
+        <div class="one wide column right floated">    
             <div class="ui buttons right floated">  
                 <div class="pr-2">
                     {{  component('components:paginator.dropdown',{

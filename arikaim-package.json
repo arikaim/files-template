@@ -57,13 +57,18 @@
         "library": [
             "jquery",             
             "filepond",               
-            "arikaim:source",
-            "arikaim-ui:source",
-            "fomantic",
+            "arikaim",
+            "arikaim-ui",
+            "fomantic:form",
+            "fomantic:modal",
             "plyr",   
             "highlight",
             "pdf-js", 
-            "tailwind:1.4.6"
+            "tailwind",
+            "tailwind:grid",
+            "tailwind:colors",
+            "tailwind:size",
+            "tailwind:animation"
         ]       
     }
 }

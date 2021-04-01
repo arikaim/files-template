@@ -1,0 +1,13 @@
+{
+    "labels": {
+        "home": "Home",
+        "files": "Files",
+        "about": "About",
+        "login": "Login",
+        "signup": "Sign Up"
+    },
+    "css": {
+        "item": "text-xl uppercase navbar-link px-4 py-1 md:p-2 lg:px-4 text-lg",
+        "item_color": "text-indigo-800 hover:text-red-500 transition duration-700 ease-in-out"
+    }
+}

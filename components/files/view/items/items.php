@@ -4,6 +4,7 @@
  */
 use Arikaim\Core\Interfaces\View\ComponentDataInterface;
 use Arikaim\Core\Db\Model;
+use Arikaim\Core\Arikaim;
 
 /**
  * Data class
@@ -20,8 +21,8 @@ return new class() implements ComponentDataInterface
     public function getData(array $params = [], $container = null): array
     {
         $file = Model::Files('storage');
-        $userId = $container->get('access')->getId();
-        $storage = $container->get('storage');
+        $userId = Arikaim::get('access')->getId();
+        $storage = Arikaim::get('storage');
         $driverName = $params['driver_name'] ?? null;
    
         if (empty($driverName) == false) {           
@@ -30,7 +31,7 @@ return new class() implements ComponentDataInterface
             $model = Model::StorageFilesystems('storage');
             
             $config = $model->getConfig($userId,$driverName);
-            $driver = $container->get('driver')->create($driverName,[],$config);
+            $driver = Arikaim::get('driver')->create($driverName,[],$config);
             $storage->mountFilesystem($driverName,$driver->getFilesystem());
             
             $connectionStatus = ($model->status != 1) ? $driver->checkConnection() : true;

@@ -1,10 +1,13 @@
 <form class="ui form" id="reset_password_form" method="post">
     <div class="field">
-        <label>{{ email.label }}</label>
-        <div class="ui left icon input">
-            <i class="icon envelope outline"></i>
-            <input type="text" name="email" id="email" {{ email.placeholder|attr("placeholder") }}>    
-        </div>
-    </div>                      
-    {{ component('components:form.footer',{ button_class: 'button primary', button_title: buttons.submit }) }}   
+        <label>{{ email.label }}</label>      
+        <input rule="email" type="text" name="email" id="email" {{ email.placeholder|attr("placeholder") }}>            
+    </div>           
+    <div class="form">
+        {{  component('components:form.footer',{ 
+                button_class: 'button primary', 
+                button_title: buttons.submit 
+            }) 
+        }} 
+    </div>               
 </form>

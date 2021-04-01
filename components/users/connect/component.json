@@ -1,4 +1,9 @@
 {
+    "include": {
+        "js": [        
+            "oauth::oauth"            
+        ]
+    },
     "access": {
         "auth": "none"
     }

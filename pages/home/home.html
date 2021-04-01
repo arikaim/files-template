@@ -1,46 +1,44 @@
-{% component 'files:layout.page' %}
-{% set active = 'home' %}
-<div class="ui centered equal width stackable grid">
-    <div class="row mt-64">
-        <div class="center aligned column">           
-            <div class="home-page-title mt-8">
-                {{ title }}      
-            </div>
-            <div class="mt-24"></div>
+{% component 'files:layout.page' %}   
+    {% set active = 'home' %}
+    <div class="flex items-center flex-col w-3/4 mx-auto pt-34 h-64 mt-24">
+        <div class="home-page-title mt-12">
+            {{ title }}      
+        </div>
+        <div class="mt-12">
             <a class="ui olive huge button" href="{{ url('/signup') }}">
                 <span class="uppercase open-sans text-3xl tracking-wide font-normal">Sign up</span>
             </a>
-        </div>      
-    </div>
-    <div class="row mt-64">
-        <div class="center aligned column">
-           {{   component('files:feature.card',{ 
+        </div>
+    </div>        
+    <div class="w-3/4 mx-auto pt-34 mt-64">
+        <div class="tailwind-grid place-items-center grid-cols-4 grid-flow-row gap-2">             
+            {{  component('files:feature.card',{ 
+                    class: 'w-full',
                     icon: 'open-source-icon.svg#open_source',
                     title: labels.open,
                     description: text.open 
                 })
             }} 
-        </div>
-        <div class="center aligned column">
             {{  component('files:feature.card',{ 
+                    class: 'w-full',
                     icon: 'code-icon.svg#code_icon',
                     color_class: 'text-green-700',
                     title: labels.code,
                     description: text.code 
                 })
             }}           
-        </div>
-        <div class="center aligned column">
+        
             {{  component('files:feature.card',{ 
+                    class: 'w-full',
                     icon: 'lock-icon.svg#lock_icon',
                     color_class: 'text-red-700',
                     title: labels.permission,
                     description: text.permission 
                 })
             }}                      
-        </div>
-        <div class="center aligned column">
+        
             {{  component('files:feature.card',{ 
+                    class: 'w-full',
                     icon: 'group-icon.svg#group_icon',
                     color_class: 'text-blue-700',
                     title: labels.users,
@@ -48,6 +46,5 @@
                 })
             }} 
         </div>
-    </div>
-</div>
+    </div>  
 {% endcomponent %}

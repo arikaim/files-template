@@ -4,6 +4,7 @@
  */
 use Arikaim\Core\Interfaces\View\ComponentDataInterface;
 use Arikaim\Core\Db\Model;
+use Arikaim\Core\Arikaim;
 
 /**
  * Data class
@@ -21,14 +22,14 @@ return new class() implements ComponentDataInterface
     {
         $file = Model::Files('storage');
         $filesystem = $file->getUserFilesystemName();
-        $userId = $container->get('access')->getId();
+        $userId = Arikaim::get('access')->getId();
         $filesystemPath = $file->getUserFilesystemPath($userId);
-        $container->get('storage')->mountLocal($filesystem,$filesystemPath);
+        Arikaim::get('storage')->mountLocal($filesystem,$filesystemPath);
 
         return [
             'filesystem'      => $filesystem,
             'filesystem_path' => $filesystemPath,
-            'bin_path'        => $container->get('storage')->getRecyleBinPath()
+            'bin_path'        => Arikaim::get('storage')->getRecyleBinPath()
         ];
     }
 };

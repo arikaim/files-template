@@ -1,14 +1,7 @@
 'use strict';
 
 arikaim.component.onLoaded(function() {
-    arikaim.ui.form.addRules('#reset_password_form',{
-        inline: false,
-        fields: {
-            email: {
-                rules: [{ type: "email" }]
-            }
-        }
-    });
+    arikaim.ui.form.addRules('#reset_password_form',{});
  
     arikaim.ui.form.onSubmit('#reset_password_form',function() {   
         return users.resetPassword('#reset_password_form');

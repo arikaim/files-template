@@ -1,17 +1,28 @@
-@import url('https://fonts.googleapis.com/css?family=Crushed|Contrail+One');
+@import url('https://fonts.googleapis.com/css?family=Crushed|Contrail+One&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300,700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300;400&display=swap');
 
 html {
+    box-sizing: border-box;
     height: 100%;
     padding: 0px;
     margin: 0px;
 }
+*, *:before, *:after {
+    box-sizing: inherit;
+}
 body {       
+    font-family: 'Open Sans', sans-serif;  
     height: 100%;
     padding: 0px;
     margin: 0px;   
     background: rgb(249,247,244);
-    background: linear-gradient(90deg, rgba(249,247,244,1) 0%, rgba(246,243,235,0.59) 20%, rgba(246,243,235,0.5935106464460784) 80%, rgba(249,247,244,1) 100%); 
+}
+a {
+    text-decoration: none!important;
+}
+.tailwind-grid {
+    display: grid
 }
 .svg-icon  {     
     fill: currentColor;
@@ -35,18 +46,6 @@ body {
     font-family: 'Open Sans Condensed', sans-serif; 
     font-size: 16pt;
     font-weight: bold;
-}
-.feature-panel {
-    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-.feature-panel::after {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    -webkit-transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-    transition: all 0.6s cubic-bezier(0.165, 0.84, 0.44, 1);
-}
-.feature-panel:hover {
-    box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
 }
 .height-90 {
     height: 90%!important;
@@ -93,7 +92,7 @@ body {
 }
 .footer {
     height: 100px!important;  
-    margin-top: -90px;
+    margin-top: -100px;
     margin-bottom: 0px;
 }
 .navbar-title {
@@ -113,14 +112,6 @@ body {
 .borderless {
     border: none!important;
 }
-.item .navbar-item .active a {
-    color: #a3bffa!important;  
-    background-color: #1a202c!important;
-}
-.item .navbar-item .active a:hover {
-    color: #a3bffa!important;  
-    background-color: none!important;  
-}
 .navbar-user-menu {
     background-color: #2a4365!important;
 }
@@ -129,15 +120,7 @@ body {
     font-size: 14pt;  
     font-weight: 300;
 }
-.navbar-menu .navbar-item a, .footer-link {
-    -webkit-transition: all 0.5s ease;
-    -moz-transition: all 0.5s ease;
-    -o-transition: all 0.5s ease;
-    transition: all  0.5s ease;
-}
-.navbar-menu .navbar-item a:hover, .footer-link:hover {
-    color: #a3bffa!important;   
-}
+
 .bg-gray {
     background-color: #1a202c!important;
 }

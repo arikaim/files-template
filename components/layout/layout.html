@@ -1,9 +1,7 @@
 <div class="page-content">
-    <div class="content-inside">   
-        <div class="ui grid">                 
-            {{ component('files:navbar',{ language: current_language, active: active }) }}
-            {{ content }} 
-        </div>        
+    <div class="content-inside">                     
+        {{ component('files:navbar',{ active: active },'static') }}
+        {{ content }}            
     </div>   
 </div>
 {{ component('files:footer',{ link_class: 'text-gray-300 footer-link' }) }}   

@@ -1,45 +1,35 @@
-{% set logged = access().isLogged() %}
-<div class="row bg-blue-800 shadow-lg column">   
-    <div class="one wide mobile only tablet only column">
-        <div class="ui icon dropdown mobile-menu mt-6">
-            <i class="icon big bars pl-4 inverted white open-sidebar"></i>
-            <div class="ui menu">            
-                {{ component('files:navbar.menu.items',{ active: active }) }}   
-            </div>
-        </div>   
-    </div>
-    <div class="three wide column">        
-        <div class="flex items-center navbar-title mt-6 pl-4 navbar-item mr-4">
-            <div>
-                <svg class="svg-icon w-12 h-12">
-                    <use xlink:href="{{ template_url }}/images/icons/file-text.svg#file_text"/>
-                </svg>
-            </div>
-            <div class="pt-1 pl-4">
-                {{ title }}     
-            </div>             
-        </div>          
-    </div>
-    <div class="ten wide computer nine wide tablet only column pt-2">                        
-        {{ component('files:navbar.menu',{ logged: logged }) }}
-    </div>      
-    <div class="three wide computer twelve wide mobile two wide tablet column pt-6">    
-        <div class="ui menu inverted secondary right floated large">            
-            {% if logged == true %} 
-            <div class="item">                                  
-                {{  component('users>users.dropdown',{ 
-                        class: 'fluid',
-                        icon: 'olive user', 
-                        item_class: 'left aligned fluid',
-                        show_user_name: true,
-                        menu_class: 'vertical  fluid' 
-                    }) 
-                }}                          
-            </div>
-            {% endif %}
-            <div class="item">
-                {{ component("components:language.dropdown") }}      
-            </div>
-        </div>                             
-    </div>       
-</div>
+{% component 'tailwind~navbar' %} 
+    {% set logged = access().isLogged() %}
+    {% set class = 'w-full p-4' %}  
+    {% set color_class = 'bg-blue-600 shadow-lg' %}
+    {% set content_class = 'flex w-full' %}  
+    <div class="flex items-center">
+        <div>
+            {{ component('icons~document.text',{ size: 'h-10 w-10', width: 2, color: 'text-gray-200' },'svg') }}       
+        </div>      
+        <div class="navbar-title pl-4">
+            {{ title }}
+        </div> 
+    </div>         
+    {{  component('files:navbar.menu',{ 
+            class: 'ml-10 flex-grow',
+            item_color_class: 'text-gray-100 hover:text-blue-300 transition duration-700 ease-in-out',
+            logged: logged,
+            active: active 
+        }) 
+    }}        
+    <div class="flex items-center items-end">      
+        {% if logged == true %}                                     
+            {{  component('files:users.dropdown',{ 
+                    class: 'fluid',
+                    icon: 'olive user', 
+                    item_class: 'left aligned fluid',
+                    show_user_name: true,
+                    menu_class: 'vertical  fluid' 
+                }) 
+            }}                          
+        {% endif %}
+        ff
+        {{ component("components:language.dropdown") }}   
+    </div>             
+{% endcomponent %}

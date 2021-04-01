@@ -1,6 +1,8 @@
 {
     "include": {
-        "js": "users::users"
+        "js": [
+            "users::users"
+        ]
     },
     "access": {
         "auth": "none"

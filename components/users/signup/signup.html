@@ -1,16 +1,13 @@
-<div class="ui middle aligned center raised segment" id="signup_content">
-    <h2 class="ui header {{ title_class }}">{{ title }}</h2>
-    <div class="ui horizontal divider"></div>    
+{% set icon_color = 'text-indigo-400' %}
+<div class="px-4 pb-2 bg-white border-gray-300 w-full tracking-wide rounded-md shadow-lg" id="signup_content">
+    <h3 class="flex items-center p-2 pt-4 uppercase border-0 border-b-2 border-gray-300 border-solid">
+        {{ component('icons~user.add',{ size: 'h-6 w-6', width: 2, color: icon_color },'svg') }}  
+        <div class="pl-2">
+            {{ title }}
+        </div>
+    </h3> 
     {{ component('files:users.signup.form') }}
-
     {% if hasExtension('oauth') == true %}                            
-        {{  component('files:users.connect.buttons',{ 
-                button_class: 'basic',
-                class: 'fluid',
-                divider: labels.divider,
-                hide_button_title: true, 
-                icon_class: ' blue' 
-            }) 
-        }}
+        {{  component('files:users.connect',{ class: '' }) }}
     {% endif %}
 </div>

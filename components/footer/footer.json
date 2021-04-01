@@ -2,9 +2,6 @@
     "links": {  
         "home": "Home",
         "about": "About",
-        "files": "Files",
-        "privacy": "Privacy Policy",
-        "created": "Created with Arikaim",
-        "one": "Footer Link"
+        "created": "Created with Arikaim"
     }
 }

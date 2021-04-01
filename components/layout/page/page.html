@@ -1,19 +1,9 @@
 <div class="page-content">
-    <div class="content-inside">   
-        <div class="ui grid">                 
-            {{ component('files:navbar',{ language: current_language, active: active }) }}
-            <div class="row">  
-                <div class="three wide computer only column">
-                    {{ left_content }}
-                </div> 
-                <div class="ten wide computer column sixteen wide mobile column" id="page_content">    
-                    {{ content }}
-                </div>
-                <div class="three wide computer only column">
-                    {{ right_content }}
-                </div> 
-            </div>
-        </div>        
+    <div class="content-inside">                          
+        {{ component('files:navbar',{ active: active },'static') }}       
+        <div class="p-1" id="page_content">    
+            {{ content }}
+        </div>                           
     </div>   
 </div>
-{{ component('files:footer',{ link_class: 'text-gray-300 footer-link' }) }}
+{{ component('files:footer',{},'static') }}

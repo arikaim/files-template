@@ -5,6 +5,7 @@
 use Arikaim\Core\Interfaces\View\ComponentDataInterface;
 use Arikaim\Core\Db\Model;
 use Arikaim\Core\Db\Search;
+use Arikaim\Core\Arikaim;
 
 /**
  * Data class
@@ -22,7 +23,7 @@ return new class() implements ComponentDataInterface
     {
         $path = $params['path'] ?? '';
         $folderId = $params['folder_id'] ?? null;
-        $userId = $container->get('access')->getId();
+        $userId = Arikaim::get('access')->getId();
         $search = Search::getSearchValue('search_text','files');
         $model = Model::FilePermissions('storage');
 

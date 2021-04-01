@@ -1,5 +1,25 @@
-<div class="ui inverted secondary large menu navbar-menu {{ class }}">      
-    <div class="item">                                                                         
-        {{ component('files:navbar.menu.items',{ logged: logged }) }}
-    </div>           
+{% set item_color_class = item_color_class|default(css.item_color) %}
+{% set active_class = 'text-blue-300' %}
+<div class="flex items-center sm:hidden xs:hidden navbar-menu {{ class }}">                                                                      
+    <div class="{{ css.item }} navbar-item">
+        <a class="{{ item_color_class }} {{ (active == 'home') ? active_class : '' }}" href="{{ url('') }}">
+            {{ labels.home }}
+        </a>
+    </div>  
+    <div class="{{ css.item }} navbar-item">
+        <a class="{{ item_color_class }} {{ (active == 'files') ? active_class : '' }}" href="{{ url('/files') }}">
+            {{ labels.files }}
+        </a>
+    </div> 
+    {% if logged != true %}
+    <div class="{{ css.item }} navbar-item">   
+        <a class="{{ item_color_class }} {{ (active == 'login') ? active_class : '' }}" href="{{ url('/login') }}">{{ labels.login }}</a>            
+    </div>
+    <div class="{{ css.item }} navbar-item">   
+        <a class="{{ item_color_class }} {{ (active == 'signup') ? active_class : '' }}" href="{{ url('/signup') }}">{{ labels.signup }}</a>            
+    </div>
+    {% endif %}
+    <div class="{{ css.item }} navbar-item">
+        <a class="{{ item_color_class }} {{ (active == 'about') ? 'active': '' }}" href="{{ url('/about') }}">{{ labels.about }}</a>
+    </div>      
 </div> 

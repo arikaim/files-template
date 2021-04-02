@@ -1,0 +1,12 @@
+{   
+    "items": {
+        "home": "Home",
+        "dashboard": "Dashboard",
+        "myfiles": "Files",       
+        "shared": "Shared",
+        "trash": "Bin",       
+        "account": "Account",
+        "settings": "Settings",
+        "logout": "Log out"
+    }
+}

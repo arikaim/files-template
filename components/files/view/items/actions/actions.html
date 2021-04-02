@@ -18,8 +18,8 @@
             </div>
             <div class="item">
                 <a class="ui link" href="{{ file.getDownloadUrl() }}">       
-                    <i class="icon show-popup download" title="{{ labels.download }}"></i> 
-                    <span class="pl-2">{{ labels.download }}</span>                                    
+                    <i class="icon show-popup download text-gray-800" title="{{ labels.download }}"></i> 
+                    <span class="pl-2 text-gray-800">{{ labels.download }}</span>                                    
                 </a> 
             </div>
             <div class="item file-link-button" data-title="{{ labels.link }}" data-content="{{ file.getDownloadUrl() }}" uuid="{{ file.uuid }}" path="{{ file.path }}" {{ buttons.share.title|attr('title') }}>

@@ -1,0 +1,51 @@
+{% component 'tailwind~sidebar' %} 
+    {% set logged = access().isLogged() %}
+    {% set class = 'w-20 shadow' %}
+    {% set icon_color = 'text-gray-200' %}
+    {% set content_class  = 'pt-2 mt-2' %}
+    {% set item_class = 'flex flex-col items-center user-menu-item' %}
+    {% set item_text_class = 'text-gray-400 text-sm px-2' %}
+    {% set logout = {
+        icon: {
+            name: 'icons~logout',
+            size: 'h-6 w-6', 
+            width: 2, 
+            color: icon_color
+        }, 
+        title: {
+            text: items.logout,
+            class: item_text_class
+        },
+        component: 'files:users.logout'   
+    } %}  
+    <div class="mb-6">
+        <a class="{{ item_class }}" component="files:users.dashboard">
+            {{ component('icons~home',{ size: 'h-6 w-6', width: 2, color: icon_color },'svg') }}
+            <div class="{{ item_text_class }}">{{ items.home }}</div>    
+        </a>
+    </div>
+    <div class="mb-6">
+        <a class="{{ item_class }} {{ (selected == 'myfiles') ? 'active' : '' }}" component="files:users.myfiles">
+            {{ component('icons~document.text',{ size: 'h-6 w-6', width: 2, color: icon_color },'svg') }}
+            <div class="{{ item_text_class }}">{{ items.myfiles }}</div>                                                                            
+        </a>         
+    </div>
+    <div class="mb-6">
+        <a class="{{ item_class }} {{ (selected == 'myfiles') ? 'active' : '' }}" component="files:users.shared">
+            {{ component('icons~folder.open',{ size: 'h-6 w-6', width: 2, color: icon_color },'svg') }}
+            <div class="{{ item_text_class }}">{{ items.shared }}</div>
+        </a>        
+    </div>
+    <div class="mb-6">
+        <a class="{{ item_class }} {{ (selected == 'trash') ? 'active' : '' }}" component="files:users.trash">
+            {{ component('icons~trash',{ size: 'h-6 w-6', width: 2, color: icon_color },'svg') }}
+            <div class="{{ item_text_class }}">{{ items.trash }}</div> 
+        </a>
+    </div>
+    <div class="mb-6">
+        <a class="{{ item_class }} {{ (selected == 'account') ? 'active' : '' }}" component="files:users.account">
+            {{ component('icons~cog',{ size: 'h-6 w-6', width: 2, color: icon_color },'svg') }}
+            <div class="{{ item_text_class }}">{{ items.settings }}</div>
+        </a>   
+    </div>  
+{% endcomponent %}

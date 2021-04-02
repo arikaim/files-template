@@ -4,7 +4,8 @@
 {% set twitter = getOption('users.sign.with.twitter',false) %}
 {% set google = getOption('users.sign.with.google',false) %}
 {% set icon_color = 'text-indigo-400 hover:text-red-400 ' %}
-<div class="flex items-center mt-2">   
+{% set class = class|default('mt-4 p-2 items-center justify-center border-0 border-t-2 border-gray-200 border-solid') %}
+<div class="flex {{ class }}">   
     {% if github == true %}
         <div class="p-1">      
             <button class="ui basic mini oauth-authorize-button button" provider="github" action="login" redirect="{{ redirect }}">   
@@ -13,13 +14,12 @@
         </div>
     {% endif %}
     {% if facebook == true %}
-    <div class="p-1">
-        <button class="ui basic mini oauth-authorize-button button" provider="facebook" action="login" redirect="{{ redirect }}">   
-            {{ component('icons~facebook',{ size: 'h-7 w-7 pt-1', width: 10, color: icon_color },'svg') }}
-        </button>
-    </div>               
-    {% endif %}    
-   
+        <div class="p-1">
+            <button class="ui basic mini oauth-authorize-button button" provider="facebook" action="login" redirect="{{ redirect }}">   
+                {{ component('icons~facebook',{ size: 'h-7 w-7 pt-1', width: 10, color: icon_color },'svg') }}
+            </button>
+        </div>               
+    {% endif %}       
     {% if twitter == true %}
         <div class="p-1">   
             <button class="ui basic mini oauth-authorize-button button" provider="twitter" action="login" redirect="{{ redirect }}">   

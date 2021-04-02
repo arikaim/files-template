@@ -1,16 +1,25 @@
 {% set file = createModel('Files','storage').findById(uuid) %}
 {% set type_icon = component('files:file.icon',{ type: file.getFileType(), class: 'blue ' }) %}
-<div class="p-1 ui segment file-details-content">
-    <div class="ui header">
-        <button class="ui icon button basic compact mini close-details-button right floated" on-close="{{ on_close }}">
-            <i class="icon close"></i>
-        </button>
-        <div class="content">
+<div class="p-1 file-details-content">
+    <div class="flex justify-start p-2">      
+        {{ component('icons~info',{ size: 'h-6 w-6', width: 2, color: icon_color },'svg') }}
+        <div class="font-bold pl-2 flex-grow">          
+            {{ labels.details }}           
+        </div>     
+        <div class="justify-self-end">
+            <button class="ui icon button basic compact mini close-details-button" on-close="{{ on_close }}">
+                <i class="icon close"></i>
+            </button>  
+        </div>      
+    </div> 
+
+    <div class="p-2">       
+        <div class="p-1">
             {{ type_icon }} 
             {{ file.getBasename() }}           
         </div>       
     </div>
-    <div class="ui divider"></div>
+  
     <table class="ui very basic table">
         <tbody>           
             <tr>

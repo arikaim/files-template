@@ -1,14 +1,7 @@
 {
     "include": {
         "js": [
-            "components:upload",
-            "files:files",
-            "components:paginator",
-            "components:view.type.button"
+            "components:view.type"
         ]
-    },
-    "access": {
-        "auth": "session",
-        "redirect": "/user"
     }
 }

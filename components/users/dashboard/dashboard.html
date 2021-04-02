@@ -1,10 +1,6 @@
-{% component 'files:users.content' %}
-{% set icon = 'dashboard blue' %}
-    <div class="seven wide column">
-        {% set user = access().getUser() %}
-        <div class="ui cards">     
-            {{ component('files:users.dashboard.info',{ user: user }) }}
-            {{ component('files:users.dashboard.summary',{ user_id: user.id }) }}
-        </div>       
-    </div>
-{% endcomponent %}
+{{ component('files:users.title',{ title: title }) }}
+{% set user = access().getUser() %}
+<div class="tailwind-grid lg:grid-cols-5 md:grid-cols-3 sm:grid-cols-2 gap-4 mx-4 mt-4 md:grid-flow-col">          
+    {{ component('files:users.dashboard.info',{ user: user }) }}
+    {{ component('files:users.dashboard.summary',{ user_id: user.id }) }}        
+</div>

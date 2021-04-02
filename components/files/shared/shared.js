@@ -81,12 +81,7 @@ function SharedFiles() {
         }); 
     };
 
-    this.initRows = function() { 
-        $('.show-popup').popup({});
-        $('.file-link-button').popup({
-            on: 'click'
-        });
-        
+    this.initRows = function() {  
         $('.file-actions').dropdown({}); 
        
         arikaim.ui.button('.open-directory',function(element) {
@@ -124,15 +119,8 @@ function SharedFiles() {
 
         arikaim.ui.button('.file-details',function(element) {
             var uuid = $(element).attr('uuid');  
-         
             var el = $('#file_details_content');
-            if (el.html().trim() != '') {
-                $(el).transition({
-                    animation: 'fade left out',
-                    reverse: false
-                }); 
-            }
-            
+          
             return arikaim.page.loadContent({
                 id: 'file_details_content',           
                 component: 'files:files.file.details',
@@ -142,10 +130,6 @@ function SharedFiles() {
                     on_close: 'hide'                  
                 }
             },function(result) {
-                $('#file_details_content').transition({
-                    animation: 'fade left in',
-                    reverse: false
-                });  
             });                             
         });
     };

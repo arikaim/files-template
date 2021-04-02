@@ -1,26 +1,35 @@
-{% component 'files:users.dashboard.card' %}
+{% component 'tailwind~.card' %}
     {% set files = createModel('Files','storage') %}
-    {% set icon = 'pie chart' %}
-    <div class="content">
-        <div class="ui two statistics">
-            <div class="ui small green statistic">
-                <div class="value">                   
-                    {{ files.userFiles(user_id).count() }}
-                </div>
-                <div class="label">
-                    {{ labels.files }}
-                </div>
-            </div>           
-            <div class="ui small blue statistic">
-                <div class="value">                
-                    {{ files.userFiles(user_id).sum('downloads') }}
-                </div>
-                <div class="label">
-                    {{ labels.downloads }}
-                </div>
-            </div>    
+    {%  set header = {
+            class: 'border-0 border-b-2 border-gray-200 border-solid',
+            icon: { name: 'icons~chart.pie', color: 'text-indigo-600' }
+        }
+    %}   
+    {%  set title = {
+            text: title,
+            class: 'pt-2 pb-2 font-bold pl-2' 
+        }
+    %}      
+    <div class="py-2">
+        <div class="text-sm">            
+            {{ labels.files }}                                         
         </div>
-        
+        <div class="flex items-center">
+            {{ component('icons~document.text',{ size: 'h-5 w-5', color: 'text-indigo-600' },'svg') }}
+            <span class="text-lg text-green-700 pl-2">
+                {{ files.userFiles(user_id).count() }}
+            </span>  
+        </div>      
     </div>
-   
+    <div class="py-2">
+        <div class="text-sm">            
+            {{ labels.downloads }}                                   
+        </div>
+        <div class="flex items-center">
+            {{ component('icons~download',{ size: 'h-5 w-5', color: 'text-indigo-600' },'svg') }}
+            <span class="text-lg text-green-700 pl-2">               
+                {{ files.userFiles(user_id).sum('downloads') }}
+            </span>  
+        </div>      
+    </div>
 {% endcomponent %}

@@ -11,8 +11,6 @@ function TrashView() {
     this.mesages = null;
 
     this.init = function() {
-        $('.show-popup').popup({});
-
         if (isObject(this.mesages) == false) {
             arikaim.component.loadProperties('files:files.messages',function(params) { 
                 self.messages = params.messages;

@@ -1,8 +1,8 @@
-{{ component('files:users.title',{ title: title, icon: 'file outline alternate blue' }) }}
-<div class="flex mt-6 pl-2 height-94">    
+{{ component('files:users.title',{ title: title }) }}
+<div class="m-4 flex bg-white p-4 flex-grow rounded border border-gray-300 shadow">    
     <div class="w-76 flex-shrink-0 hidden mr-2 mt-2" id="file_details">        
     </div>
-    <div class="w-full flex flex-auto flex-col h-full mr-2 p-2" id="files_content">                                  
+    <div class="w-full p-2" id="files_content">                                  
         {{ component('files:files.view') }}                 
     </div>    
 </div>

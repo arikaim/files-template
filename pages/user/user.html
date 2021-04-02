@@ -1,9 +1,7 @@
- {{ component('files:users.navbar',{ class: '' }) }}   
+ {{ component('files:navbar',{ class: '' }) }}   
 {% set user = access().getUser() %}
-<div class="flex h-full pt-19">    
-    <div class="w-64 flex-shrink-0" id="user_menu">
-        {{ component('files:users.menu.panel',{ user: user, class: 'fluid', selected: menu }) }}
-    </div>
+<div class="flex flex-row h-full">       
+    {{ component('files:users.sidebar',{ id: 'user_menu', user: user, class: 'fluid', selected: menu }) }}
     <div class="w-full flex-shrink-1" id="user_area_content">         
         {% if menu == 'account' %}
             {{ component('files:users.account') }}

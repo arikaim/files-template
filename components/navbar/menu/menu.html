@@ -1,25 +1,34 @@
-{% set item_color_class = item_color_class|default(css.item_color) %}
 {% set active_class = 'text-blue-300' %}
-<div class="flex items-center sm:hidden xs:hidden navbar-menu {{ class }}">                                                                      
-    <div class="{{ css.item }} navbar-item">
-        <a class="{{ item_color_class }} {{ (active == 'home') ? active_class : '' }}" href="{{ url('') }}">
+{% set item = {
+    class: 'text-xl uppercase navbar-link px-4 py-1 md:p-2 lg:px-4 text-lg',
+    color: 'text-gray-100 hover:text-blue-300 transition duration-700 ease-in-out'
+} %}
+<div class="lg:flex items-center sm:hidden navbar-menu {{ class }}">                                                                      
+    <div class="{{ item.class }} navbar-item">
+        <a class="{{ item.color }} {{ (active == 'home') ? active_class : '' }}" href="{{ url('') }}">
             {{ labels.home }}
         </a>
     </div>  
-    <div class="{{ css.item }} navbar-item">
-        <a class="{{ item_color_class }} {{ (active == 'files') ? active_class : '' }}" href="{{ url('/files') }}">
+    <div class="{{ item.class }} navbar-item">
+        <a class="{{ item.color }} {{ (active == 'files') ? active_class : '' }}" href="{{ url('/files') }}">
             {{ labels.files }}
         </a>
     </div> 
+    <div class="{{ item.class }} navbar-item">
+        <a class="{{ item.color }} {{ (active == 'about') ?  active_class : '' }}" href="{{ url('/about') }}">
+            {{ labels.about }}
+        </a>
+    </div>  
     {% if logged != true %}
-    <div class="{{ css.item }} navbar-item">   
-        <a class="{{ item_color_class }} {{ (active == 'login') ? active_class : '' }}" href="{{ url('/login') }}">{{ labels.login }}</a>            
+    <div class="{{ item.class }} navbar-item">   
+        <a class="{{ item.color }} {{ (active == 'login') ? active_class : '' }}" href="{{ url('/login') }}">
+            {{ labels.login }}
+        </a>            
     </div>
-    <div class="{{ css.item }} navbar-item">   
-        <a class="{{ item_color_class }} {{ (active == 'signup') ? active_class : '' }}" href="{{ url('/signup') }}">{{ labels.signup }}</a>            
+    <div class="{{ item.class }} navbar-item">   
+        <a class="{{ item.color }} {{ (active == 'signup') ? active_class : '' }}" href="{{ url('/signup') }}">
+            {{ labels.signup }}
+        </a>            
     </div>
     {% endif %}
-    <div class="{{ css.item }} navbar-item">
-        <a class="{{ item_color_class }} {{ (active == 'about') ? 'active': '' }}" href="{{ url('/about') }}">{{ labels.about }}</a>
-    </div>      
 </div> 

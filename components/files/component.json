@@ -1,14 +1,7 @@
 {     
     "include": {
-        "js":[            
-            "components:upload",
-            "components:breadcrumb",
-            "components:paginator",
-            "components:view.type.button"
+        "js":[                       
+            "components:breadcrumb"
         ] 
-    },      
-    "access": {
-        "auth": "session",
-        "redirect": "/user"           
-    }
+    }      
 }

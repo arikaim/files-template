@@ -1,5 +1,6 @@
 {
     "labels": {
+        "details": "File Details",
         "date": "Date",
         "note": "Note",       
         "public": "Public", 

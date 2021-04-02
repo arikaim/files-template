@@ -1,21 +1,31 @@
-{% component 'files:users.dashboard.card' %}
-    {% set icon = 'info circle' %}
-    <div class="ui header mini">
-        <div class="content">
-            <i class="icon blue calendar"></i>
-            {{ labels.login }}
-            <div class="sub header">
-                <span class="pl-4">{{ user.date_login|dateTimeFormat }}</span>
-            </div>            
-        </div>        
+{% set calendar_icon = component('icons~calendar',{ size: 'h-5 w-5', color: 'text-indigo-600' },'svg') %}
+{% component 'tailwind~.card' %}     
+    {%  set header = {
+            class: 'border-0 border-b-2 border-gray-200 border-solid',
+            icon: { name: 'icons~info', color: 'text-indigo-600' }
+        }
+    %}   
+    {%  set title = {
+            text: title,
+            class: 'pt-2 pb-2 font-bold pl-2' 
+        }
+    %}      
+    <div class="py-2">
+        <div class="text-sm">            
+            {{ labels.login }}                                         
+        </div>
+        <div class="flex items-center">
+            {{ calendar_icon }}
+            <span class="text-sm text-gray-400 pl-2">{{ user.date_login|dateTimeFormat }}</span>  
+        </div>      
     </div>
-    <div class="ui header mini">
-        <div class="content">
-            <i class="icon blue calendar"></i>
-            {{ labels.signup }}
-            <div class="sub header">
-                <span class="pl-4">{{ user.date_created|dateTimeFormat }}</span>
-            </div>
-        </div>        
+    <div class="py-2">
+        <div class="text-sm">           
+            {{ labels.signup }}           
+        </div>     
+        <div class="flex items-center">
+            {{ calendar_icon }}
+            <span class="text-sm text-gray-400 pl-2">{{ user.date_created|dateTimeFormat }}</span> 
+        </div>                  
     </div>   
 {% endcomponent %}

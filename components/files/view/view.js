@@ -125,12 +125,7 @@ function FilesView() {
         }); 
     };
 
-    this.initRows = function() { 
-        $('.show-popup').popup({});
-
-        $('.file-link-button').popup({
-            on: 'click'
-        });        
+    this.initRows = function() {              
         $('.file-actions').dropdown({});
     
         $('.preview-image').off();

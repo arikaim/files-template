@@ -1,23 +1,28 @@
-<div class="ui segment">           
-    <div class="fourteen wide column" id="path_content">  
+<div class="pb-4 flex flex-row justify-between bg-white border-0 border-b-2 border-gray-200 border-solid">           
+    <div class="flex flex-row" id="path_content">  
         {{ component('files:files.filesystem.dropdown',{ selected: driver_name }) }}  
         {{ component('files:files.view.path',{ path: path, view_type: view_type }) }}        
     </div>  
-</div>
-<div class="bg-white shadow p-4 flex-grow rounded-lg border border-gray-300">
-    <div class="ui grid">
-        <div class="ui twelve wide column">
-            <div id="view_content" component="files:files.view.items" namespace="myfiles">    
-                {{ component('files:files.view.items',{ path: path, view_type: view_type }) }}   
-            </div> 
-        </div>
-        <div class="ui four wide column" id="file_details_content">            
-        </div>        
+    <div class="flex flex-row place-self-end">
+        {{ component('components:view.type.button',{ namespace: 'files' }) }}
+        {{  component('components:paginator.dropdown',{
+                namespace: 'myfiles',
+                class: 'show-popup',
+                title: labels.paginator  
+            }) 
+        }}  
     </div>
-    <div class="pt-4 pb-8 absolute bottom-0" id="paginator">
-        {{ component('components:paginator',{ namespace: 'myfiles' }) }}
-    </div>       
 </div>
+<div class="flex flex-row justify-between mt-8">       
+    <div class="flex-grow" id="view_content" component="files:files.view.items" namespace="myfiles">    
+        {{ component('files:files.view.items',{ path: path, view_type: view_type }) }}   
+    </div> 
+    <div class="place-self-end self-stretch w-72 border-0 border-l-2 border-gray-300 border-solid" id="file_details_content">            
+    </div>        
+</div>
+<div class="pt-4 pb-8 absolute bottom-0" id="paginator">
+    {{ component('components:paginator',{ namespace: 'myfiles' }) }}
+</div>       
 <div class="ui modal" id="preview_file">    
     <div class="header">
         {{ preview.title }}

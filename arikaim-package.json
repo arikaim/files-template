@@ -59,8 +59,11 @@
             "filepond",               
             "arikaim",
             "arikaim-ui",
+            "fomantic:transition",
             "fomantic:form",
             "fomantic:modal",
+            "fomantic:icons",
+            "fomantic:flags",
             "plyr",   
             "highlight",
             "pdf-js", 
@@ -68,6 +71,8 @@
             "tailwind:grid",
             "tailwind:colors",
             "tailwind:size",
+            "tailwind:align",
+            "tailwind:layout",
             "tailwind:animation"
         ]       
     }

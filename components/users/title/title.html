@@ -1,12 +1,10 @@
-<div class="shadow-lg border-0 border-b-2 border-blue-600 border-dotted bg-white pb-1 {{ class }}">  
-    <div class="flex items-center">
-        {% if icon is not empty %}
-            <div class="pr-2">
-                <i class="icon large pl-4 {{ icon }}"></i>
-            </div>        
-        {% endif %}
-        <h3 class="content p-title font-bold pl-2">        
-            {{ title }}
-        </h3>
-    </div>  
+<div class="flex items-center shadow-lg border-0 border-b-2 border-blue-600 border-dotted bg-white {{ class }}">  
+    {% if icon is not empty %}           
+        <div class="px-2">
+            {{ component(icon,{ size: 'h-6 w-6', width: 2, color: icon_color },'svg') }}
+        </div>        
+    {% endif %}
+    <div class="font-bold p-4">        
+        {{ title }}
+    </div>   
 </div>

@@ -1,0 +1,16 @@
+{% if type == 'directory' %}
+    {% set icon_name = 'icons~folder' %}
+{% elseif type == 'zip' %}
+    {% set icon_name = 'icons~archive' %}   
+{% elseif type == 'image' %}
+    {% set icon_name = 'icons~image' %}   
+{% elseif type == 'video' %}
+    {% set icon_name = 'icons~film' %}  
+{% elseif type == 'audio' %}
+    {% set icon_name = 'icons~music' %}   
+{% elseif type == 'pdf' %}
+    {% set icon_name = 'icons~document.text' %} 
+{% else %}
+    {% set icon_name = 'icons~document.text' %} 
+{% endif %}
+{{ component(icon_name,{ size: size|default('h-6 w-6'), width: width|default(2), color: color },'svg') }}  

@@ -1,7 +1,7 @@
-{% component 'tailwind~navbar' %} 
+{% component 'tailwind~navbar' type 'static' %} 
     {% set logged = access().isLogged() %}
-    {% set class = 'w-full p-2 flex flex-row' %}  
-    {% set color = 'bg-blue-600 shadow-lg' %}
+    {% set class = 'w-full p-2 pt-3 flex flex-row' %}  
+    {% set color = theme.navbar.color|default('bg-blue-600 shadow-lg') %}
     {% set content_class = 'flex flex-row w-full' %}  
     {% set button = {
         class: 'md:hidden',
@@ -10,11 +10,11 @@
             color: 'text-gray-200'
         }
     } %}
-    <div class="flex items-center flex-row">
-        <div>
-            {{ component('icons~document.text',{ size: 'h-10 w-10', width: 2, color: 'text-gray-200' },'svg') }}       
+    <div class="flex items-center flex-row md:flex-grow">
+        <div class="pl-3">
+            {{ component('icons~document.text',{ size: 'h-10 w-10', width: 1, color: 'text-blue-300' },'svg') }}       
         </div>      
-        <div class="navbar-title pl-4">
+        <div class="navbar-title pl-5 md:flex-grow">
             {{ title }}
         </div> 
     </div>         
@@ -24,12 +24,11 @@
             active: active 
         }) 
     }}        
-    <div class="flex items-center flex-row items-end">      
-        {% if logged == true %}   
-            <a class="cursor-pointer p-1 pt-2 mr-10" href="{{ url('/user') }}">
-                {{ component('icons~user',{ size: 'h-7 w-7', width: 2, color: 'text-indigo-200' },'svg') }}  
-            </a>                                                                  
-        {% endif %}       
+    <div class="flex items-center flex-row items-end">  
+        {% set user_link = (logged == true) ? url('/user') : url('/login') %}          
+        <a class="cursor-pointer p-1 pt-2 mr-10" href="{{ user_link }}">
+            {{ component('icons~user',{ size: 'h-7 w-7', width: 2, color: theme.navbar.icon.color },'svg') }}  
+        </a>                                                                             
         {{ component("components:language.dropdown") }}   
     </div>             
 {% endcomponent %}

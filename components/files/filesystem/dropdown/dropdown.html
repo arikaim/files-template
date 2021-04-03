@@ -5,28 +5,26 @@
 {% set items = model.get() %}
 {% set selcted_text = (selected is empty) ? labels.default : selected %}
 
-<div class="border p-4 border-solid border-gray-400">
-    <div class="ui dropdown filesystem-dropdown {{ class }}" id="{{ id }}">
-        <input type="hidden" name="{{ name }}" id="{{ id }}" value="{{ selected.name }}">  
-        <div class="text">{{ selcted_text }}</div>   
-        <i class="dropdown icon"></i>  
-        <div class="ui menu">    
-            <div class="item" data-value="">      
-                <div class="ui empty circular label olive"></div>       
-                {{ labels.local }}
-            </div> 
-            {% for item in items %}            
-                <div class="item {{ item.driver_name|ifthen(selected,'active') }}" data-value="{{ item.driver_name }}">   
-                    {% if item.status == 1 %}
-                    <div class="ui empty circular label olive"></div>
-                    {% elseif item.status == 6 %}
-                    <div class="ui empty circular label red"></div>
-                    {% else %}
-                    <div class="ui empty circular label orange"></div>
-                    {% endif %}          
-                    {{ item.driver_name }}
-                </div>   
-            {% endfor %}           
-        </div>  
-    </div>
+<div class="ui dropdown selection filesystem-dropdown {{ class }}" id="{{ id }}">
+    <input type="hidden" name="{{ name }}" id="{{ id }}" value="{{ selected.name }}">  
+    <div class="text">{{ selcted_text }}</div>   
+    <i class="dropdown icon"></i>  
+    <div class=" menu">    
+        <div class="item" data-value="">      
+            <div class="ui empty circular label olive"></div>       
+            {{ labels.local }}
+        </div> 
+        {% for item in items %}            
+            <div class="item {{ item.driver_name|ifthen(selected,'active') }}" data-value="{{ item.driver_name }}">   
+                {% if item.status == 1 %}
+                <div class="ui empty circular label olive"></div>
+                {% elseif item.status == 6 %}
+                <div class="ui empty circular label red"></div>
+                {% else %}
+                <div class="ui empty circular label orange"></div>
+                {% endif %}          
+                {{ item.driver_name }}
+            </div>   
+        {% endfor %}           
+    </div>  
 </div>

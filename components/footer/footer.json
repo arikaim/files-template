@@ -3,5 +3,6 @@
         "home": "Home",
         "about": "About",
         "created": "Created with Arikaim"
-    }
+    },
+    "copyright": "Copyright {{ interval }}. All Rights Reserved."
 }

@@ -1,14 +1,13 @@
               
-<button class="ui mini button create-directory basic show-popup file-button" data-content="{{ labels.create }}">
-    {{ component('icons~folder.add',{ size: 'h-6 w-6', width: 2, color: icon_color },'svg') }}
-</button>
-<button class="ui mini button upload-file basic show-popup file-button" data-content="{{ labels.upload }}">
-    {{ component('icons~upload',{ size: 'h-6 w-6', width: 2, color: icon_color },'svg') }}   
-</button>      
+<btn class="pt-2 bg-white create-directory show-popup file-button " data-content="{{ labels.create }}">
+    {{ component('icons~folder.add',{ class: theme.link.hover , size: 'h-8 w-8', width: 2, color: theme.icons.color },'svg') }}
+</btn>
+<btn class="pt-2 bg-white upload-file show-popup file-button" data-content="{{ labels.upload }}">
+    {{ component('icons~upload',{ class: theme.link.hover, size: 'h-8 w-8', width: 2, color: theme.icons.color },'svg') }}   
+</btn>      
 {{  component('tailwind~breadcrumb',{ 
         path: path,
-        class: 'paded massive pl-2',      
+        class: 'paded massive pl-4 pt-1',      
         icon: 'folder open outline blue'           
     }) 
 }}       
-      

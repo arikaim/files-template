@@ -1,7 +1,9 @@
 <div class="page-content">
-    <div class="content-inside">                     
-        {{ component('files:navbar',{ active: active },'static') }}
-        {{ content }}            
+    <div class="content-inside flex flex-grow flex-col">                          
+        {{ component('files:navbar',{ active: active },'static') }}   
+        <div class="w-3/4 mx-auto flex flex-grow flex-col">
+            {{ content }}      
+        </div>                                           
     </div>   
 </div>
-{{ component('files:footer',{ link_class: 'text-gray-300 footer-link' }) }}   
+{{ component('files:footer',{},'static') }}

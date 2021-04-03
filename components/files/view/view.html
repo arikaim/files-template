@@ -1,17 +1,30 @@
-<div class="pb-4 flex flex-row justify-between bg-white border-0 border-b-2 border-gray-200 border-solid">           
-    <div class="flex flex-row" id="path_content">  
-        {{ component('files:files.filesystem.dropdown',{ selected: driver_name }) }}  
-        {{ component('files:files.view.path',{ path: path, view_type: view_type }) }}        
-    </div>  
-    <div class="flex flex-row place-self-end">
-        {{ component('components:view.type.button',{ namespace: 'files' }) }}
-        {{  component('components:paginator.dropdown',{
-                namespace: 'myfiles',
-                class: 'show-popup',
-                title: labels.paginator  
-            }) 
-        }}  
+<div class="pb-1 flex flex-row items-center bg-white border-0 border-b-2 border-gray-200 border-solid">                 
+    {{ component('files:files.filesystem.dropdown',{ selected: driver_name, class: '' }) }} 
+    <div class="pl-8 pt-2 bg-white create-directory show-popup file-button " data-content="{{ labels.create }}">         
+        {{ component('icons~folder.add',{ class: theme.link.hover , size: 'h-8 w-8', width: 2, color: theme.icons.color },'svg') }}
     </div>
+    <div class="pl-4 pt-2 bg-white upload-file show-popup file-button" data-content="{{ labels.upload }}">
+        {{ component('icons~upload',{ class: theme.link.hover, size: 'h-8 w-8', width: 2, color: theme.icons.color },'svg') }}   
+    </div>                    
+    <div class="flex-grow pl-4 pt-1">
+    {{  component('tailwind~breadcrumb',{ 
+            path: path,
+            class: 'paded massive pl-4 pt-1',      
+            icon: {
+                name: 'icons~folder',
+                class: theme.link.hover,
+                color: theme.icons.color
+            }           
+        }) 
+    }} 
+    </div>    
+    {{ component('components:view.type.button',{ namespace: 'files' }) }}
+    {{  component('components:paginator.dropdown',{
+            namespace: 'myfiles',
+            class: 'show-popup',
+            title: labels.paginator  
+        }) 
+    }}      
 </div>
 <div class="flex flex-row justify-between mt-8">       
     <div class="flex-grow" id="view_content" component="files:files.view.items" namespace="myfiles">    

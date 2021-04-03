@@ -46,6 +46,9 @@
     "languages": [
         "en"      
     ],
+    "themes": [
+        "default"
+    ],
     "include": {     
         "components": [    
             "files:users",
@@ -64,6 +67,8 @@
             "fomantic:modal",
             "fomantic:icons",
             "fomantic:flags",
+            "fomantic:loader",
+            "fomantic:dimmmer",
             "plyr",   
             "highlight",
             "pdf-js", 

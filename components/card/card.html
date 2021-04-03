@@ -1,8 +1,12 @@
-<div class="{{ class }} w-64 h-full max-w-sm p-6 border-2 border-gray-300 tracking-wide rounded-md shadow-lg bg-white">
-    <div class="flex justify-center">
-        <svg class="svg-icon w-32 h-32 {{ color|default('text-gray-700') }}">
-            <use xlink:href="{{ template_url }}/images/icons/{{ icon }}"/>
-        </svg>  
+<div class="{{ class }} w-64 h-full max-w-sm p-6 border-2 border-gray-300 tracking-wide rounded shadow-lg bg-white">
+    <div class="flex justify-center ">        
+        {{  component(icon,{ 
+                class: '', 
+                size: 'h-32 w-32', 
+                width: 1, 
+                color: 'text-blue-300' 
+            },'svg') 
+        }}        
     </div>                 
     <h3 class="text-center">
         {{ title }}

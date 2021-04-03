@@ -1,6 +1,6 @@
-{% component 'files:layout.page' %}   
+{% component 'files:layout' type 'html' %}   
     {% set active = 'home' %}
-    <div class="flex items-center flex-col w-3/4 mx-auto pt-30 h-64 mt-24">
+    <div class="flex items-center flex-col w-3/4 mx-auto h-64 mt-24">
         <div class="home-page-title mt-12">
             {{ title }}      
         </div>
@@ -9,42 +9,31 @@
                 <span class="uppercase open-sans text-3xl tracking-wide font-normal">Sign up</span>
             </a>
         </div>
-    </div>        
-    <div class="w-3/4 mx-auto pt-32 mt-66">
-        <div class="tailwind-grid place-items-center grid-cols-4 grid-flow-row gap-2">             
-            {{  component('files:card',{ 
-                    class: 'w-full',
-                    icon: 'open-source-icon.svg#open_source',
-                    title: labels.open,
-                    description: text.open 
-                })
-            }} 
-            {{  component('files:card',{ 
-                    class: 'w-full',
-                    icon: 'code-icon.svg#code_icon',
-                    color: 'text-green-700',
-                    title: labels.code,
-                    description: text.code 
-                })
-            }}           
-        
-            {{  component('files:card',{ 
-                    class: 'w-full',
-                    icon: 'lock-icon.svg#lock_icon',
-                    color: 'text-red-700',
-                    title: labels.permission,
-                    description: text.permission 
-                })
-            }}                      
-        
-            {{  component('files:card',{ 
-                    class: 'w-full',
-                    icon: 'group-icon.svg#group_icon',
-                    color: 'text-blue-700',
-                    title: labels.users,
-                    description: text.users
-                })
-            }} 
-        </div>
-    </div>  
+    </div>            
+    <div class="tailwind-grid justify-items-center lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-2 mt-4 md:grid-flow-col">                      
+        {{  component('files:card',{ 
+                class: 'w-full',
+                icon: 'icons~code',
+                color: 'text-green-700',
+                title: labels.code,
+                description: text.code 
+            })
+        }}                   
+        {{  component('files:card',{ 
+                class: 'w-full',
+                icon: 'icons~lock',
+                color: 'text-red-700',
+                title: labels.permission,
+                description: text.permission 
+            })
+        }}                              
+        {{  component('files:card',{ 
+                class: 'w-full',
+                icon: 'icons~user',
+                color: 'text-blue-700',
+                title: labels.users,
+                description: text.users
+            })
+        }} 
+    </div>   
 {% endcomponent %}

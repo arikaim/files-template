@@ -1,8 +1,7 @@
-{% set calendar_icon = component('icons~calendar',{ size: 'h-5 w-5', color: 'text-indigo-600' },'svg') %}
-{% component 'tailwind~.card' %}     
+{% component 'tailwind~.card' type 'html' %}     
     {%  set header = {
-            class: 'border-0 border-b-2 border-gray-200 border-solid',
-            icon: { name: 'icons~info', color: 'text-indigo-600' }
+            class: 'pt-1 border-0 border-b-2 border-gray-200 border-solid',
+            icon: { name: 'icons~info', color: theme.icons.color }
         }
     %}   
     {%  set title = {
@@ -10,6 +9,7 @@
             class: 'pt-2 pb-2 font-bold pl-2' 
         }
     %}      
+    {% set calendar_icon = component('icons~calendar',{ size: 'h-5 w-5', color: theme.icons.color },'svg') %}
     <div class="py-2">
         <div class="text-sm">            
             {{ labels.login }}                                         

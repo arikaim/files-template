@@ -18,7 +18,7 @@
 {% set items = paginate(files_list,'myfiles') %}  
 
 {% if view_type == 'table' %}
-    <div class="ui big list" id="files_items">
+    <div class="flex flex-col" id="files_items">
 {% else %}
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4" id="files_items">
 {% endif %}
@@ -39,31 +39,26 @@
         %}    
         {% set file_type = file.getFileType() %}
         {% if view_type == 'table' %}     
-            {% set type_icon = component('files:file.icon',{ type: file_type, class: 'large ' ~ color_icon }) %}      
-            <div class="item" id="row_{{ file.uuid }}">   
-                <div class="content">
-                    {{ component('files:files.view.items.actions',{ file: file, class: 'compact' }) }}
-                    <button uuid="{{ file.uuid }}" class="ui basic mini icon button compact file-details show-popup" title="{{ labels.details }}">
-                        <i class="icon info"></i>
-                    </button> 
-                    {% if file.isDirectory() == true %}
-                        <button class="ui basic disabled mini icon button compact">
-                            <i class="icon"></i>
-                        </button> 
-                        <button class="ui link open-directory" path="{{ item.path }}">
-                            <i class="icon outline folder large blue"></i>                                                       
-                            {{ file.file_name }}      
-                        </button>                 
-                    {% else %}      
-                        <a class="ui basic mini compact icon button show-popup" href="{{ file.getDownloadUrl() }}" title="{{ labels.download }}">
-                            <i class="icon blue download"></i>
-                        </a>
-                        <a class="ui link preview-file" uuid="{{ file.uuid }}">
-                            {{ type_icon }} 
-                            {{ file.file_name }}                        
-                        </a>                    
-                    {% endif %}
-                </div>  
+            <div class="p-1 flex flex-row items-center" id="row_{{ file.uuid }}">                 
+                {{ component('files:files.view.items.actions',{ file: file, class: 'compact' }) }}
+                <btn uuid="{{ file.uuid }}" class="pt-2 file-details show-popup" title="{{ labels.details }}">
+                    {{ component('icons~info',{ class: theme.link.hover, size: 'h-6 w-6', width: 2, color: 'text-gray-500'  },'svg') }} 
+                </btn> 
+                {% if file.isDirectory() == true %}
+                    <div class="h-6 w-6 px-4">&nbsp;</div> 
+                    <button class="bg-white cursor-pointer border-0 flex items-center open-directory" path="{{ item.path }}">
+                        {{ component('icons~folder',{ size: 'h-6 w-6', width: 2, color: theme.icons.link },'svg') }}                                                        
+                        <span class="pl-2 text-gray-800 {{ theme.link.hover }}">{{ file.file_name }}</span>
+                    </button>                 
+                {% else %}      
+                    <a class="cursor-pointer pl-2 pt-1 show-popup" href="{{ file.getDownloadUrl() }}" title="{{ labels.download }}">
+                        {{ component('icons~download',{ size: 'h-6 w-6', width: 2, color: theme.icons.link },'svg') }}     
+                    </a>                                      
+                    <a class="cursor-pointer preview-file flex items-center pl-2" uuid="{{ file.uuid }}">
+                        {{ component('files:file.svg',{ type: file_type, color: theme.icons.link }) }}                                                                                          
+                        <span class="text-gray-800 pl-2 {{ theme.link.hover }}">{{ file.file_name }}</span>                                                                      
+                    </a>                    
+                {% endif %}            
             </div>           
         {% else %}
             <div class="w-full h-64 rounded-lg border border-solid border-gray-400 overflow-hidden shadow-lg" id="row_{{ file.uuid }}">

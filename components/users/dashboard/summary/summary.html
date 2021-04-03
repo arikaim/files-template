@@ -1,8 +1,8 @@
 {% component 'tailwind~.card' %}
     {% set files = createModel('Files','storage') %}
     {%  set header = {
-            class: 'border-0 border-b-2 border-gray-200 border-solid',
-            icon: { name: 'icons~chart.pie', color: 'text-indigo-600' }
+            class: 'pt-1 border-0 border-b-2 border-gray-200 border-solid',
+            icon: { name: 'icons~chart.pie', color: theme.icons.color }
         }
     %}   
     {%  set title = {
@@ -15,7 +15,7 @@
             {{ labels.files }}                                         
         </div>
         <div class="flex items-center">
-            {{ component('icons~document.text',{ size: 'h-5 w-5', color: 'text-indigo-600' },'svg') }}
+            {{ component('icons~document.text',{ size: 'h-5 w-5', color: theme.icons.color },'svg') }}
             <span class="text-lg text-green-700 pl-2">
                 {{ files.userFiles(user_id).count() }}
             </span>  
@@ -26,7 +26,7 @@
             {{ labels.downloads }}                                   
         </div>
         <div class="flex items-center">
-            {{ component('icons~download',{ size: 'h-5 w-5', color: 'text-indigo-600' },'svg') }}
+            {{ component('icons~download',{ size: 'h-5 w-5', color: theme.icons.color },'svg') }}
             <span class="text-lg text-green-700 pl-2">               
                 {{ files.userFiles(user_id).sum('downloads') }}
             </span>  

@@ -1,5 +1,5 @@
-{{ component('files:files.title',{ title: title.content, icon: title.icon }) }} 
-<div class="ui segment">       
+{{ component('files:files.title',{ title: title.content, icon: { name: 'icons~folder.add' } }) }} 
+<div class="p-1">       
     {{  component('files:files.directory.form',{ 
             path: path,
             filesystem: filesystem,

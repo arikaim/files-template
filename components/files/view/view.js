@@ -17,6 +17,14 @@ function FilesView() {
             }); 
         }
         
+        breadcrumb.init({
+            onSelect: function(path) {  
+                filesView.openDirectory(path);            
+            },
+            separatorClass: 'p-2',
+            pathItemClass: 'p-2'
+        });
+
         paginator.init('view_content');   
 
         viewTypeButton.init(function(view) {  

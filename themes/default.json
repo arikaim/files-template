@@ -1,0 +1,30 @@
+{
+    "icons": {
+        "color": "text-indigo-400",
+        "link": "cursor-pointer text-indigo-400 hover:text-red-500 transition duration-1000 ease-in-out",
+        "width": 2
+    },
+    "link": {
+        "hover": "cursor-pointer hover:text-red-500 transition duration-1000 ease-in-out"
+    },
+    "sidebar": {
+        "icon": {
+            "color": "cursor-pointer text-indigo-300 hover:text-red-500 transition duration-1000 ease-in-out",           
+            "width": 2
+        },
+        "active": "text-red-500",
+        "link": "text-sm cursor-pointer text-gray-300 hover:text-red-500 transition duration-1000 ease-in-out"
+    },
+    "navbar": {
+        "color": "bg-blue-800 shadow-lg",
+        "icon": {
+            "color": "cursor-pointer text-gray-200 hover:text-blue-300 transition duration-1000 ease-in-out"
+        }
+    },
+    "footer": {
+        "icon": {
+            "color": "text-gray-400"
+        },
+        "link": "block pl-2 text-gray-400 hover:text-red-500 transition duration-1000 ease-in-out"
+    } 
+}

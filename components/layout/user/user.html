@@ -1,2 +1,6 @@
-{{ component('files:users.navbar',{ class: '' }) }}     
-{{ content }}   
+<div class="page-content h-full">
+    <div class="flex flex-grow flex-col h-full">                          
+        {{ component('files:navbar',{ active: active },'static') }}               
+        {{ content }}                               
+    </div>   
+</div>

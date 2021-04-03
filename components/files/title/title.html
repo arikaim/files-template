@@ -1,19 +1,23 @@
-<div class="ui segment">
-    <div class="ui grid">
-        <div class="ten wide column">
-            <div class="pt-2">
-                <div class="ui header">       
-                    <i class="icon blue {{ icon }}"></i>  
-                    <div class="content">                
-                        {{ title }}                    
-                    </div>                      
-                </div>  
-            </div>
-        </div>
-        <div class="six wide column right aligned">   
-            <button class="ui icon tertiary button right aligned floated close-button" title="{{ labels.close }}">
-                <i class="icon blue close"></i>
-            </button>   
-        </div>
-    </div>
-</div>
+<div class="flex items-center p-2 pb-4">  
+    {% if icon is not empty %}    
+        {{  component(icon.name,{ 
+                size: icon.size|default('h-7 w-7'), 
+                width: icon.width|default(1), 
+                color: icon.color 
+            },'svg') 
+        }}
+    {% endif  %}
+    <div class="font-bold pl-2 flex-grow">          
+        {{ title }}          
+    </div>     
+   
+        <button class="bg-white border-0 close-button pt-2" title="{{ labels.close }}">
+            {{  component('icons~close.circle',{ 
+                    size: 'h-7 w-7', 
+                    width: 1, 
+                    color: ''
+                },'svg') 
+            }}
+        </button> 
+   
+</div> 

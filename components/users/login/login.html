@@ -1,9 +1,8 @@
 {% set link_class = 'pl-2 text-sm cursor-pointer block text-gray-600 hover:text-red-500 transition duration-700 ease-in-out' %}
-{% set icon_color = 'text-indigo-400' %}
 <div id="login_panel" class="w-full mx-auto">
     <div class="px-4 pb-2 bg-white border-gray-300 w-full tracking-wide rounded-md shadow-lg">          
-        <h3 class="flex items-center p-2 pt-4 uppercase border-0 border-b-2 border-gray-300 border-solid">
-            {{ component('icons~user',{ size: 'h-6 w-6', width: 2, color: icon_color },'svg') }}  
+        <h3 class="flex items-center pt-2 pb-2 pt-4 uppercase border-0 border-b-2 border-gray-300 border-solid">
+            {{ component('icons~user',{ size: 'h-6 w-6', width: 2, color: theme.icons.color },'svg') }}  
             <div class="pl-2">
                 {{ title }}
             </div>
@@ -19,13 +18,13 @@
     </div>
     <div class="flex bg-wite">
         <div class="p-1 flex items-center">            
-            {{ component('icons~lock.open',{ size: 'h-4 w-4', width: 2, color: icon_color },'svg') }}  
+            {{ component('icons~lock.open',{ size: 'h-4 w-4', width: 2, color: theme.icons.color },'svg') }}  
             <a class="{{ link_class }}" id="forgotten_button">   
                 {{ links.forgotten }}
             </a>
         </div>
         <div class="p-1 flex items-center">          
-            {{ component('icons~user.add',{ size: 'h-4 w-4', width: 2, color: icon_color },'svg') }}  
+            {{ component('icons~user.add',{ size: 'h-4 w-4', width: 2, color: theme.icons.color },'svg') }}  
             <a class="{{ link_class }}" id="signup_button" href="{{ getPageUrl('signup.page','users') }}">                        
                 {{ links.signup }}
             </a>

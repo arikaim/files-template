@@ -1,32 +1,26 @@
-{% component 'tailwind~footer' %} 
-    {% set item_class = 'ml-8 flex items-center' %}
-    {% set link_class = 'block pl-2 text-gray-400 hover:text-red-500 transition duration-700 ease-in-out' %}
-    {% set class = 'bg-gray-900 footer' %}
-    {% set icon_color = 'text-gray-400' %}
-    {% set content_class = 'w-3/4 mx-auto text-gray-800 flex flex-wrap' %}
-    {{  component('tailwind~footer.copyright',{ 
-            title: title,
-            links: links
-        },'static') 
-    }}     
-    <div class="ml-4 flex flex-grow items-center">
+{% component 'tailwind~footer' type 'static' %} 
+    {% set item_class = 'ml-8 flex items-center' %}   
+    {% set class = 'bg-gray-900 footer' %} 
+    {% set content_class = 'w-3/4 mx-auto text-gray-800 flex flex-wrap h-full' %}      
+    <div class="flex flex-grow items-center md:flex-col flex-row">
+        {{ component('tailwind~footer.copyright',{ title: copyright, class: 'md:flex sm:hidden' },'static') }}     
         <div class="{{ item_class }}">
-            {{ component('icons~home',{ size: 'h-4 w-4', width: 2, color: icon_color },'svg') }} 
-            <a href="{{ url('') }}" class="{{ link_class }}">               
+            {{ component('icons~home',{ size: 'h-4 w-4', width: 2, color: theme.footer.icon.color },'svg') }} 
+            <a href="{{ url('') }}" class="{{ theme.footer.link }}">               
                 {{ links.home }}
             </a>
         </div>       
         <div class="{{ item_class }}">
-            {{ component('icons~info',{ size: 'h-4 w-4', width: 2, color: icon_color },'svg') }} 
-            <a href="{{ url('/about') }}" class="{{ link_class }}">              
+            {{ component('icons~info',{ size: 'h-4 w-4', width: 2, color: theme.footer.icon.color },'svg') }} 
+            <a href="{{ url('/about') }}" class="{{ theme.footer.link }}">              
                 {{ links.about }}
             </a> 
         </div>    
         <div class="{{ item_class }}">
             <img src="{{ template_url }}images/arikaim-icon.png" width="14px" height="14px">
-            <a href="http://arikaim.com" class="{{ link_class }}" target="arikaim">                                          
+            <a href="http://arikaim.com" class="{{ theme.footer.link }}" target="arikaim">                                          
                 {{ links.created }}
             </a>
         </div>   
-    </div>
+    </div>   
 {% endcomponent %}

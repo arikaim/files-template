@@ -83,16 +83,16 @@ a {
 }
 .content-inside {
     padding: 0px;
-    padding-bottom: 160px;
+    padding-bottom: 0px;
 }
 .page-content {  
     padding: 0px; 
     min-height: 100%;    
-    margin: 0 auto -86px;
+    margin: 0 auto -80px;
 }
 .footer {
-    height: 100px!important;  
-    margin-top: -100px;
+    height: 80px!important;  
+    margin-top: -80px;
     margin-bottom: 0px;
 }
 .navbar-title {

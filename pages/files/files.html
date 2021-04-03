@@ -1,7 +1,7 @@
-{% component 'files:layout.page' %}
-    {% set active = 'files' %}
+{% component 'files:layout' %}
+    {% set active = 'files' %}      
     {{ component('files:title',{ title: title }) }}
-    <div class="mt-12">
+    <div class="mt-10">
         <div id="files_items" component="files:files.public" namespace="files">    
             {{ component('files:files.public') }}   
         </div>

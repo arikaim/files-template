@@ -119,7 +119,7 @@ function SharedFiles() {
 
         arikaim.ui.button('.file-details',function(element) {
             var uuid = $(element).attr('uuid');  
-            var el = $('#file_details_content');
+            $('#file_details_content').fadeIn(600);
           
             return arikaim.page.loadContent({
                 id: 'file_details_content',           
@@ -129,7 +129,6 @@ function SharedFiles() {
                     uuid: uuid,
                     on_close: 'hide'                  
                 }
-            },function(result) {
             });                             
         });
     };

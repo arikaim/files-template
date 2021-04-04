@@ -1,8 +1,8 @@
-{{ component('files:users.title',{ title: title, icon: icon }) }} 
+{{ component('files:users.title',{ title: title, icon: icon, border: 'shadow rounded'}) }} 
 {% set model = createModel('StorageFilesystems','storage') %}  
 {% set drivers = service('driver').getList('flysystem') %}
 
-<div class="ui segment">  
+<div class="bg-white shadow rounded mt-4 p-4 pt-8">  
     <div class="ui accordion filesystems-list">
         {% for driver in drivers %}
             <div class="title">                  

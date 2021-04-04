@@ -1,7 +1,7 @@
 {% component 'tailwind~footer' type 'static' %} 
     {% set item_class = 'ml-8 flex items-center' %}   
     {% set class = 'bg-gray-900 footer' %} 
-    {% set content_class = 'w-3/4 mx-auto text-gray-800 flex flex-wrap h-full' %}      
+    {% set content_class = 'w-3/4 mx-auto text-gray-800 flex flex-wrap h-full' %}        
     <div class="flex flex-grow items-center md:flex-col flex-row">
         {{ component('tailwind~footer.copyright',{ title: copyright, class: 'md:flex sm:hidden' },'static') }}     
         <div class="{{ item_class }}">

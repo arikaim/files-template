@@ -1,32 +1,30 @@
+{{ component('files:files.title',{ title: title.content, icon: { name: 'icons~folder.add' } }) }} 
 {% set file = createModel('Files','storage').findById(uuid) %}
-{{ component('files:files.title',{ title: title.content, icon: title.icon }) }} 
-<div class="ui segment">   
-    <div class="mt-4">
-        <div class="ui segment">        
-            <span class="font-bold">
-                {{ labels.filesystem }}
-            </span>
-            <span class="pl-2">
-                {{ (filesystem is empty) ? labels.local : filesystem }}
-            </span>  
-            <div class="ui mini header">
-                <i class="ui icon file outline blue"></i>
-                {{ labels.file }}
-            </div>
-            {{  component('files:files.breadcrumb',{ 
-                    path: file.path,
-                    class: 'paded pl-1',   
-                    hide_links: true,   
-                    hide_home_icon: true,
-                    hide_last_separator: true,
-                    icon: 'folder open outline blue'           
-                }) 
-            }}            
+ <div class="mt-4">
+    <div class="ui segment">        
+        <span class="font-bold">
+            {{ labels.filesystem }}
+        </span>
+        <span class="pl-2">
+            {{ (filesystem is empty) ? labels.local : filesystem }}
+        </span>  
+        <div class="ui mini header">
+            <i class="ui icon file outline blue"></i>
+            {{ labels.file }}
         </div>
-        <div id="form_content" class="ui form mt-8">    
-            {% if uuid is not empty %}
-                {{ component('files:files.share.access',{ uuid: uuid }) }} 
-            {% endif %}           
-        </div>
+        {{  component('components:breadcrumb',{ 
+                path: file.path,
+                class: 'paded pl-1',   
+                hide_links: true,   
+                hide_home_icon: true,
+                hide_last_separator: true,
+                icon: 'folder open outline blue'           
+            }) 
+        }}            
+    </div>
+    <div id="form_content" class="ui form mt-8">    
+        {% if uuid is not empty %}
+            {{ component('files:files.share.access',{ uuid: uuid }) }} 
+        {% endif %}           
     </div>
 </div>

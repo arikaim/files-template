@@ -1,9 +1,0 @@
-{% set user = service('access').getUser() %}
-{{ component('files:users.title',{ title: title, icon: 'trash blue' }) }}
-<div class="flex mt-6 pl-2 height-94">    
-    <div class="w-76 flex-shrink-0 hidden file-details mr-2" id="file_details">        
-    </div>
-    <div class="w-full flex flex-auto flex-col mr-2 p-2" id="files_content">                                  
-        {{ component('files:files.trash') }}                 
-    </div>    
-</div>

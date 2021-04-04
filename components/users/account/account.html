@@ -1,33 +1,37 @@
-{{ component('files:users.title',{ title: title, icon: 'user blue' }) }}
-<div class="flex height-94 flex-nowrap mt-2 ml-2" id="menu_panel">        
-    <div class="w-64 flex-col flex-grow flex-shrink-0">   
-        <div class="ui segment h-full">          
-            <div class="ui secondary fluid vertical menu">
-                <a class="item account-menu-item active" component="files:users.account.details" >
-                    <i class="left icon edit blue"></i>
-                    {{ menu.details }}
-                </a>
-                <a class="item account-menu-item" component="files:users.account.password">
-                    <i class="left icon lock blue"></i>
-                    {{ menu.password }}
-                </a>
-                <a class="item account-menu-item" component="files:users.account.filesystems">
-                    <i class="left icon cloud download alternate blue"></i>
-                    {{ menu.filesystems }}
-                </a>    
-                <a class="item account-menu-item" component="files:users.account.settings">
-                    <i class="left icon mail outline blue"></i>
-                    {{ menu.notifications }}
-                </a>  
-            </div>       
-        </div>   
-    </div>           
-    <div class="w-full flex-col flex-shrink-1 ml-2">       
-        <div class="ui grid">  
-            <div class="seven wide column" id="account_content">         
-                {{ component('files:users.account.details') }}                        
-            </div>
-        </div>        
+{% component 'files:layout.content' %}  
+    {% set color = ' ' %}
+    {% set border = ' ' %}
+    {% set title = { text: title } %}
+    {% set icon = theme.settings.menu.icon %}
+    {% set item = {
+            link: theme.link.hover,
+            class: 'flex flex-row items-center p-2' 
+    } %}
+    <div class="flex flex-nowrap h-full" id="menu_panel">        
+        <div class="p-2 w-64 flex flex-col flex-grow bg-white shadow rounded-lg">   
+            <a class="account-menu-item {{ item.class }}" component="files:users.account.details">
+                {{ component('icons~edit',icon,'svg') }}
+                <span class="pl-2 text-gray-800 {{ item.link }}">{{ menu.details }}</span>
+            </a>
+            <a class="account-menu-item {{ item.class }}" component="files:users.account.password">
+                {{ component('icons~lock',icon,'svg') }}
+                <span class="pl-2 text-gray-800 {{ item.link }}">{{ menu.password }}</span>
+            </a>
+            <a class="account-menu-item {{ item.class }}" component="files:users.account.filesystems">
+                {{ component('icons~server',icon,'svg') }}
+                <span class="pl-2 text-gray-800 {{ item.link }}">{{ menu.filesystems }}</span>
+            </a>    
+            <a class="account-menu-item {{ item.class }}" component="files:users.account.settings">
+                {{ component('icons~mail',icon,'svg') }}
+                <span class="pl-2 text-gray-800 {{ item.link }}">{{ menu.notifications }}</span>
+            </a>                      
+        </div>           
+        <div class="w-full flex-col flex-shrink-1 ml-2">       
+            <div class="ui grid">  
+                <div class="seven wide column" id="account_content">         
+                    {{ component('files:users.account.details') }}                        
+                </div>
+            </div>        
+        </div>
     </div>
-</div>
-
+{% endcomponent %}

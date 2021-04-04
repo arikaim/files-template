@@ -1,4 +1,13 @@
 {
+    "include": {
+        "js": [            
+            "files:files",
+            "components:upload",
+            "components:paginator",
+            "components:pdf",
+            "components:view.type.button"
+        ] 
+    },
     "access": {
         "auth": "session",
         "redirect": "/user"

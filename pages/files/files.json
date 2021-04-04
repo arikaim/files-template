@@ -1,5 +1,5 @@
 {
-    "title": "Public Files",
+    "title": "Files",
     "head": {
         "favicon": "{{ template_url }}/images/favicon.png",  
         "title": "Public Files",

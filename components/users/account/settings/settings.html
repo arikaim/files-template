@@ -1,9 +1,9 @@
-{{ component('files:users.title',{ title: title, icon: icon }) }} 
+{{ component('files:users.title',{ title: title, icon: icon, border: 'shadow rounded' }) }} 
 {% set user_id = access().getId() %}
 {% set user_details = createModel('UserDetails','users').findOrCreate(user_id) %}
 {% set result = user_details.createOptions() %}
     
-<div class="ui segment">  
+<div class="bg-white shadow rounded mt-4 p-4">  
     <div class="mt-4">
         {{  component('components:orm.options.edit.option',{
                 model: 'UserOptions',

@@ -2,7 +2,8 @@
     "icons": {
         "color": "text-indigo-400",
         "link": "cursor-pointer text-indigo-400 hover:text-red-500 transition duration-1000 ease-in-out",
-        "width": 2
+        "width": 2,
+        "size": "h-6 w-6"
     },
     "link": {
         "hover": "cursor-pointer hover:text-red-500 transition duration-1000 ease-in-out"
@@ -26,5 +27,29 @@
             "color": "text-gray-400"
         },
         "link": "block pl-2 text-gray-400 hover:text-red-500 transition duration-1000 ease-in-out"
+    },
+    "actions": {
+        "icon": {
+            "color": "text-gray-600",
+            "class": "cursor-pointer text-gray-600 hover:text-red-500 transition duration-1000 ease-in-out",
+            "width": 1,
+            "size": "h-6 w-6"
+        },
+        "trash": {
+            "color": "text-yellow-600",
+            "class": "cursor-pointer text-yellow-600 hover:text-red-700 transition duration-1000 ease-in-out",
+            "width": 1,
+            "size": "h-6 w-6"
+        }
+    },
+    "settings": {
+        "menu": {
+            "icon": {
+                "color": "text-indigo-400",
+                "class": "cursor-pointer text-indigo-400 hover:text-red-500 transition duration-1000 ease-in-out",
+                "width": 2,
+                "size": "h-6 w-6"
+            }
+        }
     } 
 }

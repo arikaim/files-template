@@ -1,7 +1,0 @@
-{
-    "title": "Alert",
-    "head": {
-        "favicon": "{{ template_url }}/images/favicon.png",  
-        "title": "Alert"
-    }
-}

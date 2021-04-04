@@ -1,53 +1,50 @@
+{% component 'files:layout.content' type 'html' %}
 {% set view_type = getViewType('files') %}
-<div class="ui segment">  
-    <div class="ui grid">        
-        <div class="five wide column">                  
-            {% set search = getSearch('files') %}
-            <form class="ui form" id="search_form" method="pots">
-                <div class="ui fluid right action left icon input" id="search_input">
-                    <i class="search icon"></i>
-                    <input placeholder="{{ labels.placeholder }}" 
-                        class="search-field" 
-                        type="text" 
-                        name="search_text" 
-                        id="search_text" 
-                        value="{{ search.search_text }}">               
-                   
-                    <div class="ui basic buttons">
-                        <button class="ui basic icon button" id="search_button">
-                            <i class="icon search"></i>
-                        </button>                       
-                    </div>
-                </div>               
-            </form>
-            <input class="search-field" type="hidden" name="search_path" value="{{ path }}" id="search_path">
-            <input class="search-field" type="hidden" name="folder_id" value="{{ folder_id }}" id="folder_id">
-        </div>    
-        <div class="ten wide column">
-            {{  component('components:breadcrumb',{ 
-                    path: path,
-                    class: 'paded massive pl-2',      
-                    icon: 'folder open outline blue'           
-                }) 
-            }}   
-        </div>      
-        <div class="one wide column right floated">    
-            <div class="ui buttons right floated">  
-                <div class="pr-2">
-                    {{  component('components:paginator.dropdown',{
-                            namespace: 'files',
-                            class: 'show-popup',
-                            title: labels.paginator  
-                        }) 
-                    }}      
-                </div> 
-                {{ component('components:view.type.button',{ class: 'basic icon show-popup', namespace: 'files' }) }}
+{% set title = { text: title } %}
+<div class="pb-3 flex flex-row items-center bg-white border-0 border-b-2 border-gray-200 border-solid">  
+    <div class="w-72">                  
+        {% set search = getSearch('files') %}
+        <form class="ui form" id="search_form" method="pots">
+            <div class="ui fluid right action left icon input" id="search_input">
+                <i class="search icon"></i>
+                <input placeholder="{{ labels.placeholder }}" 
+                    class="search-field" 
+                    type="text" 
+                    name="search_text" 
+                    id="search_text" 
+                    value="{{ search.search_text }}">                               
+                <div class="ui basic buttons">
+                    <button class="ui basic icon button" id="search_button">
+                        <i class="icon search"></i>
+                    </button>                       
+                </div>
             </div>               
-        </div>  
-    </div>     
+        </form>
+        <input class="search-field" type="hidden" name="search_path" value="{{ path }}" id="search_path">
+        <input class="search-field" type="hidden" name="folder_id" value="{{ folder_id }}" id="folder_id">
+    </div>    
+    <div class="flex-grow pl-4">
+        {{  component('tailwind~breadcrumb',{ 
+                path: path,
+                class: 'paded massive pl-4 pt-1',      
+                icon: {
+                    name: 'icons~folder',
+                    class: theme.link.hover,
+                    color: theme.icons.color
+                }           
+            }) 
+        }}        
+    </div>      
+    {{ component('components:view.type.button',{ class: 'basic icon show-popup', namespace: 'files' }) }}
+    {{  component('components:paginator.dropdown',{
+            namespace: 'files',
+            class: 'show-popup',
+            title: labels.paginator  
+        }) 
+    }}             
 </div>
-<div class="bg-white shadow p-4 flex-grow rounded-lg border border-gray-300">
-    <div id="files_items" component="files:files.shared.items" namespace="files">    
+<div class="flex flex-col justify-between mt-8">
+    <div class="flex-grow" id="files_items" component="files:files.shared.items" namespace="files">    
         {{ component('files:files.shared.items',{ view_type: view_type }) }}   
     </div>
     <div class="pt-4 pb-8" id="paginator">
@@ -67,4 +64,5 @@
         </div>
     </div>
 </div>
+{% endcomponent %}
 {{ component('files:files.file.password-modal') }}

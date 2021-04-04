@@ -13,4 +13,10 @@
 {% else %}
     {% set icon_name = 'icons~document.text' %} 
 {% endif %}
-{{ component(icon_name,{ size: size|default('h-6 w-6'), width: width|default(2), color: color },'svg') }}  
+{{  component(icon_name,{ 
+        class: class,
+        size: size|default(theme.icons.size), 
+        width: width|default(theme.icons.width), 
+        color: color|default(theme.icons.color) 
+    },'svg') 
+}}  

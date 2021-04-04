@@ -24,19 +24,19 @@
         </a>
     </div>
     <div class="mb-6">
-        <a class="user-menu-item flex flex-col items-center {{ theme.sidebar.link }} {{ (selected == 'myfiles') ? 'active' : '' }}" component="files:files.myfiles">
+        <a class="user-menu-item flex flex-col items-center {{ theme.sidebar.link }} {{ (selected == 'myfiles') ? 'active' : '' }}" component="files:files.view">
             {{ component('icons~document.text',{ size: 'h-6 w-6', width: 2, color: theme.sidebar.icon.color },'svg') }}
             <div class="{{ heme.sidebar.link }}">{{ items.myfiles }}</div>                                                                            
         </a>         
     </div>
     <div class="mb-6">
-        <a class="user-menu-item flex flex-col items-center {{ theme.sidebar.link }} {{ (selected == 'myfiles') ? 'active' : '' }}" component="files:users.shared">
+        <a class="user-menu-item flex flex-col items-center {{ theme.sidebar.link }} {{ (selected == 'shared') ? 'active' : '' }}" component="files:files.shared">
             {{ component('icons~folder.open',{ size: 'h-6 w-6', width: 2, color: theme.sidebar.icon.color },'svg') }}
             <div class="{{ heme.sidebar.link }}">{{ items.shared }}</div>
         </a>        
     </div>
     <div class="mb-6">
-        <a class="user-menu-item flex flex-col items-center {{ theme.sidebar.link }} {{ (selected == 'trash') ? 'active' : '' }}" component="files:users.trash">
+        <a class="user-menu-item flex flex-col items-center {{ theme.sidebar.link }} {{ (selected == 'trash') ? 'active' : '' }}" component="files:files.trash">
             {{ component('icons~trash',{ size: 'h-6 w-6', width: 2, color: theme.sidebar.icon.color },'svg') }}
             <div class="{{ heme.sidebar.link }}">{{ items.trash }}</div> 
         </a>

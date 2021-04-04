@@ -1,25 +1,27 @@
-{% set path = path|default(bin_path) %}
-{% set disabled = (empty == true) ? 'disabled' : '' %}
-
-<div class="ui segment">     
-    <div class="ui icon buttons files-buttons">      
-        <button class="ui basic orange button empty-trash {{ disabled }} trash-button show-popup" {{ buttons.empty.title|attr('title') }}>
-            <i class="icon trash alternate outline orange"></i>               
-        </button>
-        <button class="ui basic green button restore-trash {{ disabled }} trash-button show-popup" {{ buttons.restore.title|attr('title') }}>
-            <i class="trash restore olive icon"></i>               
-        </button>
+{% component 'files:layout.content' type 'html' %}
+    {% set path = path|default(bin_path) %}
+    {% set disabled = (empty == true) ? 'disabled' : '' %}
+    {% set title = { text: title } %}
+    <div class="pb-3 flex flex-row items-center bg-white border-0 border-b-2 border-gray-200 border-solid">               
+        <btn class="empty-trash {{ disabled }} trash-button show-popup" {{ buttons.empty.title|attr('title') }}>
+            {{ component('icons~trash',{ class: theme.link.hover, size: 'h-8 w-8', width: 2, color: 'text-red-300' },'svg') }}       
+        </btn>
+        <btn class="pl-3 restore-trash {{ disabled }} trash-button show-popup" {{ buttons.restore.title|attr('title') }}>
+            {{ component('icons~reply',{ class: theme.link.hover, size: 'h-8 w-8', width: 2, color: 'text-green-300' },'svg') }}  
+        </btn>
+        {{  component('tailwind~breadcrumb',{ 
+                path: path,
+                home_path: 'bin',
+                class: 'pl-4 flex-grow',      
+                icon: {
+                    name: 'icons~folder',
+                    class: theme.link.hover,
+                    color: theme.icons.color
+                }           
+            }) 
+        }}            
     </div>
-    {{  component('components:breadcrumb',{ 
-            path: path,
-            home_path: 'bin',
-            class: 'paded massive pl-2',      
-            icon: 'trash open blue'           
-        }) 
-    }}  
-</div>
-<div class="bg-white shadow p-4 flex-grow rounded-lg border border-gray-300"> 
-    <div id="view_content" class="ui list">
+    <div id="view_content" class="flex flex-col mt-4">
         {{ component("files:files.trash.rows",{ view_type: view_type }) }}
-    </div>
-</div>
+    </div>    
+{% endcomponent %}

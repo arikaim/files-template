@@ -81,32 +81,12 @@ function FilesView() {
                 }); 
             }
         });     
-
-        this.loadPathDetails();
     };
 
     this.loadEmpty = function() {
         return arikaim.page.loadContent({
             id: 'view_content',           
             component: 'files:files.view.items.empty'
-        });
-    };
-
-    this.loadPathDetails = function(path, filesystem) {
-
-        if (isEmpty(path) == true) {
-            path = breadcrumb.getCurrentPath();
-        }      
-        if (isEmpty(filesystem) == true) {
-            filesystem = $('#filesystem_dropdown').dropdown('get value');
-        }
-        return arikaim.page.loadContent({
-            id: 'file_details_content',           
-            component: 'files:files.view.path.details',
-            params: { 
-                path: path,
-                filesystem: filesystem                          
-            }
         });
     };
 
@@ -128,7 +108,6 @@ function FilesView() {
                 driver_name: driverName            
             }
         },function(result) {         
-            self.loadPathDetails(path);
             self.initRows();
         }); 
     };
@@ -261,7 +240,8 @@ function FilesView() {
         
         arikaim.ui.button('.file-details',function(element) {
             var uuid = $(element).attr('uuid');  
-            
+            $('#file_details_content').fadeIn(600);
+
             return arikaim.page.loadContent({
                 id: 'file_details_content',           
                 component: 'files:files.file.details',

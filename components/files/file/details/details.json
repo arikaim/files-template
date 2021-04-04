@@ -2,6 +2,7 @@
     "labels": {
         "details": "File Details",
         "date": "Date",
+        "close": "Close",
         "note": "Note",       
         "public": "Public", 
         "private": "Private",
@@ -11,10 +12,10 @@
         "size": "Size",
         "user": "User",
         "path": "Path",
-        "owner": "Owner",  
+        "owner": "Owner",
+        "link": "Download Link",  
         "filesystem": "Filesystem",     
         "downloads": "Downloads",
-        "name": "Name",
-        "link": "Download"
+        "name": "Name"        
     }    
 }

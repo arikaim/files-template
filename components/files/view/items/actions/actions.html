@@ -1,46 +1,46 @@
-{% set class = class|default('basic mini button') %}
-<div class="ui dropdown file-actions icon {{ class }}">
-    <i class="ellipsis vertical icon"></i>
-    <div class="menu">
-        {% if file.isDirectory() == true %}
-            <div class="item delete-directory" path="{{ file.path }}" {{ buttons.delete.title|attr('title') }}>
-                <i class="icon orange trash"></i>
-                {{ labels.delete }}
-            </div>     
-        {% else %}            
-            <div class="item share-file" uuid="{{ file.uuid }}" path="{{ file.path }}" {{ buttons.share.title|attr('title') }}>
-                <i class="icon share"></i>
-                {% if file.hasPermissions() == true %}
-                    {{ labels.edit }}
-                {% else %}
-                    {{ labels.share }}
-                {% endif %}
-            </div>
-            <div class="item">
-                <a class="ui link" href="{{ file.getDownloadUrl() }}">       
-                    <i class="icon show-popup download text-gray-800" title="{{ labels.download }}"></i> 
-                    <span class="pl-2 text-gray-800">{{ labels.download }}</span>                                    
-                </a> 
-            </div>
-            <div class="item file-link-button" data-title="{{ labels.link }}" data-content="{{ file.getDownloadUrl() }}" uuid="{{ file.uuid }}" path="{{ file.path }}" {{ buttons.share.title|attr('title') }}>
-                <i class="icon linkify"></i>
-                {{ labels.link }}
-            </div>
-            {% if file.isLocal() == true %}
-                <div class="item move-trash-file" name="{{ file.path }}" path="{{ file.path }}" {{ buttons.delete.title|attr('title') }}>
-                    <i class="icon orange trash"></i>
-                    {{ labels.delete }}
-                </div>
-            {% else %}
-                <div class="item delete-file" name="{{ file.path }}" path="{{ file.path }}" {{ buttons.delete.title|attr('title') }}>
-                    <i class="icon orange trash"></i>
-                    {{ labels.delete }}
-                </div>
-            {% endif %}
-        {% endif %}    
-        <div class="item file-details" uuid="{{ file.uuid }}" {{ buttons.details.title|attr('title') }}>
-            <i class="icon info"></i>
-            {{ labels.details }}
+{% set item_class = item_class|default('p-1') %}
+{% set icon = icon|default(theme.actions.icon) %}
+{% set trash = icon|default(theme.actions.trash) %}
+<div class="flex flex-row items-center file-actions {{ class|default('w-64') }}">  
+    {% if file.isDirectory() == true %}
+        {% if shared != true %}
+        <div class="delete-directory {{ item_class }}" path="{{ file.path }}" {{ labels.delete|attr('data-tooltip') }}>
+            {{ component('icons~trash',icon,'svg') }}          
         </div>
-    </div>
+        {% endif %}     
+        <div class="file-details {{ item_class }}" uuid="{{ file.uuid }}" {{ labels.details|attr('data-tooltip') }}>
+            {{ component('icons~info',icon,'svg') }}      
+        </div>
+    {% else %}
+        {% if shared != true %}
+            {% set share_label = (file.hasPermissions() == true) ? labels.edit : labels.share %}            
+            <div class="share-file {{ item_class }}" uuid="{{ file.uuid }}" path="{{ file.path }}" {{ labels.share|attr('data-tooltip') }}>
+                {{  component('icons~share',icon,'svg') }}           
+            </div>          
+        {% endif %}
+        {% if file.isLocal() == true and shared != true %}
+            <div class="move-trash-file {{ item_class }}" name="{{ file.path }}" path="{{ file.path }}" {{ labels.delete|attr('data-tooltip') }}>
+                {{ component('icons~trash',trash,'svg') }}               
+            </div>
+        {% elseif shared != true %}
+            <div class="delete-file {{ item_class }}" name="{{ file.path }}" path="{{ file.path }}" {{ labels.delete|attr('data-tooltip') }}>
+                {{ component('icons~trash',trash,'svg') }}               
+            </div>
+        {% endif %}
+        <div class="file-details {{ item_class }}" uuid="{{ file.uuid }}" {{ labels.details|attr('data-tooltip') }}>
+            {{ component('icons~info',icon,'svg') }}      
+        </div>
+        {% if shared != true %}
+            {% set link = file.getDownloadUrl() %}
+            <a class="cursor-poiner" href="{{ link }}" data-tooltip="{{ labels.download }}">    
+                {{ component('icons~download',{ 
+                    class: theme.link.hover, 
+                    size: 'h-6 w-6',
+                    width: 2, 
+                    color: theme.icons.color },'svg') 
+                }}                                              
+            </a>         
+        {% endif %}
+    {% endif %}    
+   
 </div>

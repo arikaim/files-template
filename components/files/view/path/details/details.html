@@ -2,13 +2,13 @@
 {% set user_id = access().getId() %}
 {% set filesystem = (filesystem is empty) ? file.getUserFilesystemName() : filesystem %}
 <div class="file-details-content">
-    <div class="flex items-center p-2">      
-        {{ component('icons~info',{ size: 'h-6 w-6', width: 2, color: '' },'svg') }}
+    <div class="flex items-center p-2 ml-4 border-0 border-b-2 border-gray-200 border-solid">      
+        {{ component('icons~info',{ size: 'h-6 w-6', width: theme.icons.width, color: theme.icons.color },'svg') }}
         <div class="font-bold pl-2">          
             {{ labels.details }}           
         </div>       
     </div> 
-    <div class="flex items-start flex-col p-2">  
+    <div class="flex items-start flex-col p-2 ml-4">  
         <div class="flex items-center mt-2">
             {{ component('icons~folder',{ size: 'h-6 w-6', width: theme.icons.width, color: theme.icons.color },'svg') }}  
             <div class="font-bold pl-2" title="{{ labels.path }}">  

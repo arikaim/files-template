@@ -1,23 +1,21 @@
-<div class="flex items-center p-2 pb-4">  
+<div class="flex items-center p-2 pt-3 pb-4 border-0 border-b-2 border-gray-200 border-solid mb-4">  
     {% if icon is not empty %}    
         {{  component(icon.name,{ 
                 size: icon.size|default('h-7 w-7'), 
-                width: icon.width|default(1), 
-                color: icon.color 
+                width: icon.width|default(theme.icons.width), 
+                color: icon.color|default(theme.icons.color) 
             },'svg') 
         }}
     {% endif  %}
     <div class="font-bold pl-2 flex-grow">          
         {{ title }}          
     </div>     
-   
-        <button class="bg-white border-0 close-button pt-2" title="{{ labels.close }}">
-            {{  component('icons~close.circle',{ 
-                    size: 'h-7 w-7', 
-                    width: 1, 
-                    color: ''
-                },'svg') 
-            }}
-        </button> 
-   
+    <button class="bg-white border-0 close-button pt-2" data-tooltip="{{ labels.close }}">
+        {{  component('icons~close.circle',{ 
+                size: 'h-7 w-7', 
+                width: 1, 
+                class: theme.link.hover
+            },'svg') 
+        }}
+    </button>    
 </div> 

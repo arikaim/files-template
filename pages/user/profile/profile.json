@@ -1,6 +1,0 @@
-{
-    "head": {
-        "title": "Profile",
-        "favicon": "{{ template_url }}/images/favicon.png"      
-    }
-}

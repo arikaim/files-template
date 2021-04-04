@@ -1,4 +1,6 @@
-<div class="flex items-center shadow-lg border-0 border-b-2 border-blue-600 border-dotted bg-white {{ class }}">  
+<div class="flex items-center 
+    {{ color|default('bg-white') }} 
+    {{ border|default('shadow-lg border-0 border-b-2 border-blue-600 border-dotted') }} {{ class }}">  
     {% if icon is not empty %}           
         <div class="px-2">
             {{ component(icon,{ size: 'h-6 w-6', width: 2, color: icon_color },'svg') }}

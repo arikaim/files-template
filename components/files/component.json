@@ -1,7 +1,11 @@
 {     
     "include": {
-        "js":[                       
-            "components:breadcrumb"
+        "js": [            
+            "components:upload",
+            "components:paginator",
+            "components:pdf",
+            "components:breadcrumb",
+            "components:view.type.button"
         ] 
-    }      
+    }    
 }

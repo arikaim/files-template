@@ -3,7 +3,7 @@
 {% set items = items.getItems() %}
 
 {% if view_type == 'table' %}
-    <div class="ui big list">
+    <div class="flex flex-col">
 {% else %}
     <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4" id="files_items">
 {% endif %}
@@ -17,43 +17,38 @@
     {% set file_type = file.getFileType() %}
   
     {% if view_type == 'table' %}       
-        <div class="item" id="row_{{ file.uuid }}">   
-            <div class="content">                  
-                {{ component('files:files.shared.items.actions',{ file: file }) }}               
-                {% if file.isDirectory() == true %}
-                    <button class="ui basic disabled mini icon button">
-                        <i class="icon"></i>
-                    </button> 
-                    <a class="ui link open-directory" path="{{ file.path }}" folder-id="{{ file.uuid }}">
-                        <i class="icon outline folder blue large"></i>                      
-                        {{ file.path }}                          
-                    </a>       
-                {% else %}     
-                    <button class="ui basic mini icon file-details button" uuid="{{ file.uuid }}">
-                        <i class="icon info"></i>
-                    </button> 
-                    {% if file.hasPassword() == true %}
-                        <a file-name="{{ file.file_name }}" uuid="{{ file.uuid }}" class="ui basic mini icon button show-popup show-password-modal" title="{{ labels.download }}">
-                            <i class="icon blue download"></i>
-                        </a> 
-                    {% else %}
-                        <a class="ui basic mini icon button show-popup" href="{{ file.getDownloadUrl() }}" title="{{ labels.download }}">
-                            <i class="icon blue download"></i>
-                        </a> 
-                    {% endif %}                 
-                    <a class="ui link preview-file" uuid="{{ file.uuid }}">
-                        {{ component('files:file.icon',{ type: file_type, class: 'large ' ~ color_icon }) }} 
-                        {{ file.file_name }}  
-                    </a>                   
-                {% endif %}                                        
-                <div class="ui basic labels right floated">                                            
-                    {% if file.hasPassword() == true %}
-                        <div class="ui icon label">
-                            <i class="icon red lock show-popup" title="{{ labels.password }}"></i>   
-                        </div>
-                    {% endif %}                    
-                </div>
-            </div>  
+        <div class="p-1 flex flex-row items-center" id="row_{{ file.uuid }}">                           
+            {{ component('files:files.view.items.actions',{ file: file, class: 'w-24', shared: true }) }}               
+            {% if file.isDirectory() == true %}                   
+                <a class="ui link open-directory" path="{{ file.path }}" folder-id="{{ file.uuid }}">
+                    <i class="icon outline folder blue large"></i>                      
+                    {{ file.path }}                          
+                </a>       
+            {% else %}       
+                {% set download_icon = component('icons~download',{ class: theme.link.hover, size: 'h-6 w-6',width: 2, color: theme.icons.color },'svg') %}               
+                {% if file.hasPassword() == true %}
+                    <btn file-name="{{ file.file_name }}" uuid="{{ file.uuid }}" class="show-popup show-password-modal" title="{{ labels.download }}">
+                        {{ download_icon }} 
+                    </btn> 
+                {% else %}                           
+                    <a class="cusror-pointer show-popup" href="{{ file.getDownloadUrl() }}" title="{{ labels.download }}">
+                        {{ download_icon }}  
+                    </a> 
+                {% endif %}                                       
+                <a class="flex flex-row items-center preview-file pl-3" uuid="{{ file.uuid }}">
+                    {{ component('files:file.svg',{ type: file_type, class: ' ' }) }} 
+                    <span class="text-gray-800 pl-2 {{ theme.link.hover }}">
+                        {{ file.file_name }} 
+                    </span> 
+                </a>                   
+            {% endif %}                                        
+            <div class="ui basic labels right floated">                                            
+                {% if file.hasPassword() == true %}
+                    <div class="ui icon label">
+                        <i class="icon red lock show-popup" title="{{ labels.password }}"></i>   
+                    </div>
+                {% endif %}                    
+            </div>           
         </div>
     {% else %}  
         <div class="w-full h-64 rounded border border-solid border-gray-400 overflow-hidden shadow-lg" id="row_{{ file.uuid }}">           
@@ -63,14 +58,15 @@
                     <div class="pl-2 font-bold show-popup" data-content="{{ file.file_name }} ">                 
                         {{ file.file_name|sliceLabel(16,'...') }}                   
                     </div>                     
-                    <div>                        
+                    <div>         
+                        {% set download_icon = component('icons~download',{ class: theme.link.hover, size: 'h-6 w-6',width: 2, color: theme.icons.color },'svg') %}               
                         {% if file.hasPassword() == true %}
-                            <button file-name="{{ file.file_name }}" uuid="{{ file.uuid }}" class="ui basic mini icon compact button show-popup show-password-modal" title="{{ labels.download }}">
-                                <i class="icon blue download"></i>
-                            </button> 
-                        {% else %}
-                            <a class="ui basic mini icon button compact show-popup" href="{{ file.getDownloadUrl() }}" title="{{ labels.download }}">
-                                <i class="icon blue download"></i>
+                            <btn file-name="{{ file.file_name }}" uuid="{{ file.uuid }}" class=" show-popup show-password-modal" title="{{ labels.download }}">
+                                {{ download_icon }} 
+                            </btn> 
+                        {% else %}                           
+                            <a class="cusror-pointer show-popup" href="{{ file.getDownloadUrl() }}" title="{{ labels.download }}">
+                                {{ download_icon }}  
                             </a> 
                         {% endif %}
                     </div>                             

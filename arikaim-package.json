@@ -7,6 +7,10 @@
     "thumbnail": "files-manager-thumbnail.jpg",
     "repository": "https://github.com/arikaim/files-template.git",
     "require": {
+        "components": [
+            "icons",
+            "tailwind"
+        ],
         "library": [
             "jquery",
             "arikaim:source",
@@ -49,6 +53,7 @@
     "themes": [
         "default"
     ],
+    "default-theme": "default",
     "include": {     
         "components": [    
             "files:users",
@@ -68,16 +73,17 @@
             "fomantic:icons",
             "fomantic:flags",
             "fomantic:loader",
-            "fomantic:dimmmer",
+            "fomantic:dimmmer",       
+            "fomantic:table",           
             "plyr",   
             "highlight",
             "pdf-js", 
             "tailwind",
             "tailwind:grid",
-            "tailwind:colors",
+            "tailwind:colors",           
             "tailwind:size",
             "tailwind:align",
-            "tailwind:layout",
+            "tailwind:layout",           
             "tailwind:animation"
         ]       
     }

@@ -1,5 +1,6 @@
 {% component 'tailwind~.card' %}
     {% set files = createModel('Files','storage') %}
+    {% set size = 'h-60' %}
     {%  set header = {
             class: 'pt-1 border-0 border-b-2 border-gray-200 border-solid',
             icon: { name: 'icons~chart.pie', color: theme.icons.color }
@@ -10,7 +11,7 @@
             class: 'pt-2 pb-2 font-bold pl-2' 
         }
     %}      
-    <div class="py-2">
+    <div class="py-2 mt-8">
         <div class="text-sm">            
             {{ labels.files }}                                         
         </div>

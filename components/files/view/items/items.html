@@ -16,74 +16,31 @@
 {% endif %}
 
 {% set items = paginate(files_list,'myfiles') %}  
-
 {% if view_type == 'table' %}
-    <div class="flex flex-col" id="files_items">
+    <div class="flex flex-col items-start" id="files_items">
 {% else %}
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6 xl:grid-cols-8 gap-4" id="files_items">
+    <div class="mr-4 mt-4 tailwind-grid grid-cols-5 items-start xl:grid-cols-4  2xl:grid-cols-6 md:grid-cols-3 sm:grid-cols-1 xs:grid-cols-1 gap-2" id="files_items">
 {% endif %}
 
 {% if items.getItems()|length == 0 and connection_status == 1 %}    
-    {{ component('files:files.view.items.empty',{ icon: 'folder outline open massive blue' }) }}
+    {{ component('files:files.view.items.empty',{}) }}
 {% endif %}
 
 {% for item in items.getItems() %}
     {% if item.path != 'bin' %}
-        {% set mime_type = (item.type == 'dir') ? 'directory' : service('storage').getMimetype(item.path,filesystem) %}     
-        {%  set file = files.saveFile(item.path,user_id,filesystem,{ 
-                type: item.type,
-                size: item.size,          
-                date_created: item.timestamp,
-                mime_type: mime_type
-            },false) 
-        %}    
-        {% set file_type = file.getFileType() %}
-        {% if view_type == 'table' %}     
-            <div class="p-1 flex flex-row items-center" id="row_{{ file.uuid }}">                 
-                {{ component('files:files.view.items.actions',{ file: file, class: 'w-40' }) }}               
-                {% if file.isDirectory() == true %}                   
-                    <button class="bg-white cursor-pointer border-0 flex items-center open-directory" path="{{ item.path }}">
-                        {{ component('icons~folder',{ size: 'h-6 w-6', width: 2, color: theme.icons.link },'svg') }}                                                        
-                        <span class="pl-2 text-gray-800 {{ theme.link.hover }}">{{ file.file_name }}</span>
-                    </button>                 
-                {% else %}                                                           
-                    <a class="cursor-pointer preview-file flex items-center pl-2" uuid="{{ file.uuid }}">
-                        {{ component('files:file.svg',{ type: file_type, color: theme.icons.link }) }}                                                                                          
-                        <span class="text-gray-800 pl-2 {{ theme.link.hover }}">{{ file.file_name }}</span>                                                                      
-                    </a>                    
-                {% endif %}            
-            </div>           
-        {% else %}
-            <div class="w-full h-60 flex flex-col items-cemter rounded-lg border border-solid border-gray-300 shadow-lg" id="row_{{ file.uuid }}">
-                <div class="pl-2 pr-2 pt-3">
-                    <div class="flex justify-between flex-row">                     
-                        <div class="pl-2 pt-1 font-bold show-popup flex-grow" data-tooltip="{{ file.file_name }}">                 
-                            {{ file.file_name|sliceLabel(16,'...') }}                   
-                        </div>      
-                        {{ component('files:files.view.items.actions',{ file: file, class: 'self-end place-item-end' }) }}      
-                    </div>               
-                </div>   
-                <div class="mt-2 overflow-hidden pb-0 h-full w-full">
-                    {% if file.isDirectory() == true %}                          
-                        <a class="ui link open-directory cursor-pointer" path="{{ item.path }}">    
-                            <div class="pt-8 min-w-fill min-h-full text-center">   
-                                {{ component('files:file.svg',{ class: theme.link.hover, type: file_type, width: 1, size: 'h-24 w-24' }) }}                                   
-                            </div>                        
-                        </a>                           
-                    {% else %}  
-                        <a class="preview-file cursor-pointer {{ theme.link.hover }}" uuid="{{ file.uuid }}">                                                                               
-                            {% if file_type == 'image' %}                               
-                                <img class="rounded-b-lg object-fill w-full h-full object-cover object-center" src="{{ file.getViewImageUrl() }}">                                                              
-                            {% else %} 
-                            <div class="min-w-fill min-h-full pt-8 text-center">  
-                                {{ component('files:file.svg',{ class: theme.link.hover, type: file_type, width: 1, size: 'h-24 w-24' }) }} 
-                            </div>                          
-                            {% endif %}                                                     
-                        </a>   
-                    {% endif %}     
-                </div>                 
-            </div>           
-        {% endif %}  
-    {% endif %} 
+            {% set mime_type = (item.type == 'dir') ? 'directory' : service('storage').getMimetype(item.path,filesystem) %}     
+            {%  set file = files.saveFile(item.path,user_id,filesystem,{ 
+                    type: item.type,
+                    size: item.size,          
+                    date_created: item.timestamp,
+                    mime_type: mime_type
+                },false) 
+            %}           
+            {% if view_type == 'table' %}     
+                {{ component('files:files.file.row',{ file: file, path: item.path, shared: false },'static') }}                    
+            {% else %}
+                {{ component('files:files.file.card',{ file: file, path: item.path, shared: false },'static') }}                
+            {% endif %}    
+    {% endif %}
 {% endfor %}
 </div>

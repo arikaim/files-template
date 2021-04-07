@@ -1,0 +1,7 @@
+{
+    "labels": {              
+        "path": "Path",     
+        "filesystem": "Filesystem",
+        "local": "Local"       
+    }
+}

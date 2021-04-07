@@ -1,9 +1,3 @@
-{% component 'files:layout.user' type 'html' %} 
-    {% set user = access().getUser() %}
-    <div class="flex flex-row h-full flex-grow">       
-        {{ component('files:users.sidebar',{ id: 'user_menu', user: user, class: '', selected: menu }) }}
-        <div class="w-full" id="user_area_content">   
-            {{ component('files:users.dashboard') }}                            
-        </div>    
-    </div>
+{% component 'files:layout.user' type 'html' %}        
+    {{ component('files:users.dashboard') }}                                   
 {% endcomponent %}

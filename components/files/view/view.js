@@ -22,7 +22,7 @@ function FilesView() {
                 filesView.openDirectory(path);            
             },
             separatorClass: 'p-2',
-            pathItemClass: 'p-2'
+            pathItemClass: 'p-2 cursor-pointer text-gray-800 hover:text-red-500 transition duration-1000 ease-in-out'
         });
 
         paginator.init('view_content');   
@@ -113,8 +113,6 @@ function FilesView() {
     };
 
     this.initRows = function() {              
-        $('.file-actions').dropdown({});
-    
         $('.preview-image').off();
         $('.preview-image').on('load',function() {
             var uuid = $(this).attr('uuid');

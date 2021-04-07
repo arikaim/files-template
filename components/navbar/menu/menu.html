@@ -1,9 +1,10 @@
 {% set active_class = 'text-blue-300' %}
-{% set item = {
+{% set item = item|default({
     class: 'text-xl uppercase navbar-link px-4 py-1 md:p-2 lg:px-4 text-lg',
     color: 'text-gray-100 hover:text-blue-300 transition duration-700 ease-in-out'
-} %}
-<div class="lg:flex items-center sm:hidden navbar-menu {{ class }}">                                                                      
+}) %}
+<div class="flex navbar-menu {{ class }}"> 
+    {% if logged != true %}
     <div class="{{ item.class }} navbar-item">
         <a class="{{ item.color }} {{ (active == 'home') ? active_class : '' }}" href="{{ url('') }}">
             {{ labels.home }}
@@ -18,8 +19,7 @@
         <a class="{{ item.color }} {{ (active == 'about') ?  active_class : '' }}" href="{{ url('/about') }}">
             {{ labels.about }}
         </a>
-    </div>  
-    {% if logged != true %}
+    </div>    
     <div class="{{ item.class }} navbar-item">   
         <a class="{{ item.color }} {{ (active == 'login') ? active_class : '' }}" href="{{ url('/login') }}">
             {{ labels.login }}

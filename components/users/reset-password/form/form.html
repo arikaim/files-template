@@ -3,11 +3,18 @@
         <label>{{ email.label }}</label>      
         <input rule="email" type="text" name="email" id="email" {{ email.placeholder|attr("placeholder") }}>            
     </div>           
-    <div class="form">
-        {{  component('components:form.footer',{ 
-                button_class: 'button primary', 
-                button_title: buttons.submit 
-            }) 
-        }} 
+    <div class="form">    
+        {{  component('tailwind~form.footer',{ 
+            class: 'flex flex-rows items-start',
+            button: { 
+                title: buttons.submit 
+            }, 
+            message: { 
+                class: 'flex-grow w-full',
+                error: 'pl-4 p-0 self-center text-red-400'
+            } 
+            },'static') 
+        }}   
+
     </div>               
 </form>

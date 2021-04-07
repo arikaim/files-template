@@ -13,10 +13,10 @@ html {
 }
 body {       
     font-family: 'Open Sans', sans-serif;  
-    height: 100%;
+    height: 100%;   
     padding: 0px;
     margin: 0px;   
-    background: rgb(249,247,244);
+    background: rgb(249,247,244);     
 }
 a {
     text-decoration: none!important;
@@ -24,7 +24,7 @@ a {
 .tailwind-grid {
     display: grid
 }
-.svg-icon  {     
+.svg-icon {     
     fill: currentColor;
 }
 .open-sans {
@@ -46,18 +46,6 @@ a {
     font-family: 'Open Sans Condensed', sans-serif; 
     font-size: 16pt;
     font-weight: bold;
-}
-.height-90 {
-    height: 90%!important;
-}
-.height-91 {
-    height: 91!important;
-}
-.height-94 {
-    height: 94%!important;
-}
-.height-92 {
-    height: 92%!important;
 }
 .w-77 {
     width: 35rem;
@@ -81,20 +69,6 @@ a {
     padding: 0.80rem;
     font-size: 12pt;
 }
-.content-inside {
-    padding: 0px;
-    padding-bottom: 0px;
-}
-.page-content {  
-    padding: 0px; 
-    min-height: 100%;    
-    margin: 0 auto -80px;
-}
-.footer {
-    height: 80px!important;  
-    margin-top: -80px;
-    margin-bottom: 0px;
-}
 .navbar-title {
     font-family: 'Contrail One', cursive;
     font-size: 36px;  
@@ -109,9 +83,6 @@ a {
     min-height: 120px!important;
     max-height: 120px!important;
 }
-.borderless {
-    border: none!important;
-}
 .navbar-user-menu {
     background-color: #2a4365!important;
 }
@@ -119,10 +90,6 @@ a {
     font-family: 'Contrail One';
     font-size: 14pt;  
     font-weight: 300;
-}
-
-.bg-gray {
-    background-color: #1a202c!important;
 }
 .page-link-icon:hover {
     transform: scale(1.2)!important;

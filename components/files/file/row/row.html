@@ -1,0 +1,15 @@
+{% set border = border|default('border-0 border-b border-gray-300 border-solid') %}
+<div class="p-1 flex w-full sm:flex-row items-start xs:flex-col {{ border }} {{ class }}" id="row_{{ file.uuid }}">                 
+    {{ component('files:files.view.items.actions',{ file: file, class: 'w-40', shared: shared }) }}               
+    {% if file.isDirectory() == true %}                   
+        <btn class="pl-2 cursor-pointer border-0 flex open-directory self-start pt-2" path="{{ path }}">
+            {{ component('icons~folder',{ size: 'h-6 w-6', width: 2, color: theme.icons.link },'svg') }}                                                        
+            <span class="pl-2 text-gray-800 {{ theme.link.hover }}">{{ file.file_name }}</span>
+        </btn>                 
+    {% else %}                                                           
+        <a class="cursor-pointer preview-file flex pl-2 self-start pt-2" uuid="{{ file.uuid }}">
+            {{ component('files:file.svg',{ type: file_type, color: theme.icons.link }) }}                                                                                          
+            <span class="text-gray-800 pl-2 {{ theme.link.hover }}">{{ file.file_name }}</span>                                                                      
+        </a>                    
+    {% endif %}            
+</div>         

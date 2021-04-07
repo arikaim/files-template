@@ -50,6 +50,11 @@
                 <input error-prompt="{{ fields.phone.error }}" rule="integer,minLength[2]" optional="true" name="phone_2" id="phone_2" placeholder="{{ fields.phone2.placeholder }}" type="number" value="{{ user_details.phone_2 }}">
             </div>
         </div>
-    </div>       
-    {{ component('components:form.footer') }}    
+    </div> 
+    {{  component('tailwind~form.footer',{ 
+            button: {
+                title: labels.save
+            }           
+        }) 
+    }}         
 </form>

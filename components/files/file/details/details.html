@@ -1,7 +1,7 @@
 {% set file = createModel('Files','storage').findById(uuid) %}
 {% set icon = theme.icons %}
 <div class="p-1 file-details-content">
-    <div class="pt-5 pb-5 flex justify-start p-2 ml-2 border-0 border-b-2 border-gray-200 border-solid">      
+    <div class="pt-5 pb-6 flex justify-start p-2 ml-2 border-0 border-b-2 border-gray-200 border-solid">      
         {{ component('icons~info',icon,'svg') }}
         <div class="font-bold pl-2 flex-grow">          
             {{ labels.details }}           
@@ -84,7 +84,7 @@
         </div>
         <div class="mt-4">
             <span class="font-bold">{{ labels.link }}</span>
-            <div class="pl-4">             
+            <div class="">             
                 <p class="px-2">{{ file.getDownloadUrl() }}</p>            
             </div> 
         </div>             

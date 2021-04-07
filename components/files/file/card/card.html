@@ -1,0 +1,27 @@
+<div class="flex flex-col tracking-wide h-64 rounded-lg border border-solid border-gray-300 shadow-lg" id="row_{{ file.uuid }}">                    
+    <div class="pl-4 p-2 border-0 font-bold show-popup flex-grow border-b border-gray-300 border-solid" data-tooltip="{{ file.file_name }}">                 
+        {{ file.file_name|sliceLabel(30,'...') }}                   
+    </div>                                           
+    <div class="overflow-hidden pb-0 h-full w-full">
+        {% if file.isDirectory() == true %}                          
+            <a class="ui link open-directory cursor-pointer" path="{{ path }}">    
+                <div class="pt-8 min-h-full win-w-full text-center">   
+                    {{ component('files:file.svg',{ class: theme.link.hover, type: file.getFileType(), width: 1, size: 'h-24 w-24' }) }}                                   
+                </div>                        
+            </a>                           
+        {% else %}  
+            <a class="h-full flex justify-center preview-file cursor-pointer {{ theme.link.hover }}" uuid="{{ file.uuid }}">                                                                               
+                {% if file.getFileType() == 'image' %}                               
+                    <img class="justify-center h-full w-full" src="{{ file.getViewImageUrl() }}">                                                              
+                {% else %} 
+                <div class="pt-8 self-center place-self-center">  
+                    {{ component('files:file.svg',{ class: theme.link.hover, type: file.getFileType(), width: 1, size: 'h-24 w-24' }) }} 
+                </div>                          
+                {% endif %}                                                     
+            </a>   
+        {% endif %}     
+    </div>   
+    <div class="pl-2 py-1 w-full border border-t border-solid border-gray-300">
+        {{ component('files:files.view.items.actions',{ file: file, class: 'self-start place-item-end', shared: shared }) }}
+    </div>                    
+</div>     

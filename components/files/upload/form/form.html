@@ -3,22 +3,7 @@
     <input type="hidden" id="path" value="{{ path }}">
     <input type="hidden" id="filesystem" name="filesystem" value="{{ filesystem }}">
     {% if hide_path != true %}
-    <div class="ui field segment">
-        <span class="font-bold">
-            {{ labels.filesystem }}
-        </span>
-        <span class="pl-2">
-            {{ (filesystem is empty) ? labels.local : filesystem }}
-        </span> 
-        <label class="pt-2">{{ labels.path }}</label>        
-        {{  component('components:breadcrumb',{ 
-                class: 'fluid',
-                path: path,
-                hide_links: true,
-                id: 'breadcrumb_path' 
-            }) 
-        }}        
-    </div>
+        {{ component('files:files.path',{ path: path, filesystem: filesystem },'static') }}           
     {% endif %}
     <div class="field">               
         <label>{{ labels.file }}</label>           
@@ -28,5 +13,12 @@
         <label>{{ labels.note }}</label>
         <textarea id="note" name="note" rows="2">{{ file.note }}</textarea>
     </div>
-    {{ component('components:form.footer',{ button_title: buttons.upload, show_cancel_button: true }) }}    
+    {{  component('tailwind~form.footer',{ 
+            button: {
+                class: '',
+                title: buttons.upload
+            }, 
+            cancel: { show: true }           
+        }) 
+    }}     
 </form>

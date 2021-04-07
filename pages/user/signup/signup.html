@@ -1,8 +1,8 @@
 {% component 'files:layout' %}
-{% set active = 'signup' %}
-<div class="flex pt-64 w-full justify-center" id="login_box">
-    <div class="flex-shrink-0 self-center w-77">
-        {{ component('users>users.signup') }}         
-    </div>        
-</div>
+    {% set active = 'signup' %}
+    <div class="flex w-full justify-center h-full pt-20" id="login_box">
+        <div class="flex-shrink-0 self-center w-77">
+            {{ component('users>users.signup') }}         
+        </div>        
+    </div>
 {% endcomponent %}

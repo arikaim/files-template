@@ -13,7 +13,6 @@
             <input type="text" name="email" id="email" {{ fields.email.placeholder|attr("placeholder") }}>    
         </div>   
     {% endif %}
-
     <div class="field">
         <label>{{ fields.password.label }}</label>
         <input type="password" name="password" id="password" {{ fields.password.placeholder|attr("placeholder") }}>  
@@ -31,9 +30,11 @@
             {% endif %}       
         {% endif %}   
     </div>    
-    {{  component('components:form.footer',{ 
-            button_class: 'fluid large primary button', 
-            button_title: buttons.login.title 
+    {{  component('tailwind~form.footer',{ 
+            button: {
+                class: 'ui fluid large primary button',
+                title: buttons.login.title
+            }           
         }) 
     }}           
 </form>

@@ -1,16 +1,20 @@
 {% component 'files:layout' type 'html' %}   
     {% set active = 'home' %}
-    <div class="flex items-center flex-col w-3/4 mx-auto h-64 mt-24">
-        <div class="home-page-title mt-12">
-            {{ title }}      
-        </div>
-        <div class="mt-12">
-            <a class="ui olive huge button" href="{{ url('/signup') }}">
-                <span class="uppercase open-sans text-3xl tracking-wide font-normal">Sign up</span>
+    {% set hover_class = theme.link.hover %}
+    <div class="flex items-center flex-col pt-24">
+        <p class="home-page-title self-center">
+            {{ title }}
+        </p>
+        <div class="mt-1">
+            <a class="bg-white {{ hover_class }} p-4 rounded-lg w-44 border-2 border-green-200 border-solid flex flex-row items-center" href="{{ url('/signup') }}">
+                {{ component('icons~user.add',{ class: hover_class, size: 'h-10 w-10', width: 1, color: 'text-indigo-400' },'svg') }}   
+                <span class="{{ hover_class }} pl-2 text-gray-800 uppercase open-sans text-3xl tracking-wide font-normal">
+                    {{ labels.signup }}
+                </span>
             </a>
         </div>
     </div>            
-    <div class="tailwind-grid justify-items-center lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-2 mt-4 md:grid-flow-col">                      
+    <div class="px-4 tailwind-grid justify-items-center lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 gap-4 mt-4 md:grid-flow-col mt-32">                       
         {{  component('files:card',{ 
                 class: 'w-full',
                 icon: 'icons~code',

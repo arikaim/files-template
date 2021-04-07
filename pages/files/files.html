@@ -1,12 +1,14 @@
 {% component 'files:layout' %}
-    {% set active = 'files' %}      
-    {{ component('files:title',{ title: title }) }}
-    <div class="mt-10">
-        <div id="files_items" component="files:files.public" namespace="files">    
-            {{ component('files:files.public') }}   
-        </div>
-        <div class="pt-4 pb-4" id="paginator">
-            {{ component('components:paginator',{ namespace: 'files' }) }}
+    {% set active = 'files' %}     
+    <div class="flex self-center flex-col h-full mt-4"> 
+        {{ component('files:title',{ title: title, class: 'w-3/4 self-center' },'html') }}  
+        <div class="mt-6 pb-8 flex-grow w-3/4 self-center">
+            <div id="files_items" component="files:files.public" namespace="files">    
+                {{ component('files:files.public') }}   
+            </div>
+            <div class="pt-4 pb-4" id="paginator">
+                {{ component('components:paginator',{ namespace: 'files' }) }}
+            </div>
         </div>
     </div>
 {% endcomponent %}

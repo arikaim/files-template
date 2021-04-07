@@ -1,0 +1,10 @@
+{{ component('files:users.title',{ title: title.text, icon: title.icon }) }}
+<div class="p-2 mx-3 mt-4 mb-2 flex flex-grow {{ color|default('bg-white') }} {{ border|default('rounded border border-gray-300 shadow') }}">    
+    <div class="w-76 pr-4 flex-shrink-0 hidden mr-2 mt-2 border-0 border-r-2 border-gray-200 border-solid" id="file_details">        
+    </div>
+    <div class="w-full {{ content_class|default('p-2') }}" id="files_content">                                  
+        {{ content }}        
+    </div>   
+    <div class="hidden place-self-end self-stretch w-72 border-0 border-l-2 border-gray-300 border-solid" id="file_details_content">            
+    </div>   
+</div>

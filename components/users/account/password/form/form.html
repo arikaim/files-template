@@ -1,5 +1,3 @@
-{% set button_class = (button_class is empty) ? 'large fluid primary': button_class %}
-
 <form class="ui form" id="change_password_form">    
     <input type="hidden" name="token" value="{{ token }}">
     <div class="eight wide column field required">
@@ -22,5 +20,10 @@
             </a> 
         </div>  
     </div>      
-    {{ component('components:form.footer',{ button_class: button_class , button_title: button_title }) }}  
+    {{  component('tailwind~form.footer',{ 
+            button: {
+                title: buttons.submit
+            }           
+        }) 
+    }}     
 </form>

@@ -1,7 +1,7 @@
-{% set item_class = item_class|default('p-1') %}
+{% set item_class = item_class|default('self-center p-1') %}
 {% set icon = icon|default(theme.actions.icon) %}
 {% set trash = icon|default(theme.actions.trash) %}
-<div class="flex flex-row items-center file-actions {{ class|default('w-64') }}">  
+<div class="flex flex-row items-start {{ class|default('w-64') }}">  
     {% if file.isDirectory() == true %}
         {% if shared != true %}
         <div class="delete-directory {{ item_class }}" path="{{ file.path }}" {{ labels.delete|attr('data-tooltip') }}>
@@ -12,8 +12,17 @@
             {{ component('icons~info',icon,'svg') }}      
         </div>
     {% else %}
-        {% if shared != true %}
-            {% set share_label = (file.hasPermissions() == true) ? labels.edit : labels.share %}            
+        <div class="{{ item_class }}">
+            <a href="{{ file.getDownloadUrl() }}" data-tooltip="{{ labels.download }}">    
+                {{ component('icons~download',{ 
+                    class: theme.link.hover, 
+                    size: 'h-6 w-6',
+                    width: 2, 
+                    color: theme.icons.color },'svg') 
+                }}                                              
+            </a>    
+        </div>        
+        {% if shared != true %}           
             <div class="share-file {{ item_class }}" uuid="{{ file.uuid }}" path="{{ file.path }}" {{ labels.share|attr('data-tooltip') }}>
                 {{  component('icons~share',icon,'svg') }}           
             </div>          
@@ -29,18 +38,6 @@
         {% endif %}
         <div class="file-details {{ item_class }}" uuid="{{ file.uuid }}" {{ labels.details|attr('data-tooltip') }}>
             {{ component('icons~info',icon,'svg') }}      
-        </div>
-        {% if shared != true %}
-            {% set link = file.getDownloadUrl() %}
-            <a class="cursor-poiner" href="{{ link }}" data-tooltip="{{ labels.download }}">    
-                {{ component('icons~download',{ 
-                    class: theme.link.hover, 
-                    size: 'h-6 w-6',
-                    width: 2, 
-                    color: theme.icons.color },'svg') 
-                }}                                              
-            </a>         
-        {% endif %}
-    {% endif %}    
-   
+        </div>             
+    {% endif %}       
 </div>

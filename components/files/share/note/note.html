@@ -8,6 +8,12 @@
             <label>{{ fields.note.label }}</label>
             <textarea id="note" name="note" rows="7" cols="7" placeholder="{{ fields.note.placeholder }}">{{ file.note }}</textarea>
         </div>
-        {{ component('components:form.footer') }}    
+        {{  component('tailwind~form.footer',{ 
+                button: {
+                    class: '',
+                    title: labels.save
+                }                  
+            }) 
+        }}        
     </form>
 </div>

@@ -1,10 +1,7 @@
 {
     "labels": {       
         "name": "Name",
-        "path": "Path",
-        "create": "Create",
-        "filesystem": "Filesystem",
-        "local": "Local",
+        "create": "Create",     
         "directory": "Parent Directory"
     },
     "fields": {

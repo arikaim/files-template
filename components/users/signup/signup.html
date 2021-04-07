@@ -4,9 +4,9 @@
         <div class="pl-2">
             {{ title }}
         </div>
-    </h3> 
+    </h3>    
     {{ component('files:users.signup.form') }}
     {% if hasExtension('oauth') == true %}                            
-        {{  component('files:users.connect',{ class: '' }) }}
+        {{ component('files:users.connect',{ class: '' }) }}
     {% endif %}
 </div>

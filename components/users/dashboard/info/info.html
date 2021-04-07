@@ -1,4 +1,5 @@
 {% component 'tailwind~.card' type 'html' %}     
+    {% set size ='h-60' %}
     {%  set header = {
             class: 'pt-1 border-0 border-b-2 border-gray-200 border-solid',
             icon: { name: 'icons~info', color: theme.icons.color }
@@ -10,7 +11,7 @@
         }
     %}      
     {% set calendar_icon = component('icons~calendar',{ size: 'h-5 w-5', color: theme.icons.color },'svg') %}
-    <div class="py-2">
+    <div class="py-2 mt-8">
         <div class="text-sm">            
             {{ labels.login }}                                         
         </div>

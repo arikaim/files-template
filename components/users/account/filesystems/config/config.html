@@ -6,40 +6,36 @@
     {% set config = model.getConfig(user_id,driver_name,driver_config.toArray()) %}
     {% set configModel = model.findConfig(user_id,driver_name) %}
     {% set config = createProperties(config) %}
-    <table class="ui definition very basic mini table">   
-        <tbody>
-            {% for item in driver_config %}
-            <tr>
-                <td class="one wide right aligned">{{ item.title }}</td>
-                <td class="four wide">                     
-                    {{ config.getValueAsText(item.name) }}                                 
-                </td>
-            </tr>
-            {% endfor %}
-        </tbody>
-    </table>
-    <div class="ui grid">
-        <div class="five wide column">
-            <button class="ui green mini button edit-config-button" driver-name="{{ driver_name }}">
-                <i class="icon edit"></i>
-                {{ labels.edit }}
-            </button>
+    <div class="flex flex-col items-start w-full">          
+        {% for item in driver_config %}
+        <div class="flex-row flex w-full border-0 border-b border-gray-300 border-solid">
+            <div class="p-2 w-48 font-bold text-right">{{ item.title }}</div>
+            <div class="p-2 flex-grow">                     
+                {{ config.getValueAsText(item.name) }}                                 
+            </div>
         </div>
-        <div class="ui five wide right floated right aligned column">
-            {% if configModel.status != 1 %}
-                <button class="ui mini right floated basic button check-connection-button" uuid="{{ configModel.uuid }}" driver-name="{{ driver_name }}">               
-                    {{ labels.check }}
-                </button>        
-            {% endif %}    
-            <button class="ui mini right basic floated button delete-config" driver-name="{{ driver_name }}">  
+        {% endfor %}       
+    </div>
+    <div class="flex flex-row items-start p-2 border-0 border-t border-gray-300 border-solid">
+        <button class="ui green mini button edit-config-button" driver-name="{{ driver_name }}">
+            <i class="icon edit"></i>
+            {{ labels.edit }}
+        </button>
+        {% if configModel.status != 1 %}
+            <button class="ui mini right floated basic button check-connection-button" uuid="{{ configModel.uuid }}" driver-name="{{ driver_name }}">               
+                {{ labels.check }}
+            </button>        
+        {% endif %}                           
+        <div class="place-self-end">
+            <button class="ui mini basic button delete-config" driver-name="{{ driver_name }}">  
                 <i class="icon orange trash"></i>             
                 {{ labels.delete }}
             </button>   
-            <div class="ui success-status basic right floated label {{ (configModel.status != 1) ? 'hidden' : '' }}" title="{{ labels.status }}">
-                <i class="icon check olive"></i>
-                {{ labels.active }}
-            </div>                
-        </div>         
+        </div>  
+        <div class="px-2 p-1 h-full success-status border border-gray-200 border-solid {{ (configModel.status != 1) ? 'hidden' : '' }}" title="{{ labels.status }}">
+            <i class="icon check olive"></i>
+            {{ labels.active }}
+        </div>                           
     </div>
 {% else %}
     <div class="ml-4 mt-1">

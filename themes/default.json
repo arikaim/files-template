@@ -17,21 +17,23 @@
         "link": "text-sm cursor-pointer text-gray-300 hover:text-red-500 transition duration-1000 ease-in-out"
     },
     "navbar": {
-        "color": "bg-blue-800 shadow-lg",
+        "color": "bg-gradient-to-r from-gray-800 to-blue-800 shadow-lg",
         "icon": {
             "color": "cursor-pointer text-gray-200 hover:text-blue-300 transition duration-1000 ease-in-out"
         }
     },
     "footer": {
         "icon": {
-            "color": "text-gray-400"
+            "color": "text-gray-400",
+            "width": 2,
+            "size": "h-4 w-4"
         },
         "link": "block pl-2 text-gray-400 hover:text-red-500 transition duration-1000 ease-in-out"
     },
     "actions": {
         "icon": {
             "color": "text-gray-600",
-            "class": "cursor-pointer text-gray-600 hover:text-red-500 transition duration-1000 ease-in-out",
+            "class": "block cursor-pointer text-gray-600 hover:text-red-500 transition duration-1000 ease-in-out",
             "width": 1,
             "size": "h-6 w-6"
         },

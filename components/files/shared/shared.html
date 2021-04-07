@@ -43,13 +43,11 @@
         }) 
     }}             
 </div>
-<div class="flex flex-col justify-between mt-8">
-    <div class="flex-grow" id="files_items" component="files:files.shared.items" namespace="files">    
-        {{ component('files:files.shared.items',{ view_type: view_type }) }}   
-    </div>
-    <div class="pt-4 pb-8" id="paginator">
-        {{ component('components:paginator',{ namespace: 'files' }) }}
-    </div>
+<div class="mt-8" id="files_items" component="files:files.shared.items" namespace="files">    
+    {{ component('files:files.shared.items',{ view_type: view_type }) }}   
+</div>
+<div class="pt-4 pb-8 absolute bottom-0" id="paginator">
+    {{ component('components:paginator',{ namespace: 'files' }) }}
 </div>
 <div class="ui modal" id="preview_file">    
     <div class="header">

@@ -3,96 +3,21 @@
 {% set items = items.getItems() %}
 
 {% if view_type == 'table' %}
-    <div class="flex flex-col">
+    <div class="flex flex-col items-start">
 {% else %}
-    <div class="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-5 xl:grid-cols-7 gap-4" id="files_items">
+    <div class="mr-4 mt-4 tailwind-grid grid-cols-5 items-start xl:grid-cols-4 2xl:grid-cols-6 md:grid-cols-3 sm:grid-cols-1 xs:grid-cols-1 gap-2" id="files_items">
 {% endif %}
 
 {% if items|length == 0 %}
-    {{ component('files:files.view.items.empty',{ icon: 'folder outline open massive blue' }) }}
+    {{ component('files:files.view.items.empty',{}) }}
 {% endif %}
 
 {% for item in items %} 
     {% set file = (path == '') ? item.file().first() : item %}   
-    {% set file_type = file.getFileType() %}
-  
-    {% if view_type == 'table' %}       
-        <div class="p-1 flex flex-row items-center" id="row_{{ file.uuid }}">                           
-            {{ component('files:files.view.items.actions',{ file: file, class: 'w-24', shared: true }) }}               
-            {% if file.isDirectory() == true %}                   
-                <a class="ui link open-directory" path="{{ file.path }}" folder-id="{{ file.uuid }}">
-                    <i class="icon outline folder blue large"></i>                      
-                    {{ file.path }}                          
-                </a>       
-            {% else %}       
-                {% set download_icon = component('icons~download',{ class: theme.link.hover, size: 'h-6 w-6',width: 2, color: theme.icons.color },'svg') %}               
-                {% if file.hasPassword() == true %}
-                    <btn file-name="{{ file.file_name }}" uuid="{{ file.uuid }}" class="show-popup show-password-modal" title="{{ labels.download }}">
-                        {{ download_icon }} 
-                    </btn> 
-                {% else %}                           
-                    <a class="cusror-pointer show-popup" href="{{ file.getDownloadUrl() }}" title="{{ labels.download }}">
-                        {{ download_icon }}  
-                    </a> 
-                {% endif %}                                       
-                <a class="flex flex-row items-center preview-file pl-3" uuid="{{ file.uuid }}">
-                    {{ component('files:file.svg',{ type: file_type, class: ' ' }) }} 
-                    <span class="text-gray-800 pl-2 {{ theme.link.hover }}">
-                        {{ file.file_name }} 
-                    </span> 
-                </a>                   
-            {% endif %}                                        
-            <div class="ui basic labels right floated">                                            
-                {% if file.hasPassword() == true %}
-                    <div class="ui icon label">
-                        <i class="icon red lock show-popup" title="{{ labels.password }}"></i>   
-                    </div>
-                {% endif %}                    
-            </div>           
-        </div>
-    {% else %}  
-        <div class="w-full h-64 rounded border border-solid border-gray-400 overflow-hidden shadow-lg" id="row_{{ file.uuid }}">           
-            <div class="content p-2">                               
-                <div class="flex justify-between">                                                   
-                    {{ component('files:files.shared.items.actions',{ file: file, class: 'mini basic compact button' }) }}          
-                    <div class="pl-2 font-bold show-popup" data-content="{{ file.file_name }} ">                 
-                        {{ file.file_name|sliceLabel(16,'...') }}                   
-                    </div>                     
-                    <div>         
-                        {% set download_icon = component('icons~download',{ class: theme.link.hover, size: 'h-6 w-6',width: 2, color: theme.icons.color },'svg') %}               
-                        {% if file.hasPassword() == true %}
-                            <btn file-name="{{ file.file_name }}" uuid="{{ file.uuid }}" class=" show-popup show-password-modal" title="{{ labels.download }}">
-                                {{ download_icon }} 
-                            </btn> 
-                        {% else %}                           
-                            <a class="cusror-pointer show-popup" href="{{ file.getDownloadUrl() }}" title="{{ labels.download }}">
-                                {{ download_icon }}  
-                            </a> 
-                        {% endif %}
-                    </div>                             
-                </div>                        
-            </div>                 
-            <div class="text-center">    
-                {% if file.isDirectory() == true %}
-                    <a class="ui link open-directory" path="{{ file.path }}" folder-id="{{ file.uuid }}">
-                        <div class="mt-1 pb-4 pt-8">                                             
-                            {{ component('files:file.icon',{ type: file_type, class: 'massive' }) }}      
-                            {{ file.path }}                                     
-                        </div>                                                               
-                    </a>   
-                {% else %}                                  
-                    <a class="ui link preview-file cursor-pointer" uuid="{{ file.uuid }}">
-                        {% if file.isImage() == true %}
-                            <img class="w-full h-64" src="{{ file.getViewImageUrl() }}">
-                        {% else %} 
-                            <div class="mt-1 pb-4 pt-8">                                             
-                                {{ component('files:file.icon',{ type: file_type, class: 'massive' }) }}                                      
-                            </div>                        
-                        {% endif %}                
-                    </a>     
-                {% endif %}                             
-            </div>                                                                    
-        </div>       
+    {% if view_type == 'table' %}     
+        {{ component('files:files.file.row',{ file: file, path: file.path, shared: true },'static') }}                    
+    {% else %}
+        {{ component('files:files.file.card',{ file: file, path: file.path, shared: true },'static') }}                
     {% endif %}   
 {% endfor %}
 </div>

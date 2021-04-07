@@ -20,7 +20,9 @@ function TrashView() {
         breadcrumb.init({
             onSelect: function(path) {
                 self.loadTrashItems(path);                
-            }           
+            },
+            separatorClass: 'p-2',
+            pathItemClass: 'p-2 cursor-pointer text-gray-800 hover:text-red-500 transition duration-1000 ease-in-out'           
         });
 
         arikaim.ui.button('.empty-trash',function(element) {       

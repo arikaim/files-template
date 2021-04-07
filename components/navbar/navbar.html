@@ -3,32 +3,44 @@
     {% set class = 'w-full p-2 pt-3 flex flex-row' %}  
     {% set color = theme.navbar.color|default('bg-blue-600 shadow-lg') %}
     {% set content_class = 'flex flex-row w-full' %}  
-    {% set button = {
-        class: 'md:hidden',
-        icon: {
-            name: 'icons~menu',          
-            color: 'text-gray-200'
-        }
-    } %}
-    <div class="flex items-center flex-row md:flex-grow">
+    {% if logged != true %}
+        {% set button = {
+            class: 'lg:hidden',
+            icon: {
+                name: 'icons~menu',          
+                color: 'text-gray-200',
+                class: theme.link.hover
+            }
+        } %}
+    {% endif %}
+    <div class="flex items-center flex-row xs:flex-grow">
         <div class="pl-3">
             {{ component('icons~document.text',{ size: 'h-10 w-10', width: 1, color: 'text-blue-300' },'svg') }}       
         </div>      
         <div class="navbar-title pl-5 md:flex-grow">
             {{ title }}
         </div> 
-    </div>         
-    {{  component('files:navbar.menu',{ 
-            class: 'ml-10 flex-grow',           
-            logged: logged,
-            active: active 
-        }) 
-    }}        
-    <div class="flex items-center flex-row items-end">  
+    </div>     
+    <div class="flex flex-grow">
+        {{  component('files:navbar.menu',{ 
+                class: 'ml-10 flex-grow items-center lg:flex md:hidden sm:hidden xs:hidden',           
+                logged: logged,
+                active: active 
+            }) 
+        }}   
+    </div>               
+    <div class="flex flex-row items-center">  
         {% set user_link = (logged == true) ? url('/user') : url('/login') %}          
         <a class="cursor-pointer p-1 pt-2 mr-10" href="{{ user_link }}">
             {{ component('icons~user',{ size: 'h-7 w-7', width: 2, color: theme.navbar.icon.color },'svg') }}  
-        </a>                                                                             
-        {{ component("components:language.dropdown") }}   
+        </a>                         
+        {{  component("tailwind~language",{ 
+                icon: {
+                    color: 'text-white',
+                    class: theme.link.hover,
+                    size: 'h4 w-4' 
+                }
+            }) 
+        }}                                                               
     </div>             
 {% endcomponent %}

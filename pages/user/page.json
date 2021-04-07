@@ -1,4 +1,13 @@
 {
+    "include": {
+        "library": [
+            "fomantic:dimmer",
+            "fomantic:accordion",
+            "fomantic:tab",
+            "fomantic:toast",
+            "fomantic:menu"
+        ]
+    },
     "access": {
         "auth": "session",
         "redirect": "/user"

@@ -82,8 +82,6 @@ function SharedFiles() {
     };
 
     this.initRows = function() {  
-        $('.file-actions').dropdown({}); 
-       
         arikaim.ui.button('.open-directory',function(element) {
             var path = $(element).attr('path');
             var folderId = $(element).attr('folder-id');

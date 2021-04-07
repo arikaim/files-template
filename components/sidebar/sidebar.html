@@ -1,0 +1,13 @@
+{% component 'tailwind~sidebar' type 'static' %}     
+    {% set content_class = 'pt-2 self-stretch place-self-stretch' %}        
+    {% set class = 'w-40 hidden shadow flex-shrink-0 self-stretch place-self-stretch' %}    
+    {% set color = 'bg-gradient-to-b from-gray-800 to-blue-900 shadow-lg' %}
+    {{ component('files:navbar.menu',{ 
+            class: 'pt-4 flex-grow flex-col flex-start', 
+            item: {
+                class: 'text-xl uppercase navbar-link pl-8 py-2 md:p-2 lg:px-4 text-lg',
+                color: 'text-gray-100 hover:text-blue-300 transition duration-700 ease-in-out'
+            } 
+        }) 
+    }}      
+{% endcomponent %}

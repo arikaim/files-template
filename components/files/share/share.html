@@ -1,27 +1,7 @@
 {{ component('files:files.title',{ title: title.content, icon: { name: 'icons~folder.add' } }) }} 
 {% set file = createModel('Files','storage').findById(uuid) %}
  <div class="mt-4">
-    <div class="ui segment">        
-        <span class="font-bold">
-            {{ labels.filesystem }}
-        </span>
-        <span class="pl-2">
-            {{ (filesystem is empty) ? labels.local : filesystem }}
-        </span>  
-        <div class="ui mini header">
-            <i class="ui icon file outline blue"></i>
-            {{ labels.file }}
-        </div>
-        {{  component('components:breadcrumb',{ 
-                path: file.path,
-                class: 'paded pl-1',   
-                hide_links: true,   
-                hide_home_icon: true,
-                hide_last_separator: true,
-                icon: 'folder open outline blue'           
-            }) 
-        }}            
-    </div>
+    {{ component('files:files.path',{ path: file.path, filesystem: filesystem },'static') }}     
     <div id="form_content" class="ui form mt-8">    
         {% if uuid is not empty %}
             {{ component('files:files.share.access',{ uuid: uuid }) }} 

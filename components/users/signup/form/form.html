@@ -45,6 +45,14 @@
             {{ component('captcha::code') }}                
         {% endif %}   
     </div>  
-    
-    {{ component('components:form.footer',{ button_title: buttons.save }) }}    
+    {{  component('tailwind~form.footer',{ 
+            button: { 
+                title: buttons.save 
+            }, 
+            message: { 
+                class: 'h-24 mt-2',
+                error: 'text-gray-800'
+            } 
+        },'static') 
+    }}   
 </form> 

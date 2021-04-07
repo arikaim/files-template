@@ -1,6 +1,7 @@
 {
     "title": "Files Manager",
     "labels": {
+        "signup": "Sign up",
         "open": "Open Source",
         "code": "Code quality",
         "permission": "File Permissions",

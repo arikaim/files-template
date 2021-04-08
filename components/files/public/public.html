@@ -42,7 +42,7 @@
                     {% if file.isImage() == true %}
                         <img class="rounded-b w-full h-full object-scalde-down" src="{{ file.getViewImageUrl() }}">
                     {% else %} 
-                        <div class="mt-1">                                             
+                        <div class="mt-1 self-center">                                             
                             {{  component('files:file.svg',{ 
                                     class: theme.link.hover, 
                                     type: file.getFileType(), 

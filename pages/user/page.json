@@ -3,6 +3,7 @@
         "library": [
             "fomantic:dimmer",
             "fomantic:accordion",
+            "fomantic:icons",
             "fomantic:tab",
             "fomantic:toast",
             "fomantic:menu"

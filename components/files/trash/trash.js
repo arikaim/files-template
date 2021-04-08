@@ -42,7 +42,7 @@ function TrashView() {
                 self.loadEmpty();
                 arikaim.page.toastMessage(result.message);
             },function(error) {
-                arikaim.ui.toastMessage({
+                arikaim.page.toastMessage({
                     class: 'error',
                     message: error
                 });

@@ -38,48 +38,34 @@ function FilesView() {
             }
         });
 
-        arikaim.ui.toggleButton({
-            selector: '.upload-file',
-            groupSelector: '.files-buttons',
-            action: function(element) {       
-                arikaim.ui.toggle({
-                    selector: '#file_details',
-                    value: arikaim.ui.isActive(element)
-                });               
-                var path = breadcrumb.getCurrentPath();
-                var driverName = $('#filesystem_dropdown').dropdown('get value');
+        arikaim.ui.button('.upload-file',function(element) {
+            $('#file_details').show();                  
+            var path = breadcrumb.getCurrentPath();
+            var driverName = $('#filesystem_dropdown').dropdown('get value');
 
-                arikaim.page.loadContent({
-                    id: 'file_details',           
-                    component: 'files:files.upload',
-                    params: { 
-                        path: path, 
-                        filesystem: driverName
-                    }
-                }); 
-            }
+            arikaim.page.loadContent({
+                id: 'file_details',           
+                component: 'files:files.upload',
+                params: { 
+                    path: path, 
+                    filesystem: driverName
+                }
+            });           
         });
 
-        arikaim.ui.toggleButton({
-            selector: '.create-directory',
-            groupSelector: '.files-buttons',
-            action: function(element) {  
-                arikaim.ui.toggle({
-                    selector: '#file_details',
-                    value: arikaim.ui.isActive(element)
-                });                     
-                var path = breadcrumb.getCurrentPath();
-                var driverName = $('#filesystem_dropdown').dropdown('get value');
+        arikaim.ui.button('.create-directory',function(element) {
+            $('#file_details').show();                    
+            var path = breadcrumb.getCurrentPath();
+            var driverName = $('#filesystem_dropdown').dropdown('get value');
 
-                arikaim.page.loadContent({
-                    id: 'file_details',           
-                    component: 'files:files.directory.create',
-                    params: { 
-                        path: path, 
-                        filesystem: driverName 
-                    }
-                }); 
-            }
+            arikaim.page.loadContent({
+                id: 'file_details',           
+                component: 'files:files.directory.create',
+                params: { 
+                    path: path, 
+                    filesystem: driverName 
+                }
+            });            
         });     
     };
 

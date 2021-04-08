@@ -1,10 +1,6 @@
 'use strict';
 
 arikaim.component.onLoaded(function() {
-    arikaim.ui.button('.close-button',function(element) {              
-        $('.create-directory').click();      
-    });
-
     arikaim.ui.form.onSubmit("#create_directory_form",function() {
         if (isEmpty(breadcrumb) == false) {           
             $('#path').val(breadcrumb.getCurrentPath());

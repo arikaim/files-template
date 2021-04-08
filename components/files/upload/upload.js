@@ -1,10 +1,7 @@
 'use strict';
 
 arikaim.component.onLoaded(function() {
-    arikaim.ui.button('.close-button',function(element) {              
-        $('.upload-file').click();      
-    });
-
+    
     var fileUpload = new FileUpload('#file_form',{
         url: '/api/storage/upload',
         maxFiles: 1,

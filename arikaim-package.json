@@ -1,6 +1,6 @@
 {      
     "title": "Files Manager",
-    "version": "1.5.4",
+    "version": "2.0.0",
     "name": "files",
     "package-type": "template",
     "icon": "file",
@@ -13,7 +13,7 @@
         ],
         "library": [
             "jquery",
-            "arikaim:source",
+            "arikaim",
             "arikaim-ui",
             "fomantic",  
             "plyr", 

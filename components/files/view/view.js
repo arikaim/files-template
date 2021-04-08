@@ -129,7 +129,7 @@ function FilesView() {
                 params: { 
                     uuid: uuid
                 }
-            },function(result) {
+            },function(result) {              
                 $('#preview_file').modal({
                     centered: true,               
                     onHide: function() {                        

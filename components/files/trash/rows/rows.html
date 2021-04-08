@@ -11,18 +11,21 @@
         <btn class="restore-file show-popup" uuid="{{ uuid }}" path="{{ item.path }}" title="{{ labels.restore }}">
             {{ component('icons~reply',{ class: theme.link.hover, size: 'h-6 w-6', width: 2, color: 'text-green-300' },'svg') }}  
         </btn>   
+        <div class="pl-3 flex flex-row items-center">
         {% if item.type == 'dir' or item.type == 'directory' %}
-            <a class="pl-3 open-directory" path="{{ item.path }}" driver-name="{{ driver_name }}">
-                {{ component('icons~folder',{ class: theme.link.hover, size: 'h-6 w-6', width: 2, color: 'text-green-300' },'svg') }}                    
-            </a>
-            {{ item.basename }}       
-        {% else %}
-            <div class="pl-3 flex flex-row items-center">
-                {{ component('files:file.svg',{ type: mime_type, class: ' ' }) }} 
-                <span class="text-gray-800 pl-2">
-                    {{ item.basename }}    
-                </span>  
-            </div>                  
-        {% endif %}                                                                             
+            <a class="open-directory" path="{{ item.path }}" driver-name="{{ driver_name }}">
+                {{ component('icons~folder',{ 
+                    class: theme.link.hover, 
+                    size: 'h-6 w-6', 
+                    width: 2, 
+                    color: icon_color|default(theme.icons.color) },'svg') }}                    
+            </a>              
+        {% else %}           
+            {{ component('files:file.svg',{ type: mime_type, class: ' ' }) }}                                         
+        {% endif %}   
+            <span class="text-gray-800 pl-2">
+                {{ item.basename }}    
+            </span>  
+        </div>                                                                           
     </div>
 {% endfor %}

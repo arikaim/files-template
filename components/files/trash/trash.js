@@ -32,7 +32,6 @@ function TrashView() {
             },function() {         
                 files.emtyTrash(function(result) {
                     self.loadEmpty();
-                },function(error) {                   
                 });
             });               
         });
@@ -45,7 +44,7 @@ function TrashView() {
             },function(error) {
                 arikaim.ui.toastMessage({
                     class: 'error',
-                    message: result.message
+                    message: error
                 });
             });
         });

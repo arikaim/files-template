@@ -1,6 +1,6 @@
 {      
     "title": "Files Manager",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "name": "files",
     "package-type": "template",
     "icon": "file",
@@ -65,8 +65,8 @@
         "library": [
             "jquery",             
             "filepond",               
-            "arikaim",
-            "arikaim-ui",
+            "arikaim:source",
+            "arikaim-ui:source",
             "fomantic:transition",
             "fomantic:form",
             "fomantic:modal",

@@ -1,6 +1,6 @@
 {     
     "include": {
-        "js": [            
+        "js": [                  
             "components:upload",
             "components:paginator",
             "components:pdf",

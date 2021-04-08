@@ -1,4 +1,9 @@
 {
+    "include": {
+        "js": [            
+            "files:files"           
+        ] 
+    },    
     "access": {
         "auth": "session",
         "redirect": "/user"

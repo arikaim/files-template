@@ -1,6 +1,10 @@
 {
     "include": {
         "library": [
+            "filepond",    
+            "highlight",
+            "plyr",           
+            "pdf-js",  
             "fomantic:dimmer",
             "fomantic:accordion",
             "fomantic:icons",

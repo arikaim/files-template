@@ -1,28 +1,30 @@
-{% component 'tailwind~footer' type 'static' %} 
-    {% set item_class = 'ml-8 flex items-center' %}   
-    {% set class = 'p-2 h-20 xs:h-28 sm:h-28 bg-gray-900 flex justify-center' %} 
-    {% set content_class = 'p-2 w-3/4 text-gray-800 self-center items-start mx-auto' %} 
-    {% set icon = theme.footer.icon %}
-    <div class="{{ item_class }}">
-        {{ component('icons~home',icon,'svg') }} 
-        <a href="{{ url('') }}" class="{{ theme.footer.link }}">               
-            {{ links.home }}
-        </a>
-    </div>       
-    <div class="{{ item_class }}">
-        {{ component('icons~info',icon,'svg') }} 
-        <a href="{{ url('/about') }}" class="{{ theme.footer.link }}">              
-            {{ links.about }}
-        </a> 
-    </div>    
-    <div class="{{ item_class }}">
-        <img src="{{ template_url }}images/arikaim-icon.png" width="14px" height="14px">
-        <a href="http://arikaim.com" class="{{ theme.footer.link }}" target="arikaim">                                          
-            {{ links.created }}
-        </a>
-    </div>  
-    <div class="{{ item_class }}">    
-        {{ component('icons~copyright',icon,'svg') }}  
-        {{ component('tailwind~footer.copyright',{ title: copyright, class: 'md:flex sm:hidden xs:hidden' },'static') }}
-    </div>     
-{% endcomponent %}
+<footer class="footer 
+    {{ color|default('text-gray-800 bg-gray-800') }} 
+    p-2 h-20 xs:h-28 sm:h-28 bg-gray-900 flex justify-center">
+    <div class="container flex sm:flex-col xs:flex-col lg:flex-row flex-wrap p-2 text-gray-800 self-center items-start mx-auto">
+        {% set item_class = 'ml-8 flex items-center' %}   
+        {% set icon = theme.footer.icon %}
+        <div class="flex items-center">
+            {{ component('icons~home',icon,'svg') }} 
+            <a href="{{ url('') }}" class="{{ theme.footer.link }}">               
+                {{ links.home }}
+            </a>
+        </div>       
+        <div class="{{ item_class }}">
+            {{ component('icons~info',icon,'svg') }} 
+            <a href="{{ url('/about') }}" class="{{ theme.footer.link }}">              
+                {{ links.about }}
+            </a> 
+        </div>    
+        <div class="{{ item_class }}">
+            <img src="{{ template_url }}images/arikaim-icon.png" width="14px" height="14px">
+            <a href="http://arikaim.com" class="{{ theme.footer.link }}" target="arikaim">                                          
+                {{ links.created }}
+            </a>
+        </div>  
+        <div class="{{ item_class }}">    
+            {{ component('icons~copyright',icon,'svg') }}  
+            {{ component('tailwind~footer.copyright',{ title: copyright, class: 'md:flex sm:hidden xs:hidden' },'static') }}
+        </div>     
+    </div>
+</footer>

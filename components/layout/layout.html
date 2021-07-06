@@ -1,8 +1,8 @@
-<div class="flex flex-col  items-stretch h-full">
+<div class="flex flex-col items-stretch h-full">
     {{ component('files:navbar',{ active: active },'static') }}    
     <div class="flex flex-row items-stretch flex-grow">                
         {{ component('files:sidebar',{ active: active }) }}   
-        <div class="w-3/4 mx-auto pb-4">
+        <div class="container mx-auto pb-4">
             {{ content }}      
         </div>          
     </div>       

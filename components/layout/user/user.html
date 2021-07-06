@@ -1,5 +1,5 @@
 <div class="flex flex-grow flex-col h-full">                          
-    {{ component('files:navbar',{ active: active },'static') }} 
+    {{ component('files:navbar',{ content_class: ' ', active: active },'static') }} 
     <div class="flex flex-row h-full flex-grow self-stretch">  
         {{ component('files:users.sidebar',{ active: active }) }}           
         <div class="w-full flex flex-col flex-grow h-full" id="user_area_content">   
